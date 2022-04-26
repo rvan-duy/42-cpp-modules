@@ -1,37 +1,43 @@
 #include "PhoneBook.hpp"
 
-int main() {
+static void execute_add_command(PhoneBook &phonebook)
+{
+	std::string user_input[5];
 
-	PhoneBook   book;
-    Contact     new_contact1("John");
-	Contact     new_contact2("Jane");
-	Contact     new_contact3("Jack");
-	Contact     new_contact4("Jill");
-	Contact     new_contact5("Joe");
-	Contact     new_contact6("Jenny");
-	Contact     new_contact7("Jules");
-	Contact     new_contact8("Julia");
-	Contact		new_contact9("Julie");
-	Contact		new_contact10("Julius");
+	std::cout << "Adding a user to the phonebook" << std::endl;
+	std::cout << "Firstname: ";
+	std::getline(std::cin, user_input[0]);
+	std::cout << "Lastname: ";
+	std::getline(std::cin, user_input[1]);
+	std::cout << "Nickname: ";
+	std::getline(std::cin, user_input[2]);
+	std::cout << "Phone number: ";
+	std::getline(std::cin, user_input[3]);
+	std::cout << "Secret: ";
+	std::getline(std::cin, user_input[4]);
 
+	phonebook.addContact(Contact(user_input[0], user_input[1], user_input[2], user_input[3], user_input[4]));
+}
 
-	book.addContact(new_contact1);
-	book.addContact(new_contact2);
-	book.addContact(new_contact3);
-	book.addContact(new_contact4);
-	book.addContact(new_contact5);
-	book.addContact(new_contact6);
-	book.addContact(new_contact7);
-	book.addContact(new_contact8);
-	book.printContacts();
-	
-	std::cout << "----------------------------" << std::endl;
-	book.addContact(new_contact9);
-	book.printContacts();
+static void execute_search_command(PhoneBook &phonebook)
+{
+	phonebook.printContacts();
+}
 
-	std::cout << "----------------------------" << std::endl;
-	book.addContact(new_contact10);
-	book.printContacts();
+int main(void) {
+
+	PhoneBook	phonebook;
+	std::string user_input;
+
+	while (true)
+	{
+		std::cout << "Type a command (ADD, SEARCH, EXIT): ";
+		std::getline(std::cin, user_input);
+		
+		if (user_input == "ADD") { execute_add_command(phonebook); }
+		if (user_input == "SEARCH") { execute_search_command(phonebook); }
+		if (user_input == "EXIT") { break; }
+	}
 
 	return EXIT_SUCCESS;
 }

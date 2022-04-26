@@ -18,6 +18,14 @@ void PhoneBook::addContact(Contact new_contact)
 
 void PhoneBook::printContacts() {
 	for (std::size_t i = 0; i < amount_of_contacts_stored; i++) {
-		std::cout << i << " " << contacts[i].getName() << std::endl;
+		std::cout << std::setw(10);
+		std::cout << i << "|";
+		std::cout << std::setw(10);
+		std::cout << contacts[i].getFirstName() << "|";
+		std::cout << std::setw(10);
+		std::cout << contacts[i].getLastName() << "|";
+		std::cout << std::setw(10);
+		std::cout << contacts[i].getNickname() << "|";
+		std::cout << std::endl;
 	}
 }

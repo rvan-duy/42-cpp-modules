@@ -3,24 +3,22 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 #include "Contact.hpp"
 
 #define MAX_CONTACTS 8
-#define NO_OLDEST_CONTACT -1
 
 class PhoneBook {
 
 	private:
-		std::size_t amount_of_contacts_stored;
-		int			oldest_contact;
-		Contact 	contacts[8];
+		std::size_t amount_of_contacts_stored;	// Amount of contacts stored in the phonebook
+		Contact 	contacts[8];				// Array of contacts
 
 	public:
 
 		// Constructor
 		PhoneBook() {
 			amount_of_contacts_stored = 0;
-			oldest_contact = NO_OLDEST_CONTACT;
 		}
 
 		void addContact(Contact new_contact);
