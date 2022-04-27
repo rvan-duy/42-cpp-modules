@@ -12,7 +12,7 @@ class PhoneBook {
 
 	private:
 		std::size_t amount_of_contacts_stored;	// Amount of contacts stored in the phonebook
-		Contact 	contacts[8];				// Array of contacts
+		Contact 	contacts[MAX_CONTACTS];				// Array of contacts
 
 	public:
 
