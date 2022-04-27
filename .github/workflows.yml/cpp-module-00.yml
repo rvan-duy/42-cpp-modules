@@ -1,0 +1,26 @@
+name: macOS/Ubuntu CI cpp-module-00
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  ubuntu_compile_check:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: ex00
+      run:  make -C cpp-module-00/ex00
+
+  macos_compile_check:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: ex00
+      run:  make -C cpp-module-00/ex00
