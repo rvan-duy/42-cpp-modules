@@ -11,14 +11,14 @@
 class PhoneBook {
 
 	private:
-		std::size_t amount_of_contacts_stored;	// Amount of contacts stored in the phonebook
-		Contact 	contacts[MAX_CONTACTS];		// Array of contacts
+		std::size_t _amount_of_contacts_stored;	// Amount of contacts stored in the phonebook
+		Contact 	_contacts[MAX_CONTACTS];		// Array of contacts
 
 	public:
 
 		// Constructor
 		PhoneBook() {
-			amount_of_contacts_stored = 0;
+			_amount_of_contacts_stored = 0;
 		}
 
 		// Getters
