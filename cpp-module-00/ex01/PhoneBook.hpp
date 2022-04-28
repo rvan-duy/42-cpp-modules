@@ -21,10 +21,13 @@ class PhoneBook {
 			amount_of_contacts_stored = 0;
 		}
 
-		void addContact(Contact new_contact);
-		void printContacts();
+		// Getters
+		std::size_t	getAmountOfContactsStored();
+		Contact 	getContact(std::size_t index);
+
+		void addContact(std::string firstname, std::string lastname, std::string nickname, std::string phonenumber, std::string secret);
+		void printContacts(void);
 
 };
-
 
 #endif //CPP_MODULE_00_PHONEBOOK_H

@@ -6,6 +6,8 @@
 class Contact {
 
 	private:
+
+		// Internal variables
 		std::string _firstname;		// Name of the contact
 		std::string	_lastname;		// Lastname of the contact
 		std::string _nickname;		// Nickname of the contact
@@ -16,16 +18,19 @@ class Contact {
 
 		// Default constructor
 		Contact();
-
-		// Constructor
-		Contact(std::string firstname, std::string lastname, std::string nickname, std::string phonenumber, std::string secret);
 		
 		// Getters
 		std::string getFirstName();
 		std::string getLastName();
 		std::string getNickname();
 		std::string getPhonenumber();
-		std::string getSecret();
+
+		// Setters
+		void setFirstName(std::string firstname);
+		void setLastName(std::string lastname);
+		void setNickname(std::string nickname);
+		void setPhonenumber(std::string phonenumber);
+		void setSecret(std::string secret);
 
 };
 
