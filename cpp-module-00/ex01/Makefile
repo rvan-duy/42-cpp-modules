@@ -13,10 +13,14 @@ endif
 
 ################################################################################
 
-HEADERS 		:= 
+HEADERS 		:=	include/Contact.hpp		\
+					include/PhoneBook.hpp
+
 INCLUDE_FLAGS 	:= $(addprefix -I, $(sort $(dir $(HEADERS))))
 
-SOURCES 		:= PhoneBook.cpp main.cpp Contact.cpp
+SOURCES 		:=	src/PhoneBook.cpp		\
+					src/main.cpp			\
+					src/Contact.cpp
 
 BOLD 			:= \e[1m
 RESET 			:= \e[0m
@@ -36,7 +40,7 @@ obj/%.o: src/%.c $(HEADERS)
 	$(CC) $(CFLAGS) $(INCLUDE_FLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS)
-	@$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJECTS) $(INCLUDE_FLAGS) -o $(NAME)
 	@printf "$(LIGHT_CYAN)$(BOLD)make$(RESET)   [$(LIGHT_GREEN)$(NAME)$(RESET)] : "
 	@printf "$(NAME) created\n"
 
