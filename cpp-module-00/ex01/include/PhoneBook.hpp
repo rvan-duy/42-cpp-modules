@@ -21,7 +21,7 @@ class PhoneBook {
 
 		// Methods
 		void addContact(std::istream &iostream);
-		void printContacts(void);
+		void searchContact(std::istream &iostream);
 
 
 	private:
@@ -33,7 +33,8 @@ class PhoneBook {
 		Contact 	_contacts[MAX_CONTACTS];		// Array of contacts
 
 		// Internal methods
-		std::string _cut_string(std::string str);
+		std::string _cutString(std::string str);
+		void		_printContacts(void);
 
 };
 
