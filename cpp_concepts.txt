@@ -1,0 +1,29 @@
+C++
+
+Namespaces:
+    - Namespaces solve problems with functions having the same, for example:
+        You write a function called xyz() and you use a library that has xyz() declared
+        The compiler has no way of knowing which version you are referring to
+
+Classes:
+
+    - A class is a blueprint for an object, which has attributes and methods
+
+    Member functions (methods):
+        - Functions which are declared inside a class which executes on the class
+
+    Static variables inside classes:
+        - Static variables inside classes are variables that are initialized once per class
+            they can then be accessed by every instance of that class
+
+    Static methods inside classes:
+        - Static methods inside classes are methods that can access static variables
+
+    Const methods inside classes:
+        - Basically means a method should not be changing the state of an object
+
+Stdio streams:
+    -
+
+Initialization lists:
+    -
