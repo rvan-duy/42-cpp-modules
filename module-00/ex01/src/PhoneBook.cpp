@@ -1,5 +1,10 @@
 #include "PhoneBook.hpp"
 
+// Default constructor
+PhoneBook::PhoneBook() {
+	_amount_of_contacts_stored = 0;
+}
+
 // Getters
 std::size_t PhoneBook::getAmountOfContactsStored() { return this->_amount_of_contacts_stored; }
 Contact		PhoneBook::getContact(std::size_t index) { return this->_contacts[index]; }

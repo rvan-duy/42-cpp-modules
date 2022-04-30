@@ -9,11 +9,9 @@
 class PhoneBook {
 
 	public:
-		
+
 		// Default constructor
-		PhoneBook() {
-			_amount_of_contacts_stored = 0;
-		}
+		PhoneBook();
 
 		// Getters
 		std::size_t	getAmountOfContactsStored();
