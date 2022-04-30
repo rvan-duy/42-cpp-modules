@@ -5,14 +5,6 @@
 
 class Contact {
 
-	private:
-
-		// Internal variables
-		std::string _firstname;		// Name of the contact
-		std::string	_lastname;		// Lastname of the contact
-		std::string _nickname;		// Nickname of the contact
-		std::string _phonenumber;	// Phone number of the contact
-		std::string _secret;		// Secret of the contact
 
 	public:
 
@@ -31,6 +23,16 @@ class Contact {
 		void setNickname(std::string nickname);
 		void setPhonenumber(std::string phonenumber);
 		void setSecret(std::string secret);
+
+
+	private:
+
+		// Internal variables
+		std::string _firstname;		// Name of the contact
+		std::string	_lastname;		// Lastname of the contact
+		std::string _nickname;		// Nickname of the contact
+		std::string _phonenumber;	// Phone number of the contact
+		std::string _secret;		// Secret of the contact
 
 };
 

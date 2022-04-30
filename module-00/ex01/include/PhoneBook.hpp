@@ -10,7 +10,7 @@ class PhoneBook {
 
 	public:
 		
-		// Constructor
+		// Default constructor
 		PhoneBook() {
 			_amount_of_contacts_stored = 0;
 		}
