@@ -6,7 +6,6 @@ Namespaces:
         The compiler has no way of knowing which version you are referring to
 
 Classes:
-
     - A class is a blueprint for an object, which has attributes and methods
 
     Member functions (methods):
