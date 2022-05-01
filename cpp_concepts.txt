@@ -1,5 +1,7 @@
-C++
+                                                C++
+                                                        an insult to the human brain
 
+##################################################################################################################
 
 Namespaces:
     - Namespaces solve problems with functions having the same, for example:
@@ -38,3 +40,9 @@ Stdio streams:
     - Streams are an abstraction that represent a device on which input and output operations are performed
         A stream basically represents a source or destination of characters of indefinite length
         C++ provides a standard `iostream` library, which you can use to operate with streams
+
+
+##################################################################################################################
+
+Sources: 
+    - https://www.cprogramming.com
