@@ -10,7 +10,7 @@ std::size_t PhoneBook::getAmountOfContactsStored() { return this->_amount_of_con
 Contact		PhoneBook::getContact(std::size_t index) { return this->_contacts[index]; }
 
 // Methods
-void 		PhoneBook::addContact(std::__1::istream &iostream)
+void 		PhoneBook::addContact(std::istream &istream)
 {
 	enum E_ADD_CONTACT_FIELD {
 		FIRSTNAME,
@@ -24,15 +24,15 @@ void 		PhoneBook::addContact(std::__1::istream &iostream)
 
 	// Getting user input
 	std::cout << "Firstname: ";
-	std::getline(iostream, user_input[FIRSTNAME]);
+	std::getline(istream, user_input[FIRSTNAME]);
 	std::cout << "Lastname: ";
-	std::getline(iostream, user_input[LASTNAME]);
+	std::getline(istream, user_input[LASTNAME]);
 	std::cout << "Nickname: ";
-	std::getline(iostream, user_input[NICKNAME]);
+	std::getline(istream, user_input[NICKNAME]);
 	std::cout << "Phone number: ";
-	std::getline(iostream, user_input[PHONENUMBER]);
+	std::getline(istream, user_input[PHONENUMBER]);
 	std::cout << "Secret: ";
-	std::getline(iostream, user_input[SECRET]);
+	std::getline(istream, user_input[SECRET]);
 
 	// Adding contact to the phonebook
 	if (_amount_of_contacts_stored < MAX_CONTACTS)
@@ -57,7 +57,7 @@ void 		PhoneBook::addContact(std::__1::istream &iostream)
 	}
 
 }
-void		PhoneBook::searchContact(std::__1::istream &iostream)
+void		PhoneBook::searchContact(std::istream &istream)
 {
 	std::string user_input;
 	int			user_input_index;
@@ -67,7 +67,7 @@ void		PhoneBook::searchContact(std::__1::istream &iostream)
 
 	// Read user input
 	std::cout << "Select the index of a contact to display: ";
-	std::getline(iostream, user_input);
+	std::getline(istream, user_input);
 	user_input_index = atoi(user_input.c_str());
 
 	// Error handling

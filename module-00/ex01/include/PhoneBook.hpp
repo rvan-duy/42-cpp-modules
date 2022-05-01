@@ -20,8 +20,8 @@ class PhoneBook {
 		Contact 	getContact(std::size_t index);
 
 		// Methods
-		void addContact(std::istream &iostream);
-		void searchContact(std::istream &iostream);
+		void addContact(std::istream &istream);
+		void searchContact(std::istream &istream);
 
 
 	private:
