@@ -17,7 +17,7 @@ class PhoneBook {
 
 		// Getters
 		std::size_t	getAmountOfContactsStored();
-		Contact 	getContact(std::size_t index);
+		Contact 	getContact(const std::size_t index);
 
 		// Methods
 		void addContact(std::istream &istream);
@@ -33,7 +33,7 @@ class PhoneBook {
 		Contact 	_contacts[MAX_CONTACTS];		// Array of contacts
 
 		// Internal methods
-		std::string _cutString(std::string str);
+		std::string _cutString(const std::string str);
 		void		_printContacts(void);
 
 };

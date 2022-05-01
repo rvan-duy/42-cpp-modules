@@ -10,8 +10,8 @@ std::string Contact::getNickname() { return this->_nickname; }
 std::string Contact::getPhonenumber() { return this->_phonenumber; }
 
 // Setters
-void Contact::setFirstName(std::string firstname) { this->_firstname = firstname; }
-void Contact::setLastName(std::string lastname) { this->_lastname = lastname; }
-void Contact::setNickname(std::string nickname) { this->_nickname = nickname; }
-void Contact::setPhonenumber(std::string phonenumber) { this->_phonenumber = phonenumber; }
-void Contact::setSecret(std::string secret) { this->_secret = secret; }
+void Contact::setFirstName(const std::string firstname) { this->_firstname = firstname; }
+void Contact::setLastName(const std::string lastname) { this->_lastname = lastname; }
+void Contact::setNickname(const std::string nickname) { this->_nickname = nickname; }
+void Contact::setPhonenumber(const std::string phonenumber) { this->_phonenumber = phonenumber; }
+void Contact::setSecret(const std::string secret) { this->_secret = secret; }

@@ -18,11 +18,11 @@ class Contact {
 		std::string getPhonenumber();
 
 		// Setters
-		void setFirstName(std::string firstname);
-		void setLastName(std::string lastname);
-		void setNickname(std::string nickname);
-		void setPhonenumber(std::string phonenumber);
-		void setSecret(std::string secret);
+		void setFirstName(const std::string firstname);
+		void setLastName(const std::string lastname);
+		void setNickname(const std::string nickname);
+		void setPhonenumber(const std::string phonenumber);
+		void setSecret(const std::string secret);
 
 
 	private:

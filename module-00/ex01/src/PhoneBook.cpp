@@ -7,7 +7,7 @@ PhoneBook::PhoneBook() {
 
 // Getters
 std::size_t PhoneBook::getAmountOfContactsStored() { return this->_amount_of_contacts_stored; }
-Contact		PhoneBook::getContact(std::size_t index) { return this->_contacts[index]; }
+Contact		PhoneBook::getContact(const std::size_t index) { return this->_contacts[index]; }
 
 // Methods
 void 		PhoneBook::addContact(std::istream &istream)
@@ -92,7 +92,7 @@ void		PhoneBook::searchContact(std::istream &istream)
 }
 
 // Internal methods
-std::string	PhoneBook::_cutString(std::string str)
+std::string	PhoneBook::_cutString(const std::string str)
 {
 	const std::size_t	str_size = str.size();
 	std::string 		new_str = str.substr(0, 10);
