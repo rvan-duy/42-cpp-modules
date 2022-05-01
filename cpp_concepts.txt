@@ -1,5 +1,6 @@
 C++
 
+
 Namespaces:
     - Namespaces solve problems with functions having the same, for example:
         You write a function called xyz() and you use a library that has xyz() declared
@@ -7,6 +8,18 @@ Namespaces:
 
 Classes:
     - A class is a blueprint for an object, which has attributes and methods
+
+    Constructors:
+        - Whenever an Object of a Class is created, its constructor is called
+            It's parent class constructors are also called! Parent constructors are called before the child
+        - By default the constructors invoked are the "no-argument" constructors
+        - If the parent class needs an argument for its constructor, you can use initialization lists
+
+    Initialization lists:
+        - These are useful for:
+            - Passing arguments to constructors of parent Classes
+            - Initializing fields of Classes with default values
+            - It is necessary to initialize const fields
 
     Member functions (methods):
         - Functions which are declared inside a class which executes on the class
@@ -22,7 +35,6 @@ Classes:
         - Basically means a method should not be changing the state of an object
 
 Stdio streams:
-    -
-
-Initialization lists:
-    -
+    - Streams are an abstraction that represent a device on which input and output operations are performed
+        A stream basically represents a source or destination of characters of indefinite length
+        C++ provides a standard `iostream` library, which you can use to operate with streams
