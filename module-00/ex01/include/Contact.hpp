@@ -1,5 +1,5 @@
-#ifndef CPP_MODULE_00_CONTACT_H
-#define CPP_MODULE_00_CONTACT_H
+#ifndef MODULE_00_CONTACT_HPP
+#define MODULE_00_CONTACT_HPP
 
 #include <string>
 
@@ -36,4 +36,4 @@ class Contact {
 
 };
 
-#endif //CPP_MODULE_00_CONTACT_H
+#endif // MODULE_00_CONTACT_HPP

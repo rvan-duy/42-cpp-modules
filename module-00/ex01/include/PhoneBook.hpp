@@ -1,5 +1,5 @@
-#ifndef CPP_MODULE_00_PHONEBOOK_H
-#define CPP_MODULE_00_PHONEBOOK_H
+#ifndef MODULE_00_PHONEBOOK_HPP
+#define MODULE_00_PHONEBOOK_HPP
 
 #include <string>
 #include <iostream>
@@ -38,4 +38,4 @@ class PhoneBook {
 
 };
 
-#endif //CPP_MODULE_00_PHONEBOOK_H
+#endif // MODULE_00_PHONEBOOK_HPP
