@@ -1,9 +1,7 @@
 #include "PhoneBook.hpp"
 
 // Default constructor
-PhoneBook::PhoneBook() {
-	_amount_of_contacts_stored = 0;
-}
+PhoneBook::PhoneBook() : _amount_of_contacts_stored(0) { }
 
 // Getters
 std::size_t PhoneBook::getAmountOfContactsStored() { return this->_amount_of_contacts_stored; }
@@ -107,11 +105,14 @@ void 		PhoneBook::_printContacts(void)
 	for (std::size_t i = 0; i < _amount_of_contacts_stored; i++) {
 		std::cout << std::setw(10);
 		std::cout << i << "|";
+		std::cout << std::setw(10);
 		std::cout << _cutString(_contacts[i].getFirstName()) << "|";
+		std::cout << std::setw(10);
 		std::cout << _cutString(_contacts[i].getLastName()) << "|";
+		std::cout << std::setw(10);
 		std::cout << _cutString(_contacts[i].getNickname()) << "|";
+		std::cout << std::setw(10);
 		std::cout << _cutString(_contacts[i].getPhonenumber()) << "|";
-		std::cout << std::setw(0);
 		std::cout << std::endl;
 	}
 }
