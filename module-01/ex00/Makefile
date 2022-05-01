@@ -20,7 +20,7 @@ INCLUDE_FLAGS 	:= $(addprefix -I, $(sort $(dir $(HEADERS))))
 SOURCES 		:=	main.cpp		\
 					Zombie.cpp		\
 					newZombie.cpp	\
-					randomchump.cpp
+					randomChump.cpp
 
 BOLD 			:= \e[1m
 RESET 			:= \e[0m
