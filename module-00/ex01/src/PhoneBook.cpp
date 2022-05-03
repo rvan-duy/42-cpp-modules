@@ -53,7 +53,6 @@ void 		PhoneBook::addContact(std::istream &istream)
 		_contacts[MAX_CONTACTS - 1].setPhonenumber(user_input[PHONENUMBER]);
 		_contacts[MAX_CONTACTS - 1].setSecret(user_input[SECRET]);
 	}
-
 }
 void		PhoneBook::searchContact(std::istream &istream)
 {
@@ -86,7 +85,6 @@ void		PhoneBook::searchContact(std::istream &istream)
 			std::cout << "Phone number: " << getContact(i).getPhonenumber() << std::endl;
 		}
 	}
-
 }
 
 // Internal methods
