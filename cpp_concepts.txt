@@ -41,6 +41,10 @@ Stdio streams:
         A stream basically represents a source or destination of characters of indefinite length
         C++ provides a standard `iostream` library, which you can use to operate with streams
 
+References vs Pointers:
+    - Pointers are variables which hold a memory address of another variable
+    - References are aliases for other variables
+        - References cannot be reassigned
 
 ##################################################################################################################
 
