@@ -8,10 +8,7 @@
 #include "Contact.hpp"
 
 class PhoneBook {
-
-
 	public:
-
 		// Default constructor
 		PhoneBook();
 
@@ -23,9 +20,7 @@ class PhoneBook {
 		void addContact(std::istream &istream);
 		void searchContact(std::istream &istream);
 
-
 	private:
-
 		#define MAX_CONTACTS 8
 		
 		// Internal variables
@@ -35,7 +30,6 @@ class PhoneBook {
 		// Internal methods
 		std::string _cutString(const std::string str);
 		void		_printContacts(void);
-
 };
 
 #endif // MODULE_00_PHONEBOOK_HPP

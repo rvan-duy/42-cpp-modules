@@ -5,7 +5,6 @@
 #include <iostream>
 
 class Zombie {
-
     public:
         // Constructor
         Zombie(const std::string name);

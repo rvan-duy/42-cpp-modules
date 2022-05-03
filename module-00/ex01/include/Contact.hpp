@@ -4,7 +4,6 @@
 #include <string>
 
 class Contact {
-
 	public:
 		// Default constructor
 		Contact();
