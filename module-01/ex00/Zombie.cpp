@@ -1,5 +1,4 @@
 #include "Zombie.hpp"
-#include <iostream>
 
 // Constructor
 Zombie::Zombie(const std::string name) : _name(name) { }

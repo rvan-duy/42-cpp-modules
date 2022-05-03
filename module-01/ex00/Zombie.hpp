@@ -2,12 +2,11 @@
 #define MODULE_00_ZOMBIE_HPP
 
 #include <string>
+#include <iostream>
 
 class Zombie {
     
-
     public:
-
         // Constructor
         Zombie(const std::string name);
 
@@ -16,12 +15,9 @@ class Zombie {
 
         // Methods
         void    announce(void);
-        Zombie *newZombie(std::string name);
-        void    randomChump(std::string name);
 
 
     private:
-
         // Attributes
         std::string _name;  // Name of the zombie
 

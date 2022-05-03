@@ -1,16 +1,30 @@
 #include "Zombie.hpp"
 #include <cstdlib>
 
+void    randomChump(std::string name);
+Zombie  *newZombie(std::string name);
+
+void leaks()
+{
+	system("leaks -q zombie");
+}
+
+void different_scope()
+{
+	Zombie zombie("Stack");
+	zombie.announce();
+}
+
 int main (void) {
-    Zombie handler("Handler");
+	atexit(leaks);
+	Zombie *zombie = newZombie("Heap");
+	zombie->announce();
 
-    // Create a new zombie on the heap
-    Zombie *new_zombie_ptr = handler.newZombie("Heap");
-    new_zombie_ptr->announce();
-    delete(new_zombie_ptr);
+	std::cout << "Entering a different scope" << std::endl;
+	different_scope();
+	std::cout << "Leaving a different scope" << std::endl;
 
-    // Create a new zombie on the stack
-    handler.randomChump("Stack");
-
-    return EXIT_SUCCESS;
+	delete zombie;
+	std::cout << "End of program." << std::endl;
+	return EXIT_SUCCESS;
 }
