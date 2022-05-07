@@ -45,6 +45,7 @@ References vs Pointers:
     - Pointers are variables which hold a memory address of another variable
     - References are aliases for other variables
         - References cannot be reassigned
+    - Pointers can be NULL, references cannot
 
 this keyword in methods
 
