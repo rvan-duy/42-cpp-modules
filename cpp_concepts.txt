@@ -46,7 +46,41 @@ References vs Pointers:
     - References are aliases for other variables
         - References cannot be reassigned
 
+this keyword in methods
+
 ##################################################################################################################
 
 Sources: 
     - https://www.cprogramming.com
+
+
+##################################################################################################################
+
+                                                C++ Google Style Guide
+                                                
+##################################################################################################################
+
+                clang-format -style=file ${FILE_NAME} or clang-format -style=google ${FILE_NAME}
+
+Classes:
+    - Declaration Order:
+        - Types and type aliases (typedef, using, enum, nested structs and classes)
+        - Static constants
+        - Factory functions
+        - Constructors and assignment operators
+        - Destructor
+        - All other functions (static and non-static member functions, and friend functions)
+        - Data members (static and non-static)
+
+Functions:
+    - Write small and focuses functions
+        - When a function exceeds 40 lines, think of breaking it up into smaller pieces
+    - Prefer using return values over output parameters: they improve readability and often provide same or better performance
+    - Prefer using return by value, failing that, return by reference. Avoid returning a pointer unless it can be NULL
+
+##################################################################################################################
+
+Sources:
+    - https://google.github.io/styleguide/cppguide.html
+
+##################################################################################################################
