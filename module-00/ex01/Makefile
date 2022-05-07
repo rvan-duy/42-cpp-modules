@@ -19,7 +19,7 @@ HEADERS 		:=	include/Contact.hpp		\
 INCLUDE_FLAGS 	:= $(addprefix -I, $(sort $(dir $(HEADERS))))
 
 SOURCES 		:=	src/PhoneBook.cpp		\
-					src/Main.cpp			\
+					src/main.cpp			\
 					src/Contact.cpp
 
 BOLD 			:= \e[1m

@@ -10,14 +10,11 @@ int main(void) {
 
     if (user_input_string == "ADD") {
       phonebook.addContact(std::cin);
-    }
-    if (user_input_string == "SEARCH") {
+    } else if (user_input_string == "SEARCH") {
       phonebook.searchContact(std::cin);
-    }
-    if (user_input_string == "EXIT") {
+    } else if (user_input_string == "EXIT") {
       break;
     }
   }
-
   return EXIT_SUCCESS;
 }
