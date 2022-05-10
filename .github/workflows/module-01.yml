@@ -21,7 +21,9 @@ jobs:
       run:  make -C module-01/ex02
     - name: ex03
       run:  make -C module-01/ex03
-
+    - name: ex04
+      run:  make -C module-01/ex04
+  
   macos_compile_check:
 
     runs-on: macos-latest
@@ -36,3 +38,5 @@ jobs:
       run:  make -C module-01/ex02
     - name: ex03
       run:  make -C module-01/ex03
+    - name: ex04
+      run:  make -C module-01/ex04
