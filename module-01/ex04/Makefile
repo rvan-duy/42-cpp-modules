@@ -13,11 +13,12 @@ endif
 
 ################################################################################
 
-HEADERS 		:=	
+HEADERS 		:=	include/FileDescriptor.hpp
 
 INCLUDE_FLAGS 	:= $(addprefix -I, $(sort $(dir $(HEADERS))))
 
-SOURCES 		:=	src/main.cpp
+SOURCES 		:=	src/main.cpp \
+					src/FileDescriptor.cpp
 
 BOLD 			:= \e[1m
 RESET 			:= \e[0m
