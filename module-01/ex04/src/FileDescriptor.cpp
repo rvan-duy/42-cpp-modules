@@ -6,6 +6,4 @@ FileDescriptor::FileDescriptor(const std::string& path) : _path(path) {
     std::cout << _path << ": " << strerror(errno) << std::endl;
   }
 }
-FileDescriptor::~FileDescriptor() {
-    _fs.close();
-};
+FileDescriptor::~FileDescriptor() { _fs.close(); };
