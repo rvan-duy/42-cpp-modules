@@ -5,13 +5,16 @@
 
 class Replacer {
  public:
+  Replacer();
   Replacer(File& src, const char* s1, const char* s2);
+  ~Replacer();
 
-  bool openDstFile();
+  bool fillBuffer();
+  void replaceBuffer();
 
  private:
   File        src;
-  File        dst;
+  std::string dst_path;
   std::string buffer;
   const char* s1;
   const char* s2;

@@ -8,16 +8,14 @@
 
 class File {
  public:
-  File(const char* path, const std::ios_base::openmode& mode = 24U);
+  File();
+  File(const char* path);
   ~File();
 
-  const std::string getPath();
-  bool              checkIfOpen();
+  std::string getPath();
 
  private:
   const std::string path;
-  std::fstream      fs;
-  bool              is_open;
 };
 
 #endif  // MODULE_01_FILE_HPP

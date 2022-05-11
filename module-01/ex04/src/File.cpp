@@ -1,14 +1,11 @@
 #include "File.hpp"
 
-File::File(const char* path, const std::ios_base::openmode& mode) : path(path) {
-  fs.open(path, mode);
-  if (fs.is_open() == false) {
-    is_open = false;
-    std::cout << path << ": " << strerror(errno) << std::endl;
-  } else
-    is_open = true;
-}
-File::~File() { fs.close(); }
+// You should instead create the ifstream only when you need it, inside the method that needs it,
+// and let it be destroyed when the method exits.
+// It should not be a part of the object because it has no need to persist with the object.
 
-const std::string File::getPath() { return path; }
-bool              File::checkIfOpen() { return is_open; }
+File::File(){};
+File::File(const char* path) : path(path){};
+File::~File(){};
+
+std::string File::getPath() { return path; }
