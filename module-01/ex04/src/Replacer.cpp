@@ -32,7 +32,7 @@ void Replacer::replaceBuffer() {
   }
 }
 Replacer::status Replacer::writeBufferToPath() {
-  std::ofstream ofs(dst_path, std::ofstream::out);
+  std::ofstream ofs(dst_path.c_str(), std::ofstream::out);
 
   if (ofs.is_open() == false) {
     std::cout << "error: " << dst_path << ": " << strerror(errno) << std::endl;
