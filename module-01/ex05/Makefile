@@ -1,4 +1,4 @@
-NAME			:= sed_is_for_losers
+NAME			:= Harl
 CC				:= g++ -std=c++98
 CFLAGS			:= -Wall -Wextra -Werror -g
 
@@ -13,14 +13,12 @@ endif
 
 ################################################################################
 
-HEADERS 		:=	include/File.hpp	\
-					include/Replacer.hpp
+HEADERS 		:=	include/Harl.hpp
 
 INCLUDE_FLAGS 	:= $(addprefix -I, $(sort $(dir $(HEADERS))))
 
-SOURCES 		:=	src/main.cpp			\
-					src/File.cpp	\
-					src/Replacer.cpp
+SOURCES 		:=	src/main.cpp \
+					src/Harl.cpp
 
 BOLD 			:= \e[1m
 RESET 			:= \e[0m
