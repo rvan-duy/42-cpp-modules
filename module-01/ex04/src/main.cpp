@@ -19,7 +19,6 @@ int main(int argc, char *argv[]) {
     if (replacer.writeBufferToPath() == Replacer::failure) {
       return EXIT_FAILURE;
     }
-
   } else
     std::cout << "Usage:" << std::endl << argv[0] << " <file_name> <s1> <s2>" << std::endl;
   return EXIT_SUCCESS;
