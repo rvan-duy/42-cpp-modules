@@ -8,7 +8,7 @@ Replacer::~Replacer(){};
 
 Replacer::status Replacer::fillBuffer() {
   std::string   line;
-  std::ifstream ifs(src.getPath(), std::ifstream::in);
+  std::ifstream ifs(src.getPath().c_str(), std::ifstream::in);
 
   if (ifs.is_open() == false) {
     std::cout << "error: " << src.getPath() << ": " << strerror(errno) << std::endl;
