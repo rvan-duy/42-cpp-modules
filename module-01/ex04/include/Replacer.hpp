@@ -5,12 +5,15 @@
 
 class Replacer {
  public:
+  enum status { success, failure };
+
   Replacer();
   Replacer(File& src, const char* s1, const char* s2);
   ~Replacer();
 
-  bool fillBuffer();
-  void replaceBuffer();
+  status fillBuffer();
+  void   replaceBuffer();
+  status writeBufferToPath();
 
  private:
   File        src;

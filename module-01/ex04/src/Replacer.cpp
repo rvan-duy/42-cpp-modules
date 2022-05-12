@@ -10,25 +10,37 @@ Replacer::Replacer(File& src, const char* s1, const char* s2) : src(src), s1(s1)
 };
 Replacer::~Replacer(){};
 
-bool Replacer::fillBuffer() {
+Replacer::status Replacer::fillBuffer() {
   std::string   line;
-  std::ifstream ifs(src.getPath());
+  std::ifstream ifs(src.getPath(), std::ifstream::in);
 
   if (ifs.is_open() == false) {
     std::cout << "error: " << src.getPath() << ": " << strerror(errno) << std::endl;
-    return false;
+    return failure;
   }
 
   while (ifs.eof() == false) {
     std::getline(ifs, line);
     buffer += line + "\n";
   }
-  return true;
+  ifs.close();  
+  return success;
 }
 void Replacer::replaceBuffer() {
-  for (std::size_t found = buffer.find(s1, 0); found != std::string::npos; found = buffer.find(s1, found + strlen(s2))) {
+  for (std::size_t found = buffer.find(s1, 0); found != std::string::npos;
+       found             = buffer.find(s1, found + strlen(s2))) {
     buffer.erase(found, strlen(s1));
     buffer.insert(found, s2);
   }
-  std::cout << buffer;
+}
+Replacer::status Replacer::writeBufferToPath() {
+  std::ofstream ofs(dst_path, std::ofstream::out);
+
+  if (ofs.is_open() == false) {
+    std::cout << "error: " << dst_path << ": " << strerror(errno) << std::endl;
+    return failure;
+  }
+  ofs.write(buffer.c_str(), buffer.size());
+  ofs.close();
+  return success;
 }

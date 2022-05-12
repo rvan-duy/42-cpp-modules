@@ -8,4 +8,4 @@ File::File(){};
 File::File(const char* path) : path(path){};
 File::~File(){};
 
-std::string File::getPath() { return path; }
+std::string File::getPath() const { return path; }

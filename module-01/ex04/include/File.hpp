@@ -12,7 +12,7 @@ class File {
   File(const char* path);
   ~File();
 
-  std::string getPath();
+  std::string getPath() const;
 
  private:
   const std::string path;
