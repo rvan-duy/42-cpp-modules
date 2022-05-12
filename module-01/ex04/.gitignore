@@ -1,6 +1,9 @@
 # Executables
 sed_is_for_losers*
 
+# Test files
+*.replace
+
 # Prerequisites
 *.d
 

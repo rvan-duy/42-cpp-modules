@@ -40,7 +40,7 @@ Replacer::status Replacer::writeBufferToPath() {
     std::cout << "error: " << dst_path << ": " << strerror(errno) << std::endl;
     return failure;
   }
-  ofs.write(buffer.c_str(), buffer.size() - newline);
+  ofs << buffer;
   ofs.close();
   return success;
 }
