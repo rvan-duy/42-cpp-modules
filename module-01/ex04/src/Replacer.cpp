@@ -1,9 +1,5 @@
 #include "Replacer.hpp"
 
-// ifstream -> input
-// ofstream -> output
-// fstream -> input and output
-
 Replacer::Replacer(){};
 Replacer::Replacer(File& src, const char* s1, const char* s2) : src(src), s1(s1), s2(s2) {
   dst_path = src.getPath() + std::string(".replace");
