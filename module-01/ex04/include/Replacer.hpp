@@ -5,7 +5,7 @@
 
 class Replacer {
  public:
-  #define newline 1
+  #define newline buffer.size() - 1
   enum status { success, failure };
 
   Replacer();

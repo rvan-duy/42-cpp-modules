@@ -19,6 +19,8 @@ Replacer::status Replacer::fillBuffer() {
     std::getline(ifs, line);
     buffer += line + "\n";
   }
+  buffer.erase(newline);
+
   ifs.close();
   return success;
 }
