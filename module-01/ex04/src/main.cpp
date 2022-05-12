@@ -1,3 +1,5 @@
+#include <cstdlib>
+
 #include "Replacer.hpp"
 
 enum program_params { file_name = 1, s1 = 2, s2 = 3 };
