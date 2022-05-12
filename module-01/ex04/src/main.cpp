@@ -16,7 +16,9 @@ int main(int argc, char *argv[]) {
     replacer.replaceBuffer();
 
     // Write buffer to a new file
-    replacer.writeBufferToPath();
+    if (replacer.writeBufferToPath() == Replacer::failure) {
+      return EXIT_FAILURE;
+    }
 
   } else
     std::cout << "Usage:" << std::endl << argv[0] << " <file_name> <s1> <s2>" << std::endl;
