@@ -5,6 +5,7 @@
 
 class Replacer {
  public:
+  #define newline 1
   enum status { success, failure };
 
   Replacer();

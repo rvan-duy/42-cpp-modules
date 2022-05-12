@@ -23,7 +23,7 @@ Replacer::status Replacer::fillBuffer() {
     std::getline(ifs, line);
     buffer += line + "\n";
   }
-  ifs.close();  
+  ifs.close();
   return success;
 }
 void Replacer::replaceBuffer() {
@@ -40,7 +40,7 @@ Replacer::status Replacer::writeBufferToPath() {
     std::cout << "error: " << dst_path << ": " << strerror(errno) << std::endl;
     return failure;
   }
-  ofs.write(buffer.c_str(), buffer.size());
+  ofs.write(buffer.c_str(), buffer.size() - newline);
   ofs.close();
   return success;
 }
