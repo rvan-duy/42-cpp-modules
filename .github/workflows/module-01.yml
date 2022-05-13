@@ -25,6 +25,8 @@ jobs:
       run:  make -C module-01/ex04
     - name: ex05
       run:  make -C module-01/ex05
+    - name: ex06
+      run:  make -C module-01/ex06
 
   macos_compile_check:
 
@@ -44,3 +46,5 @@ jobs:
       run:  make -C module-01/ex04
     - name: ex05
       run:  make -C module-01/ex05
+    - name: ex06
+      run:  make -C module-01/ex06
