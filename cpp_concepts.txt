@@ -85,3 +85,21 @@ Sources:
     - https://google.github.io/styleguide/cppguide.html
 
 ##################################################################################################################
+
+                                                Floating Point Numbers
+
+##################################################################################################################
+
+4-byte floating point numbers can hold fewer distinct values than 4-byte integers. This is because the internal representation
+of floating point numbers is more complicated than integers.
+
+How floating points are represented (IEEE-754 standard):
+    - first bit is sign telling whether the number is positive or negative
+    - second byte is the exponent of the number
+    - third and fourth bytes are the mantissa (or significand)
+        - 2 ^ exponent
+
+##################################################################################################################
+
+Pro tips:
+    - read declaration backwards ( https://stackoverflow.com/a/162615/14639673 )
