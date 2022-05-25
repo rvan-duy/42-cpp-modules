@@ -18,7 +18,7 @@ HEADERS 		:= include/FixedPoint.hpp
 INCLUDE_FLAGS 	:= $(addprefix -I, $(sort $(dir $(HEADERS))))
 
 SOURCES 		:=	src/main.cpp				\
-					src/FixedPoint.cpp			\
+					src/Fixed.cpp				\
 
 BOLD 			:= \e[1m
 RESET 			:= \e[0m
