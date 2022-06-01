@@ -25,4 +25,4 @@ class Fixed {
 
 std::ostream& operator<<(std::ostream& os, const Fixed& point);
 
-#endif  // MODULE_01_FIXED_POINT_HPP
+#endif  // MODULE_02_FIXED_HPP
