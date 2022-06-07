@@ -6,6 +6,7 @@ class ClapTrap {
   ClapTrap();                                 // Default Constructor
   ClapTrap(const std::string &name);          // Constructor with name
   ~ClapTrap();                                // Destructor
+  ClapTrap(const ClapTrap &trap);             // Copy Constructor
   ClapTrap &operator=(const ClapTrap &trap);  // Copy assignment operator
 
   // Getters

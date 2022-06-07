@@ -7,11 +7,21 @@ ClapTrap::ClapTrap(const std::string &name) : name(name), hit_points(10), energy
   std::cout << "-> Constructor for " << name << " is called" << std::endl;
 }
 ClapTrap::~ClapTrap() { std::cout << "-> Deconstructor for " << this->name << " is called" << std::endl; };
-
-// TODO: implement the copy assignment operator
-// ClapTrap & ClapTrap::operator=(const ClapTrap &trap) {
-//     std::cout <<
-// }
+ClapTrap::ClapTrap(const ClapTrap &trap)
+    : name(trap.name),
+      hit_points(trap.hit_points),
+      energy_points(trap.energy_points),
+      attack_damage(trap.attack_damage) {
+  std::cout << "-> Copy constructor for " << this->name << " is called" << std::endl;
+}
+ClapTrap &ClapTrap::operator=(const ClapTrap &trap) {
+  this->name          = trap.name;
+  this->hit_points    = trap.hit_points;
+  this->energy_points = trap.energy_points;
+  this->attack_damage = trap.attack_damage;
+  std::cout << "-> Copy assignment constructor for " << this->name << " is called" << std::endl;
+  return *this;
+}
 
 std::string  ClapTrap::getName() const { return this->name; };
 unsigned int ClapTrap::getHitPoints() const { return this->hit_points; };
