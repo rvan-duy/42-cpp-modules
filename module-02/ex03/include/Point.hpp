@@ -2,7 +2,7 @@
 #define MODULE_02_POINT_HPP
 
 #include "Fixed.hpp"
-
+  
 class Point {
  public:
   Point();                               // Default constructor
