@@ -1,4 +1,4 @@
-NAME			:= now_were_talking
+NAME			:= bsp
 CC				:= g++ -std=c++98
 CFLAGS			:= -Wall -Wextra -Werror -g
 
@@ -13,12 +13,13 @@ endif
 
 ################################################################################
 
-HEADERS 		:= include/Fixed.hpp
+HEADERS 		:= include/Fixed.hpp include/Point.hpp
 
 INCLUDE_FLAGS 	:= $(addprefix -I, $(sort $(dir $(HEADERS))))
 
 SOURCES 		:=	src/main.cpp				\
 					src/Fixed.cpp				\
+					src/Point.cpp
 
 BOLD 			:= \e[1m
 RESET 			:= \e[0m
