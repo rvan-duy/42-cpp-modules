@@ -12,6 +12,8 @@ int main(void)
         ClapTrap HeroClapTrap("HeroClapTrap");
         ClapTrap Bandit("Bandit");
 
+        assert (Bandit.getName() == "Bandit");
+
         std::cout << HeroClapTrap << std::endl;
         std::cout << Bandit << std::endl;
 
