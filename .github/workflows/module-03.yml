@@ -20,7 +20,7 @@ jobs:
     - name: ex00 test
       run:  make test -C module-03/ex00
 
-  macos_compile_check:
+  macos_build_and_test:
 
     runs-on: macos-latest
 
