@@ -44,8 +44,6 @@ int main(void)
 
         std::cout << HeroClapTrap << std::endl;
         std::cout << Bandit << std::endl;
-
     }
-
     return EXIT_SUCCESS;
 }
