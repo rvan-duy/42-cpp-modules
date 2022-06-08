@@ -3,10 +3,13 @@
 ClapTrap::ClapTrap() : hit_points(10), energy_points(10), attack_damage(0) {
   std::cout << "-> Default constructor for nameless ClapTrap is called" << std::endl;
 };
+
 ClapTrap::ClapTrap(const std::string &name) : name(name), hit_points(10), energy_points(10), attack_damage(0) {
   std::cout << "-> Constructor for " << name << " is called" << std::endl;
 }
+
 ClapTrap::~ClapTrap() { std::cout << "-> Deconstructor for " << this->name << " is called" << std::endl; };
+
 ClapTrap::ClapTrap(const ClapTrap &trap)
     : name(trap.name),
       hit_points(trap.hit_points),
@@ -14,6 +17,7 @@ ClapTrap::ClapTrap(const ClapTrap &trap)
       attack_damage(trap.attack_damage) {
   std::cout << "-> Copy constructor for " << this->name << " is called" << std::endl;
 }
+
 ClapTrap &ClapTrap::operator=(const ClapTrap &trap) {
   this->name          = trap.name;
   this->hit_points    = trap.hit_points;
@@ -24,8 +28,11 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &trap) {
 }
 
 std::string  ClapTrap::getName() const { return this->name; };
+
 unsigned int ClapTrap::getHitPoints() const { return this->hit_points; };
+
 unsigned int ClapTrap::getEnergyPoints() const { return this->energy_points; };
+
 unsigned int ClapTrap::getAttackDamage() const { return this->attack_damage; };
 
 void         ClapTrap::attack(const std::string &target) {
@@ -39,12 +46,10 @@ void         ClapTrap::attack(const std::string &target) {
 
 void ClapTrap::takeDamage(unsigned int amount) {
   std::cout << "ClapTrap " << this->name << " takes " << amount << " damage" << std::endl;
-  if (amount >= this->hit_points)
-  {
+  if (amount >= this->hit_points) {
     this->hit_points = 0;
     std::cout << "ClapTrap " << this->name << " dies" << std::endl;
-  }
-  else
+  } else
     this->hit_points -= amount;
 };
 
