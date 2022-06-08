@@ -41,6 +41,9 @@ $(NAME): $(OBJECTS)
 	@printf "$(LIGHT_CYAN)$(BOLD)make$(RESET)   [$(LIGHT_GREEN)$(NAME)$(RESET)] : "
 	@printf "$(NAME) created\n"
 
+test: $(NAME)
+	./$(NAME)
+
 clean:
 	@printf "$(LIGHT_CYAN)$(BOLD)clean$(RESET)  [$(LIGHT_GREEN)$(NAME)$(RESET)] : "
 	/bin/rm -rf obj

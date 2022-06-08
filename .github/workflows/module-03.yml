@@ -7,14 +7,16 @@ on:
     branches: [ main ]
 
 jobs:
-  ubuntu_compile_check:
+  ubuntu_build_and_test:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: ex00
-      run:  make -C module-02/ex00
+    - name: ex00 build
+      run:  make -C module-03/ex00
+    - name: ex00 test
+      run:  make test -C module-03/ex00
 
   macos_compile_check:
 
@@ -23,4 +25,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: ex00
-      run:  make -C module-02/ex00
+      run:  make -C module-03/ex00
