@@ -28,3 +28,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: ex00
       run:  make -C module-03/ex00
+    - name: ex00 test
+      run:  make test -C module-03/ex00
