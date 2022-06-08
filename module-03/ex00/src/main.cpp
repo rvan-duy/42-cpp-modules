@@ -1,49 +1,49 @@
-#include "ClapTrap.hpp"
-
+#include <cassert>
 #include <cstdlib>
 
-int main(void)
-{
-    {
-        std::cout << "--------------------------------------" << std::endl;
-        std::cout << "Testing ClapTrap Class with 10 attacks" << std::endl;
-        std::cout << "--------------------------------------" << std::endl;
+#include "ClapTrap.hpp"
 
-        ClapTrap HeroClapTrap("HeroClapTrap");
-        ClapTrap Bandit("Bandit");
+int main(void) {
+  {
+    std::cout << "--------------------------------------" << std::endl;
+    std::cout << "Testing ClapTrap Class with 10 attacks" << std::endl;
+    std::cout << "--------------------------------------" << std::endl;
 
-        std::cout << HeroClapTrap << std::endl;
-        std::cout << Bandit << std::endl;
+    ClapTrap HeroClapTrap("HeroClapTrap");
+    ClapTrap Bandit("Bandit");
 
-        for (int i = 0; i < 10; i++)
-        {
-            HeroClapTrap.attack("Bandit");
-            Bandit.takeDamage(HeroClapTrap.getAttackDamage());
-        }
+    assert(Bandit.getName() == "Bandit");
 
-        std::cout << HeroClapTrap << std::endl;
-        std::cout << Bandit << std::endl;
+    std::cout << HeroClapTrap << std::endl;
+    std::cout << Bandit << std::endl;
+
+    for (int i = 0; i < 10; i++) {
+      HeroClapTrap.attack("Bandit");
+      Bandit.takeDamage(HeroClapTrap.getAttackDamage());
     }
 
-    {
-        std::cout << "--------------------------------------" << std::endl;
-        std::cout << "Testing ClapTrap Class with 11 attacks" << std::endl;
-        std::cout << "--------------------------------------" << std::endl;
+    std::cout << HeroClapTrap << std::endl;
+    std::cout << Bandit << std::endl;
+  }
 
-        ClapTrap HeroClapTrap("HeroClapTrap");
-        ClapTrap Bandit("Bandit");
+  {
+    std::cout << "--------------------------------------" << std::endl;
+    std::cout << "Testing ClapTrap Class with 11 attacks" << std::endl;
+    std::cout << "--------------------------------------" << std::endl;
 
-        std::cout << HeroClapTrap << std::endl;
-        std::cout << Bandit << std::endl;
+    ClapTrap HeroClapTrap("HeroClapTrap");
+    ClapTrap Bandit("Bandit");
 
-        for (int i = 0; i < 11; i++)
-        {
-            HeroClapTrap.attack("Bandit");
-            Bandit.takeDamage(HeroClapTrap.getAttackDamage());
-        }
+    std::cout << HeroClapTrap << std::endl;
+    std::cout << Bandit << std::endl;
 
-        std::cout << HeroClapTrap << std::endl;
-        std::cout << Bandit << std::endl;
+    for (int i = 0; i < 11; i++) {
+      HeroClapTrap.attack("Bandit");
+      Bandit.takeDamage(HeroClapTrap.getAttackDamage());
     }
-    return EXIT_SUCCESS;
+
+    std::cout << HeroClapTrap << std::endl;
+    std::cout << Bandit << std::endl;
+  }
+  return EXIT_SUCCESS;
 }
