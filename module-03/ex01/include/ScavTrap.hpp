@@ -22,3 +22,5 @@ class ScavTrap : public ClapTrap {
  private:
   State state;
 };
+
+std::ostream &operator<<(std::ostream &out, const ScavTrap &trap);

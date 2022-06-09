@@ -18,7 +18,6 @@ ClapTrap::ClapTrap(const ClapTrap &trap)
   std::cout << "-> (ClapTrap) Copy constructor for " << this->name << " is called" << std::endl;
 }
 
-// Why does this compile?
 ClapTrap &ClapTrap::operator=(const ClapTrap &trap) {
   this->name          = trap.name;
   this->hit_points    = trap.hit_points;

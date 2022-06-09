@@ -31,7 +31,20 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &trap) {
   return *this;
 }
 
-void ScavTrap::guardGate() {
-  this->state = GATE_KEEPING_MODE;
-  std::cout << "ScavTrap " << this->name << " is guarding the gate" << std::endl;
+ScavTrap::State ScavTrap::getState() const { return this->state; }
+
+void  ScavTrap::guardGate() {
+   this->state = GATE_KEEPING_MODE;
+   std::cout << "ScavTrap " << this->name << " is guarding the gate" << std::endl;
+}
+
+std::ostream &operator<<(std::ostream &out, const ScavTrap &trap) {
+  const std::string states[] = { "IDLE", "GATE_KEEPING_MODE" };
+  out << "ScavTrap (";
+  out << "name:" << trap.getName() << " ";
+  out << "hit_points:" << trap.getHitPoints() << " ";
+  out << "energy_points:" << trap.getEnergyPoints() << " ";
+  out << "attack_damage:" << trap.getAttackDamage() << " ";
+  out << "state: " << states[trap.getState()] << ")";
+  return out;
 }
