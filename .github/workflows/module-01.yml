@@ -1,4 +1,4 @@
-name: macOS/Ubuntu CI cpp-module-01
+name: macOS/Ubuntu build cpp-module-01
 
 on:
   push:
