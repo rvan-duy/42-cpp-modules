@@ -50,7 +50,6 @@ int main(void) {
 
     hero.guardGate();
     assert(hero.getState() == ScavTrap::GATE_KEEPING_MODE);
-    assert(1 == 0); // this test should fail
 
     std::cout << hero << std::endl;
   }
