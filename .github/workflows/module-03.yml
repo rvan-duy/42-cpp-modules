@@ -1,4 +1,4 @@
-name: macOS/Ubuntu CI cpp-module-03
+name: macOS/Ubuntu build and test cpp-module-03
 
 on:
   push:
@@ -19,6 +19,10 @@ jobs:
       run:  make -C module-03/ex00
     - name: ex00 test
       run:  make test -C module-03/ex00
+    - name: ex01 build
+      run:  make -C module-03/ex01
+    - name: ex01 test
+      run:  make test -C module-03/ex01
 
   macos_build_and_test:
 
@@ -30,3 +34,7 @@ jobs:
       run:  make -C module-03/ex00
     - name: ex00 test
       run:  make test -C module-03/ex00
+    - name: ex01 build
+      run:  make -C module-03/ex01
+    - name: ex01 test
+      run:  make test -C module-03/ex01

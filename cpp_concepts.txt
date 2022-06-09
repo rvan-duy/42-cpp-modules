@@ -36,6 +36,11 @@ Classes:
     Const methods inside classes:
         - Basically means a method should not be changing the state of an object
 
+    Inheritance:
+        - Why? To reuse functionality and a fast implementation time, it's also easier to create and maintain
+        - The existing class is the base class, and the new class the derived class
+        - The logic is as follows: the derived class is a existing class (IS-A logic)
+
 Stdio streams:
     - Streams are an abstraction that represent a device on which input and output operations are performed
         A stream basically represents a source or destination of characters of indefinite length
