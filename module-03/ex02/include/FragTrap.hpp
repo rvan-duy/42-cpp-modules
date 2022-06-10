@@ -1,6 +1,9 @@
+#ifndef MODULE_03_FRAGTRAP_HPP
+#define MODULE_03_FRAGTRAP_HPP
+
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap {
+class FragTrap : public virtual ClapTrap {
  public:
   FragTrap();                                 // Default Constructor
   FragTrap(const std::string &name);          // Constructor with name
@@ -11,3 +14,5 @@ class FragTrap : public ClapTrap {
   // Methods
   void highFiveGuys();
 };
+
+#endif // MODULE_03_FRAGTRAP_HPP

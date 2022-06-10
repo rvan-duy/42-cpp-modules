@@ -1,6 +1,9 @@
+#ifndef MODULE_03_SCAVTRAP_HPP
+#define MODULE_03_SCAVTRAP_HPP
+
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : public virtual ClapTrap {
  public:
   enum State {
     IDLE,
@@ -24,3 +27,5 @@ class ScavTrap : public ClapTrap {
 };
 
 std::ostream &operator<<(std::ostream &out, const ScavTrap &trap);
+
+#endif // MODULE_03_SCAVTRAP_HPP

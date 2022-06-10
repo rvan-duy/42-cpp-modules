@@ -1,3 +1,6 @@
+#ifndef MODULE_03_CLAPTRAP_HPP
+#define MODULE_03_CLAPTRAP_HPP
+
 #include <iostream>
 #include <string>
 
@@ -20,7 +23,7 @@ class ClapTrap {
   void takeDamage(unsigned int amount);
   void beRepaired(unsigned int amount);
 
- private:
+ protected:
   std::string  name;
   unsigned int hit_points;
   unsigned int energy_points;
@@ -28,3 +31,5 @@ class ClapTrap {
 };
 
 std::ostream &operator<<(std::ostream &out, const ClapTrap &trap);
+
+#endif // MODULE_03_CLAPTRAP_HPP
