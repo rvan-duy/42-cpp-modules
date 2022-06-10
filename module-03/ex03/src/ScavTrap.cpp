@@ -1,13 +1,13 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap::ClapTrap(), state(IDLE) {
+ScavTrap::ScavTrap() : ClapTrap(), state(IDLE) {
   this->hit_points    = 100;
   this->energy_points = 50;
   this->attack_damage = 20;
   std::cout << "-> (ScavTrap) Default constructor for nameless ScavTrap is called" << std::endl;
 };
 
-ScavTrap::ScavTrap(const std::string &name) : ClapTrap::ClapTrap(name), state(IDLE) {
+ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name), state(IDLE) {
   this->hit_points    = 100;
   this->energy_points = 50;
   this->attack_damage = 20;
@@ -16,7 +16,7 @@ ScavTrap::ScavTrap(const std::string &name) : ClapTrap::ClapTrap(name), state(ID
 
 ScavTrap::~ScavTrap() { std::cout << "-> (ScavTrap) Deconstructor for " << this->name << " is called" << std::endl; };
 
-ScavTrap::ScavTrap(const ScavTrap &trap) : ClapTrap::ClapTrap(trap) {
+ScavTrap::ScavTrap(const ScavTrap &trap) : ClapTrap(trap) {
   this->state = trap.state;
   std::cout << "-> (ScavTrap) Copy constructor for " << this->name << " is called" << std::endl;
 }

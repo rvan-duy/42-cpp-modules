@@ -1,3 +1,6 @@
+#ifndef MODULE_03_DIAMONDTRAP_HPP
+#define MODULE_03_DIAMONDTRAP_HPP
+
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
@@ -12,6 +15,13 @@ class DiamondTrap : public ScavTrap, public FragTrap {
   // Getters
   std::string getName() const;
 
+  // Methods
+  void whoAmI() const;
+
  private:
   std::string name;
 };
+
+std::ostream &operator<<(std::ostream &out, const DiamondTrap &trap);
+
+#endif  // MODULE_03_DIAMONDTRAP_HPP
