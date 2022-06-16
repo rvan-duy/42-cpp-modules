@@ -16,5 +16,9 @@ int main(void) {
   j->makeSound();
   i->makeSound();
 
+  delete meta;
+  delete j;
+  delete i;
+
   return EXIT_SUCCESS;
 }
