@@ -20,7 +20,7 @@ jobs:
     - name: ex00 test
       run:  make test -C module-04/ex00
     - name: ex00 unit_test
-      run:  make TESTS=1 && ./Polymorphism
+      run:  make TESTS=1 -C module-04/ex00 && ./module-04/ex00/Polymorphism
 
   macos_build_and_test:
 
