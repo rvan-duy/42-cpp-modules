@@ -8,7 +8,7 @@ Dog::Dog() {
 
 Dog::~Dog() { std::cout << "-> (Dog) Destructor for Dog is called" << std::endl; };
 
-Dog::Dog(const Dog &dog) {
+Dog::Dog(const Dog &dog) : Animal(dog) {
   this->type = dog.type;
   std::cout << "-> (Dog) Copy assignment constructor for Dog is called" << std::endl;
 };
