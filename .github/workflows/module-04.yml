@@ -28,7 +28,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: ex00
+    - name: ex00 build
       run:  make -C module-04/ex00
     - name: ex00 test
       run:  make test -C module-04/ex00
+    - name: ex00 unit_test
+      run:  make TESTS=1 && ./Polymorphism
