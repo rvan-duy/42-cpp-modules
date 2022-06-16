@@ -1,0 +1,36 @@
+name: macOS/Ubuntu build and test cpp-module-04
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    branches: [ main ]
+
+jobs:
+  ubuntu_build_and_test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: ex00 build
+      run:  make -C module-04/ex00
+    - name: ex00 test
+      run:  make test -C module-04/ex00
+    - name: ex00 unit_test
+      run:  make TESTS=1 -C module-04/ex00 && ./module-04/ex00/Polymorphism
+
+  macos_build_and_test:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: ex00 build
+      run:  make -C module-04/ex00
+    - name: ex00 test
+      run:  make test -C module-04/ex00
+    - name: ex00 unit_test
+      run:  make TESTS=1 -C module-04/ex00 && ./module-04/ex00/Polymorphism

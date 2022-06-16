@@ -41,6 +41,15 @@ Classes:
         - The existing class is the base class, and the new class the derived class
         - The logic is as follows: the derived class is a existing class (IS-A logic)
 
+    Polymorphism:
+        - A class that declares or inherits a virtual function is called a polymorphic class.
+        - There are two types of Polymorphism:
+            1. Compile time Polymorphism
+                - Function overloading
+                - Operator overloading
+            2. Runtime Polymorphism
+                - Function overriding (virtual keyword)
+
 Stdio streams:
     - Streams are an abstraction that represent a device on which input and output operations are performed
         A stream basically represents a source or destination of characters of indefinite length
@@ -101,7 +110,7 @@ of floating point numbers is more complicated than integers.
 How floating points are represented (IEEE-754 standard):
     - first bit is sign telling whether the number is positive or negative
     - second byte is the exponent of the number
-    - third and fourth bytes are the mantissa (or significand)
+    - third and fourth bytes are the mantissa (or significant)
         - 2 ^ exponent
 
 ##################################################################################################################
