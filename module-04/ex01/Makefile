@@ -1,0 +1,71 @@
+NAME			:= i_dont_want_to_set_the_world_on_fire
+CC				:= g++ -std=c++98
+CFLAGS			:= -Wall -Wextra -Werror -g
+
+################################################################################
+
+ifdef ADDRESS
+CFLAGS			+= -fsanitize=address -g3
+endif
+ifdef NO_FLAGS
+CFLAGS			:= 
+endif
+
+################################################################################
+
+HEADERS 		:= include/Animal.hpp include/Dog.hpp include/Cat.hpp include/Brain.hpp
+
+INCLUDE_FLAGS 	:= $(addprefix -I, $(sort $(dir $(HEADERS))))
+
+SOURCES			:= src/Animal.cpp src/Dog.cpp src/Cat.cpp src/Brain.cpp
+
+################################################################################
+
+ifdef TESTS
+CFLAGS			+= 
+HEADERS			+= tests/catch.hpp
+SOURCES			+= tests/catch-runner.cpp tests/test_type.cpp
+else
+SOURCES			+= src/main.cpp
+endif
+
+################################################################################
+
+BOLD 			:= \e[1m
+RESET 			:= \e[0m
+LIGHT_GREEN 	:= \e[92m
+LIGHT_CYAN 		:= \e[96m
+
+OBJECTS_DIR		:= obj
+OBJECTS			:= $(SOURCES:src/%.c=$(OBJECTS_DIR)/%.o)
+
+################################################################################
+
+all: $(NAME)
+
+obj/%.o: src/%.c $(HEADERS)
+	@mkdir -p $(@D)
+	@printf "$(LIGHT_CYAN)$(BOLD)make$(RESET)   [$(LIGHT_GREEN)$(NAME)$(RESET)] : "
+	@$(CC) $(CFLAGS) $(INCLUDE_FLAGS) -c $< -o $@
+
+$(NAME): $(OBJECTS)
+	@$(CC) $(CFLAGS) $(OBJECTS) $(INCLUDE_FLAGS) -o $(NAME)
+	@printf "$(LIGHT_CYAN)$(BOLD)make$(RESET)   [$(LIGHT_GREEN)$(NAME)$(RESET)] : "
+	@printf "$(NAME) created\n"
+
+test: $(NAME)
+	./$(NAME)
+
+clean:
+	@printf "$(LIGHT_CYAN)$(BOLD)clean$(RESET)  [$(LIGHT_GREEN)$(NAME)$(RESET)] : "
+	/bin/rm -rf obj
+
+fclean: clean
+	@printf "$(LIGHT_CYAN)$(BOLD)fclean$(RESET) [$(LIGHT_GREEN)$(NAME)$(RESET)] : "
+	/bin/rm -rf $(NAME) $(NAME).dSYM
+
+re: fclean all
+
+.PHONY: all clean fclean re
+
+################################################################################
