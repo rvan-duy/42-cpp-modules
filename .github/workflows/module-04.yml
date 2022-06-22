@@ -36,11 +36,11 @@ jobs:
     - name: ex01 unit_test
       run:  make TESTS=1 -C $EX01_DIR && ./$EX01_EXE && make fclean -C $EX01_DIR
     - name: ex02 build
-      run:  make -C $EX01_DIR && make fclean -C $EX01_DIR
+      run:  make -C $EX02_DIR && make fclean -C $EX02_DIR
     - name: ex02 test
-      run:  make test -C $EX01_DIR && make fclean -C $EX01_DIR
+      run:  make test -C $EX02_DIR && make fclean -C $EX02_DIR
     - name: ex02 unit_test
-      run:  make TESTS=1 -C $EX01_DIR && ./$EX01_EXE && make fclean -C $EX01_DIR
+      run:  make TESTS=1 -C $EX02_DIR && ./$EX02_EXE && make fclean -C $EX02_DIR
 
   macos_build_and_test:
 
