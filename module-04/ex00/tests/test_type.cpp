@@ -30,7 +30,7 @@ SCENARIO("Initializing Animal class and testing methods", "[Animal Class]") {
   };
   GIVEN("Cat Class (Derived from Animal)") {
     WHEN("Cat Class is an Animal") {
-      Cat* cat = new cat();
+      Cat* cat = new Cat();
       THEN("Cat Type is a Dog") { REQUIRE(cat->getType() == "Cat"); };
       delete cat;
     };
