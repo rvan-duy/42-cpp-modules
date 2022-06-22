@@ -13,6 +13,8 @@ env:
   EX00_EXE: module-04/ex00/Polymorphism
   EX01_DIR: module-04/ex01
   EX01_EXE: module-04/ex01/i_dont_want_to_set_the_world_on_fire
+  EX02_DIR: module-04/ex02
+  EX02_EXE: module-04/ex02/abstract_class
 
 jobs:
   ubuntu_build_and_test:
@@ -33,6 +35,10 @@ jobs:
       run:  make test -C $EX01_DIR && make fclean -C $EX01_DIR
     - name: ex01 unit_test
       run:  make TESTS=1 -C $EX01_DIR && ./$EX01_EXE && make fclean -C $EX01_DIR
+    - name: ex02 build
+      run:  make -C $EX02_DIR && make fclean -C $EX02_DIR
+    - name: ex02 test
+      run:  make test -C $EX02_DIR && make fclean -C $EX02_DIR
 
   macos_build_and_test:
 
@@ -52,3 +58,7 @@ jobs:
       run:  make test -C $EX01_DIR && make fclean -C $EX01_DIR
     - name: ex01 unit_test
       run:  make TESTS=1 -C $EX01_DIR && ./$EX01_EXE && make fclean -C $EX01_DIR
+    - name: ex02 build
+      run:  make -C $EX02_DIR && make fclean -C $EX02_DIR
+    - name: ex02 test
+      run:  make test -C $EX02_DIR && make fclean -C $EX02_DIR
