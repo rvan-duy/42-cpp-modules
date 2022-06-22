@@ -9,6 +9,9 @@ on:
     branches: [ main ]
 
 jobs:
+  env:
+    EX00: module-04/ex00
+
   ubuntu_build_and_test:
 
     runs-on: ubuntu-latest
@@ -16,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: ex00 build
-      run:  make -C module-04/ex00 && make fclean -C module-04/ex00
+      run:  make -C $EX00 && make fclean -C module-04/ex00
     - name: ex00 test
       run:  make test -C module-04/ex00 && make fclean -C module-04/ex00
     - name: ex00 unit_test
