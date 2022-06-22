@@ -37,7 +37,7 @@ jobs:
   macos_build_and_test:
 
     runs-on: macos-latest
-    
+
     steps:
     - uses: actions/checkout@v2
     - name: ex00 build
