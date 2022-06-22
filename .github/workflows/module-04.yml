@@ -9,12 +9,12 @@ on:
     branches: [ main ]
 
 jobs:
-  env:
-    EX00: module-04/ex00
-
   ubuntu_build_and_test:
 
     runs-on: ubuntu-latest
+    
+    env:
+      EX00: module-04/ex00
 
     steps:
     - uses: actions/checkout@v2
