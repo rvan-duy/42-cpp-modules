@@ -16,17 +16,17 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: ex00 build
-      run:  make -C module-04/ex00
+      run:  make -C module-04/ex00 && make fclean -C module-04/ex00
     - name: ex00 test
-      run:  make test -C module-04/ex00
+      run:  make test -C module-04/ex00 && make fclean -C module-04/ex00
     - name: ex00 unit_test
-      run:  make TESTS=1 -C module-04/ex00 && ./module-04/ex00/Polymorphism
+      run:  make TESTS=1 -C module-04/ex00 && ./module-04/ex00/Polymorphism && make fclean -C module-04/ex00
     - name: ex01 build
-      run:  make -C module-04/ex01
+      run:  make -C module-04/ex01 && make fclean -C module-04/ex01
     - name: ex01 test
-      run:  make test -C module-04/ex01
+      run:  make test -C module-04/ex01 && make fclean -C module-04/ex01
     - name: ex01 unit_test
-      run:  make TESTS=1 -C module-04/ex01 && ./module-04/ex01/i_dont_want_to_set_the_world_on_fire
+      run:  make TESTS=1 -C module-04/ex01 && ./module-04/ex01/i_dont_want_to_set_the_world_on_fire && make fclean -C module-04/ex01
 
   macos_build_and_test:
 
@@ -35,14 +35,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: ex00 build
-      run:  make -C module-04/ex00
+      run:  make -C module-04/ex00 && make fclean -C module-04/ex00
     - name: ex00 test
-      run:  make test -C module-04/ex00
+      run:  make test -C module-04/ex00 && make fclean -C module-04/ex00
     - name: ex00 unit_test
-      run:  make TESTS=1 -C module-04/ex00 && ./module-04/ex00/Polymorphism
+      run:  make TESTS=1 -C module-04/ex00 && ./module-04/ex00/Polymorphism && make fclean -C module-04/ex00
     - name: ex01 build
-      run:  make -C module-04/ex01
+      run:  make -C module-04/ex01 && make fclean -C module-04/ex01
     - name: ex01 test
-      run:  make test -C module-04/ex01
+      run:  make test -C module-04/ex01 && make fclean -C module-04/ex01
     - name: ex01 unit_test
-      run:  make TESTS=1 -C module-04/ex01 && ./module-04/ex01/i_dont_want_to_set_the_world_on_fire
+      run:  make TESTS=1 -C module-04/ex01 && ./module-04/ex01/i_dont_want_to_set_the_world_on_fire && make fclean -C module-04/ex01
