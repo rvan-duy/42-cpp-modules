@@ -1,4 +1,4 @@
-name: macOS/Ubuntu build cpp-module-00
+name: macOS/Ubuntu build and test cpp-module-00
 
 on:
   push:
@@ -8,29 +8,49 @@ on:
   workflow_dispatch:
     branches: [ main ]
 
+env:
+  EX00_DIR: module-00/ex00
+  EX00_EXE: module-00/ex00/megaphone
+  EX01_DIR: module-00/ex01
+  EX01_EXE: module-00/ex01/phonebook
+  EX02_DIR: module-00/ex02
+  EX02_EXE: module-00/ex02/account
+
 jobs:
-  ubuntu_compile_check:
+  ubuntu_build_and_test:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: ex00
-      run:  make -C module-00/ex00
-    - name: ex01
-      run:  make -C module-00/ex01
-    - name: ex02
-      run:  make -C module-00/ex02
+    - name: ex00 build
+      run:  make -C $EX00_DIR && make fclean -C $EX00_DIR
+    - name: ex00 test
+      run:  make test -C $EX00_DIR && make fclean -C $EX00_DIR
+    - name: ex01 build
+      run:  make -C $EX01_DIR && make fclean -C $EX01_DIR
+    - name: ex01 test
+      run:  make test -C $EX01_DIR && make fclean -C $EX01_DIR
+    - name: ex02 build
+      run:  make -C $EX02_DIR && make fclean -C $EX02_DIR
+    - name: ex02 test
+      run:  make test -C $EX02_DIR && make fclean -C $EX02_DIR
 
-  macos_compile_check:
+  macos_build_and_test:
 
     runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: ex00
-      run:  make -C module-00/ex00
-    - name: ex01
-      run:  make -C module-00/ex01
-    - name: ex02
-      run:  make -C module-00/ex02
+    - name: ex00 build
+      run:  make -C $EX00_DIR && make fclean -C $EX00_DIR
+    - name: ex00 test
+      run:  make test -C $EX00_DIR && make fclean -C $EX00_DIR
+    - name: ex01 build
+      run:  make -C $EX01_DIR && make fclean -C $EX01_DIR
+    - name: ex01 test
+      run:  make test -C $EX01_DIR && make fclean -C $EX01_DIR
+    - name: ex02 build
+      run:  make -C $EX02_DIR && make fclean -C $EX02_DIR
+    - name: ex02 test
+      run:  make test -C $EX02_DIR && make fclean -C $EX02_DIR
