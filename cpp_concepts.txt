@@ -49,6 +49,11 @@ Classes:
                 - Operator overloading
             2. Runtime Polymorphism
                 - Function overriding (virtual keyword)
+    
+    Abstract Classes & Templates:
+        - An abstract class is an a class that has uninitialized methods or attributes
+        - This class can be used as a base class
+        - An Template is basically an (pure) abstract class, a class that has no data or concrete member functions
 
 Stdio streams:
     - Streams are an abstraction that represent a device on which input and output operations are performed
