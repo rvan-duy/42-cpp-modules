@@ -4,16 +4,22 @@
 #include <string>
 
 class AMateria {
- protected:
-  std::string type;
-
  public:
-  AMateria(std::string const& type);
+  AMateria();                                    // Default constructor
+  AMateria(std::string const& type);             // Constructor with type
+  ~AMateria();                                   // Destructor
+  AMateria(const AMateria& materia);             // Copy constructor
+  AMateria& operator=(const AMateria& materia);  // Copy assignment operator
 
+  // Getters
   std::string const* getType() const;
 
-  virtual AMateria*  clone() const = 0;
-  virtual void       use(ICharacter& target);
+  // Methods
+  virtual AMateria* clone() const = 0;
+  virtual void      use(ICharacter& target);
+
+ protected:
+  std::string type;
 };
 
 #endif  // MODULE_04_AMATERIA_HPP
