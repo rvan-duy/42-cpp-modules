@@ -18,12 +18,7 @@ Cure &Cure::operator=(const Cure &cure) {
   return *this;
 };
 
-// Clones the cure and returns it
-Cure *Cure::clone() {
-  Cure new_cure;
-
-  return &new_cure;
+// Allocates new object with this as content
+Cure *Cure::clone() const {
+  return new Cure(*this);
 };
-
-// probably replace with getname func
-void Cure::use(ICharacter &target) { std::cout << "* heals " << target.name << "'s wounds *" << std::endl; };

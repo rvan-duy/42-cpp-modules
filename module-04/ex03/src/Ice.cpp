@@ -18,12 +18,7 @@ Ice &Ice::operator=(const Ice &ice) {
   return *this;
 };
 
-// Clones the ice and returns it
-Ice *Ice::clone() {
-  Ice new_ice;
-
-  return &new_ice;
+// Allocates new object with this as content
+Ice *Ice::clone() const {
+  return new Ice(*this);
 };
-
-// probably replace with getname func
-void Ice::use(ICharacter &target) { std::cout << "* shoots an ice bolt at " << target.name << " *" << std::endl; };

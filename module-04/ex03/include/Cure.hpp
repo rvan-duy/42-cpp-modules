@@ -6,13 +6,12 @@
 class Cure : public AMateria {
  public:
   Cure();                             // Default constructor
-  ~Cure();                            // Destructor
+  virtual ~Cure();                    // Destructor
   Cure(const Cure &cure);             // Copy constructor
   Cure &operator=(const Cure &cure);  // Copy assignment operator
 
   // Methods
   Cure *clone() const;
-  void  use(ICharacter &target);
 };
 
 #endif  // MODULE_04_CURE_HPP

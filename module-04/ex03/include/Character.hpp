@@ -13,14 +13,27 @@
 //      - if it doesn't exist nothing should happen
 //      - unequip() must NOT delete anything
 
-class Character : public ICharacter {rm 
+class Character : public ICharacter {
  public:
   Character();                                       // Default constructor
-  ~Character(){};                                    // Destructor
+  Character(const std::string& name);                // Constructor with name
+  ~Character();                                      // Destructor
   Character(const Character& character);             // Copy constructor
   Character& operator=(const Character& character);  // Copy assignment operator
+
+  // Getters
+  std::string const& getName() const;         // Name of character
+  AMateria*          getItem(int idx) const;  // Address of item on given index
+
+  // Methods
+  void equip(AMateria* m);
+  void unequip(int idx);
+  void use(int idx, ICharacter& target);
+
  private:
-  AMateria[4] inventory;
+  std::string      name;
+  const static int inventory_limit = 4;
+  AMateria*        inventory[inventory_limit];
 };
 
 #endif  // MODULE_04_CHARACTER_HPP

@@ -13,15 +13,20 @@ AMateria::~AMateria() { std::cout << "-> (AMateria) Destructor for AMateria is c
 
 // Nothing is copied
 AMateria::AMateria(const AMateria& material) {
+  (void)material;
   std::cout << "-> (AMateria) Copy constructor for AMateria is called" << std::endl;
 };
 
 // Nothing is copied
-AMateria::AMateria& operator=(const AMateria& materia) {
+AMateria &AMateria::operator=(const AMateria& materia) {
+  (void)materia;
   std::cout << "(AMateria) Copy assignment operator for AMateria is called" << std::endl;
   return *this;
 };
 
-std::string const* AMateria::getType() const { return this->type; };
+std::string const& AMateria::getType() const { return this->type; };
 
-void AMateria::use(ICharacter& target) { std::err << "If this shows, something goes horribly wrong" << std::endl; };
+void AMateria::use(ICharacter& target) {
+  std::cerr << "If this shows, something goes horribly wrong" << std::endl;
+   (void)target;
+};
