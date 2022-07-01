@@ -14,18 +14,39 @@ Character::Character(const std::string& name) : name(name) {
   std::cout << "-> (Character) Constructor with name for Character is called" << std::endl;
 };
 
-Character::~Character() { std::cout << "-> (Character) Destructor for Character is called" << std::endl; };
+// Materias must be deleted when character is destroyed
+Character::~Character() { 
+  for (std::size_t i = 0; i < inventory_limit; i++) {
+    if (this->inventory[i] != NULL) {
+      delete this->inventory[i];
+      this->inventory[i] = NULL;
+    }
+  }
+  std::cout << "-> (Character) Destructor for Character is called" << std::endl;
+};
 
 Character::Character(const Character& character) {
   for (std::size_t i = 0; i < inventory_limit; i++) {
-    this->inventory[i] = character.inventory[i];
+    if (character.inventory[i] != NULL) {
+      if (character.inventory[i]->getType() == "ice")
+        this->inventory[i] = new Ice;
+      else if (character.inventory[i]->getType() == "cure")
+        this->inventory[i] = new Cure;
+      *this->inventory[i] = *(character.inventory[i]);
+    };
   };
   std::cout << "-> (Character) Copy constructor for Character is called" << std::endl;
 };
 
 Character& Character::operator=(const Character& character) {
   for (std::size_t i = 0; i < inventory_limit; i++) {
-    this->inventory[i] = character.inventory[i];
+    if (character.inventory[i] != NULL) {
+      if (character.inventory[i]->getType() == "ice")
+        this->inventory[i] = new Ice;
+      else if (character.inventory[i]->getType() == "cure")
+        this->inventory[i] = new Cure;
+      *this->inventory[i] = *(character.inventory[i]);
+    };
   };
   std::cout << "(Character) Copy assignment operator for Character is called" << std::endl;
   return *this;
@@ -73,7 +94,13 @@ void Character::unequip(int idx) {
 // 3. Maybe more checks? is target alive?
 // 4. Use the item
 void Character::use(int idx, ICharacter& target) {
-  std::cout << "TODO: implement use method" << std::endl;
-  (void)idx;
-  (void)target;
+  if (idx < 0 || idx >= this->inventory_limit) {
+    std::cout << "(" << this->name << " - use) index is out of bound (" << idx << ")" << std::endl;
+    return;
+  };
+  if (this->inventory[idx] == NULL) {
+    std::cout << "(" << this->name << " - use) there is nothing to use (" << idx << ")" << std::endl;
+    return;
+  };
+  this->inventory[idx]->use(target);
 };

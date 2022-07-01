@@ -12,6 +12,14 @@ int  main(void) {
    {
       Character * hero = new Character("Ruben");
 
+      AMateria * ice = new Ice();
+      AMateria * cure = new Cure();
+
+      ice->use(*hero);
+      cure->use(*hero);
+
+      delete ice;
+      delete cure;
       delete hero;
    }
 

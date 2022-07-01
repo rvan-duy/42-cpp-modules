@@ -10,7 +10,7 @@ class Cat : public Animal {
   Cat(const Cat &cat);             // Copy Constructor
   Cat &operator=(const Cat &cat);  // Copy assignment operator
 
-  void makeSound() const ;
+  void makeSound() const;
 };
 
 #endif  // MODULE_04_CAT_HPP

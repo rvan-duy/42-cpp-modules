@@ -90,6 +90,56 @@ SCENARIO("Initializing Character + AMateria classes and testing methods", "[Clas
       delete item_6;
       delete hero;
     };
+    WHEN("Character Class is copied") {
+      Character hero("Hero");
+      AMateria* item_1 = new Ice();
+      AMateria* item_2 = new Cure();
+      hero.equip(item_1);
+      hero.equip(item_2);
+      Character copied_hero;
+      copied_hero = hero;
+      THEN("The inventory of the character is deep copied") {
+        REQUIRE(&hero != &copied_hero);
+        REQUIRE(hero.getItem(0) != copied_hero.getItem(0));
+        REQUIRE(hero.getItem(1) != copied_hero.getItem(1));
+      };
+      delete item_1;
+      delete item_2;
+    };
+    WHEN("Character Class is copied and overwritten") {
+      Character hero("Hero");
+      Character villain("Villain");
+      AMateria* item_1 = new Ice();
+      AMateria* item_2 = new Cure();
+      AMateria* item_3 = new Cure();
+      AMateria* item_4 = new Ice();
+      hero.equip(item_1);
+      hero.equip(item_2);
+      villain.equip(item_3);
+      villain.equip(item_4);
+      villain = hero;
+      THEN("The inventory of the character is deep copied") {
+        REQUIRE(&hero != &villain);
+        REQUIRE(hero.getItem(0) != villain.getItem(0));
+        REQUIRE(hero.getItem(1) != villain.getItem(1));
+      };
+      delete item_1;
+      delete item_2;
+      delete item_3;
+      delete item_4;
+    };
+    WHEN("Character Class is deleted") {
+      Character* hero   = new Character("Hero");
+      AMateria*  item_1 = new Ice();
+      AMateria*  item_2 = new Cure();
+      hero->equip(item_1);
+      hero->equip(item_2);
+      delete hero;
+      THEN("Equipment is deleted") {
+        REQUIRE(item_1 == NULL);
+        REQUIRE(item_2 == NULL);
+      };
+    };
   };
   GIVEN("Ice Class") {
     WHEN("Ice Class is initialized") {
@@ -98,7 +148,7 @@ SCENARIO("Initializing Character + AMateria classes and testing methods", "[Clas
       delete ice;
     };
     WHEN("Ice Class is cloned") {
-      AMateria* ice = new Ice();
+      AMateria* ice        = new Ice();
       AMateria* cloned_ice = ice->clone();
       THEN("cloned_ice is not NULL") { REQUIRE(cloned_ice != NULL); };
       THEN("ice is not the same address as cloned_ice") { REQUIRE(ice != cloned_ice); };
@@ -114,7 +164,7 @@ SCENARIO("Initializing Character + AMateria classes and testing methods", "[Clas
       delete cure;
     };
     WHEN("Cure Class is cloned") {
-      AMateria* cure = new Cure();
+      AMateria* cure        = new Cure();
       AMateria* cloned_cure = cure->clone();
       THEN("cloned_cure is not NULL") { REQUIRE(cloned_cure != NULL); };
       THEN("cure is not the same address as cloned_cure") { REQUIRE(cure != cloned_cure); };

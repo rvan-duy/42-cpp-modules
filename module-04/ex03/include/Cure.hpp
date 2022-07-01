@@ -12,6 +12,7 @@ class Cure : public AMateria {
 
   // Methods
   Cure *clone() const;
+  void  use(ICharacter &target);
 };
 
 #endif  // MODULE_04_CURE_HPP

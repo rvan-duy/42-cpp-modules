@@ -12,6 +12,7 @@ class Ice : public AMateria {
 
   // Methods
   Ice *clone() const;
+  void use(ICharacter &target);
 };
 
 #endif  // MODULE_04_ICE_HPP
