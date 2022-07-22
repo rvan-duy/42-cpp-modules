@@ -1,7 +1,7 @@
 #include "Contact.hpp"
 
 // Default constructor
-Contact::Contact() { }
+Contact::Contact() {}
 
 // Getters
 std::string Contact::getFirstName() { return this->_firstname; }
