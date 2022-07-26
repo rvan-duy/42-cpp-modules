@@ -17,14 +17,17 @@ HEADERS 		:=	include/ICharacter.hpp \
 					include/Character.hpp \
 					include/AMateria.hpp \
 					include/Cure.hpp \
-					include/Ice.hpp
+					include/Ice.hpp \
+					include/IMateriaSource.hpp \
+					include/MateriaSource.hpp
 
 INCLUDE_FLAGS 	:= $(addprefix -I, $(sort $(dir $(HEADERS))))
 
 SOURCES			:=	src/AMateria.cpp \
 					src/Cure.cpp \
 					src/Ice.cpp \
-					src/Character.cpp
+					src/Character.cpp \
+					src/MateriaSource.cpp
 
 ################################################################################
 
