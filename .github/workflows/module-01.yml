@@ -10,19 +10,12 @@ on:
 
 env:
   EX00_DIR: module-01/ex00
-  EX00_EXE: module-01/ex00/zombie
   EX01_DIR: module-01/ex01
-  EX01_EXE: module-01/ex01/zombieHorde
   EX02_DIR: module-01/ex02
-  EX02_EXE: module-01/ex02/brain
   EX03_DIR: module-01/ex03
-  EX03_EXE: module-01/ex03/unnecessary_violence
   EX04_DIR: module-01/ex04
-  EX04_EXE: module-01/ex04/sed_is_for_losers
   EX05_DIR: module-01/ex05
-  EX05_EXE: module-01/ex05/Harl
   EX06_DIR: module-01/ex06
-  EX06_EXE: module-01/ex06/harlFilter
 
 jobs:
   ubuntu_compile_check:
@@ -33,32 +26,18 @@ jobs:
     - uses: actions/checkout@v2
     - name: ex00 build
       run:  make -C $EX00_DIR && make fclean -C $EX00_DIR
-    - name: ex00 test
-      run:  make test -C $EX00_DIR && make fclean -C $EX00_DIR
     - name: ex01 build
       run:  make -C $EX01_DIR && make fclean -C $EX01_DIR
-    - name: ex01 test
-      run:  make test -C $EX01_DIR && make fclean -C $EX01_DIR
     - name: ex02 build
       run:  make -C $EX02_DIR && make fclean -C $EX02_DIR
-    - name: ex02 test
-      run:  make test -C $EX02_DIR && make fclean -C $EX02_DIR
     - name: ex03 build
       run:  make -C $EX03_DIR && make fclean -C $EX03_DIR
-    - name: ex03 test
-      run:  make test -C $EX03_DIR && make fclean -C $EX03_DIR
     - name: ex04 build
       run:  make -C $EX04_DIR && make fclean -C $EX04_DIR
-    - name: ex04 test
-      run:  make test -C $EX04_DIR && make fclean -C $EX04_DIR
     - name: ex05 build
       run:  make -C $EX05_DIR && make fclean -C $EX05_DIR
-    - name: ex05 test
-      run:  make test -C $EX05_DIR && make fclean -C $EX05_DIR
     - name: ex06 build
       run:  make -C $EX06_DIR && make fclean -C $EX06_DIR
-    - name: ex06 test
-      run:  make test -C $EX06_DIR && make fclean -C $EX06_DIR
 
   macos_compile_check:
 
@@ -68,29 +47,15 @@ jobs:
     - uses: actions/checkout@v2
     - name: ex00 build
       run:  make -C $EX00_DIR && make fclean -C $EX00_DIR
-    - name: ex00 test
-      run:  make test -C $EX00_DIR && make fclean -C $EX00_DIR
     - name: ex01 build
       run:  make -C $EX01_DIR && make fclean -C $EX01_DIR
-    - name: ex01 test
-      run:  make test -C $EX01_DIR && make fclean -C $EX01_DIR
     - name: ex02 build
       run:  make -C $EX02_DIR && make fclean -C $EX02_DIR
-    - name: ex02 test
-      run:  make test -C $EX02_DIR && make fclean -C $EX02_DIR
     - name: ex03 build
       run:  make -C $EX03_DIR && make fclean -C $EX03_DIR
-    - name: ex03 test
-      run:  make test -C $EX03_DIR && make fclean -C $EX03_DIR
     - name: ex04 build
       run:  make -C $EX04_DIR && make fclean -C $EX04_DIR
-    - name: ex04 test
-      run:  make test -C $EX04_DIR && make fclean -C $EX04_DIR
     - name: ex05 build
       run:  make -C $EX05_DIR && make fclean -C $EX05_DIR
-    - name: ex05 test
-      run:  make test -C $EX05_DIR && make fclean -C $EX05_DIR
     - name: ex06 build
       run:  make -C $EX06_DIR && make fclean -C $EX06_DIR
-    - name: ex06 test
-      run:  make test -C $EX06_DIR && make fclean -C $EX06_DIR
