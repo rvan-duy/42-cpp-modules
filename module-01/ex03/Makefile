@@ -1,4 +1,4 @@
-NAME			:= unnecessary_voilence
+NAME			:= unnecessary_violence
 CC				:= g++ -std=c++98
 CFLAGS			:= -Wall -Wextra -Werror -g
 
