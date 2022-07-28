@@ -63,7 +63,7 @@ void Character::equip(AMateria* m) {
   for (int i = 0; i < inventory_limit; i++) {
     if (inventory[i] == NULL) {
       inventory[i] = m;
-      std::cout << this->name << " equipped " << m->getType() << std::endl;
+      std::cout << this->name << " equipped " << m->getType() << std::endl; // TODO better message
       return;
     };
   };

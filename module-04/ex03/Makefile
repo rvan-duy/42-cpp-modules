@@ -13,20 +13,20 @@ endif
 
 ################################################################################
 
-HEADERS 		:=	include/ICharacter.hpp \
+HEADERS			:=	include/AMateria.hpp \
 					include/Character.hpp \
-					include/AMateria.hpp \
 					include/Cure.hpp \
 					include/Ice.hpp \
+					include/ICharacter.hpp \
 					include/IMateriaSource.hpp \
 					include/MateriaSource.hpp
 
 INCLUDE_FLAGS 	:= $(addprefix -I, $(sort $(dir $(HEADERS))))
 
 SOURCES			:=	src/AMateria.cpp \
+					src/Character.cpp \
 					src/Cure.cpp \
 					src/Ice.cpp \
-					src/Character.cpp \
 					src/MateriaSource.cpp
 
 ################################################################################

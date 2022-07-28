@@ -17,7 +17,7 @@ class MateriaSource : public IMateriaSource {
 
  private:
   const static int inventory_limit = 4;
-  AMateria*        inventory[inventory_limit];
+  AMateria**       inventory;
 };
 
 #endif  // MODULE_04_MATERIASOURCE_HPP

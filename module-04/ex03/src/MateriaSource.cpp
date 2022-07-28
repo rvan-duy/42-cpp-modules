@@ -1,17 +1,17 @@
 #include "MateriaSource.hpp"
 
+#include <cstring>
+
 MateriaSource::MateriaSource() {
-  for (int i = 0; i < inventory_limit; i++) {
-    this->inventory[i] = NULL;
-  };
+  inventory = new AMateria*[inventory_limit]();
   std::cout << "-> (MateriaSource) Default constructor for MateriaSource is called" << std::endl;
 };
 
 MateriaSource::~MateriaSource() {
   for (int i = 0; i < inventory_limit; i++) {
-    if (this->inventory[i] != NULL) {
-      delete this->inventory[i];
-      this->inventory[i] = NULL;
+    if (inventory[i] != NULL) {
+      delete inventory[i];
+      inventory[i] = NULL;
     }
   }
   std::cout << "-> (MateriaSource) Destructor for MateriaSource is called" << std::endl;
@@ -20,8 +20,8 @@ MateriaSource::~MateriaSource() {
 MateriaSource::MateriaSource(const MateriaSource& source) {
   for (int i = 0; i < inventory_limit; i++) {
     if (source.inventory[i] != NULL) {
-      this->inventory[i]  = new AMateria();
-      *this->inventory[i] = *(source.inventory[i]);
+      inventory[i]  = *(new AMateria*());  // weird syntax
+      *inventory[i] = *(source.inventory[i]);
     };
   };
   std::cout << "-> (MateriaSource) Copy constructor for MateriaSource is called" << std::endl;
@@ -29,8 +29,8 @@ MateriaSource::MateriaSource(const MateriaSource& source) {
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& source) {
   for (int i = 0; i < inventory_limit; i++) {
-    this->inventory[i]  = new AMateria();
-    *this->inventory[i] = *(source.inventory[i]);
+    inventory[i]  = *(new AMateria*());  // weird syntax
+    *inventory[i] = *(source.inventory[i]);
   };
   std::cout << "-> (MateriaSource) Copy assignment operator for MateriaSource is called" << std::endl;
   return *this;
@@ -40,7 +40,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& source) {
 void MateriaSource::learnMateria(AMateria* m) {
   for (int i = 0; i < inventory_limit; i++) {
     if (inventory[i] == NULL) {
-      inventory[i] = new AMateria(m);
+      inventory[i] = *(new AMateria*(m));  // weird syntax
       std::cout << "MateriaSource learned " << m->getType() << std::endl;
       return;
     };
@@ -49,13 +49,13 @@ void MateriaSource::learnMateria(AMateria* m) {
 };
 
 // 1. Look for type in inventory
-// 2. if its found return a copy
+// 2. if its found return a copy with clone()
 // 3. if not return NULL
-AMateria* createMateria(std::string const& type) {
+AMateria* MateriaSource::createMateria(std::string const& type) {
   for (int i = 0; i < inventory_limit; i++) {
     if (inventory[i] != NULL) {
       if (inventory[i]->getType() == type) {
-        return new AMateria(type);
+        return inventory[i]->clone();
       };
     };
   };
