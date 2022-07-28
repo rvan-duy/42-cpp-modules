@@ -1,6 +1,7 @@
 #ifndef MODULE_04_MATERIASOURCE_HPP
 #define MODULE_04_MATERIASOURCE_HPP
 
+#include "AMateria.hpp"
 #include "IMateriaSource.hpp"
 
 class MateriaSource : public IMateriaSource {

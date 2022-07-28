@@ -1,14 +1,14 @@
 #include "Character.hpp"
 
 Character::Character() {
-  for (std::size_t i = 0; i < inventory_limit; i++) {
+  for (int i = 0; i < inventory_limit; i++) {
     this->inventory[i] = NULL;
   };
   std::cout << "-> (Character) Default constructor for Character is called" << std::endl;
 };
 
 Character::Character(const std::string& name) : name(name) {
-  for (std::size_t i = 0; i < inventory_limit; i++) {
+  for (int i = 0; i < inventory_limit; i++) {
     this->inventory[i] = NULL;
   };
   std::cout << "-> (Character) Constructor with name for Character is called" << std::endl;
@@ -16,7 +16,7 @@ Character::Character(const std::string& name) : name(name) {
 
 // Materias must be deleted when character is destroyed
 Character::~Character() { 
-  for (std::size_t i = 0; i < inventory_limit; i++) {
+  for (int i = 0; i < inventory_limit; i++) {
     if (this->inventory[i] != NULL) {
       delete this->inventory[i];
       this->inventory[i] = NULL;
@@ -26,7 +26,7 @@ Character::~Character() {
 };
 
 Character::Character(const Character& character) {
-  for (std::size_t i = 0; i < inventory_limit; i++) {
+  for (int i = 0; i < inventory_limit; i++) {
     if (character.inventory[i] != NULL) {
       if (character.inventory[i]->getType() == "ice")
         this->inventory[i] = new Ice;
@@ -39,7 +39,7 @@ Character::Character(const Character& character) {
 };
 
 Character& Character::operator=(const Character& character) {
-  for (std::size_t i = 0; i < inventory_limit; i++) {
+  for (int i = 0; i < inventory_limit; i++) {
     if (character.inventory[i] != NULL) {
       if (character.inventory[i]->getType() == "ice")
         this->inventory[i] = new Ice;
@@ -60,7 +60,7 @@ AMateria*          Character::getItem(int idx) const { return this->inventory[id
 // 1. Look for the first available spot (not NULL)
 // 2. Add it
 void Character::equip(AMateria* m) {
-  for (std::size_t i = 0; i < inventory_limit; i++) {
+  for (int i = 0; i < inventory_limit; i++) {
     if (inventory[i] == NULL) {
       inventory[i] = m;
       std::cout << this->name << " equipped " << m->getType() << std::endl;

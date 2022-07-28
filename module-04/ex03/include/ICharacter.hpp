@@ -1,8 +1,6 @@
 #ifndef MODULE_04_ICHARACTER_HPP
 #define MODULE_04_ICHARACTER_HPP
 
-#include <string>
-
 #include "AMateria.hpp"
 
 class AMateria; // Forward declaration, needed in order to compile
