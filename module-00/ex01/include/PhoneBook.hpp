@@ -8,6 +8,8 @@
 
 #include "Contact.hpp"
 
+#define MAX_CONTACTS 8
+
 class PhoneBook {
  public:
   // Default constructor
@@ -22,8 +24,6 @@ class PhoneBook {
   void searchContact(std::istream &istream);
 
  private:
-#define MAX_CONTACTS 8
-
   // Internal variables
   std::size_t amount_of_contacts_stored;  // Amount of contacts stored in the phonebook
   Contact     contacts[MAX_CONTACTS];     // Array of contacts
