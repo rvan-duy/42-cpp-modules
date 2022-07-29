@@ -14,14 +14,14 @@ MateriaSource::~MateriaSource() {
       inventory[i] = NULL;
     }
   }
+  delete inventory;
   std::cout << "-> (MateriaSource) Destructor for MateriaSource is called" << std::endl;
 };
 
 MateriaSource::MateriaSource(const MateriaSource& source) {
   for (int i = 0; i < inventory_limit; i++) {
     if (source.inventory[i] != NULL) {
-      inventory[i]  = *(new AMateria*());  // weird syntax
-      *inventory[i] = *(source.inventory[i]);
+      inventory[i] = source.inventory[i]->clone();
     };
   };
   std::cout << "-> (MateriaSource) Copy constructor for MateriaSource is called" << std::endl;
@@ -29,8 +29,7 @@ MateriaSource::MateriaSource(const MateriaSource& source) {
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& source) {
   for (int i = 0; i < inventory_limit; i++) {
-    inventory[i]  = *(new AMateria*());  // weird syntax
-    *inventory[i] = *(source.inventory[i]);
+    inventory[i] = source.inventory[i]->clone();
   };
   std::cout << "-> (MateriaSource) Copy assignment operator for MateriaSource is called" << std::endl;
   return *this;
@@ -40,7 +39,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& source) {
 void MateriaSource::learnMateria(AMateria* m) {
   for (int i = 0; i < inventory_limit; i++) {
     if (inventory[i] == NULL) {
-      inventory[i] = *(new AMateria*(m));  // weird syntax
+      inventory[i] = m->clone();
       std::cout << "MateriaSource learned " << m->getType() << std::endl;
       return;
     };

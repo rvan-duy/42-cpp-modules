@@ -14,8 +14,7 @@ Character::Character(const std::string& name) : name(name) {
   std::cout << "-> (Character) Constructor with name for Character is called" << std::endl;
 };
 
-// Materias must be deleted when character is destroyed
-Character::~Character() { 
+Character::~Character() {
   for (int i = 0; i < inventory_limit; i++) {
     if (this->inventory[i] != NULL) {
       delete this->inventory[i];
@@ -28,11 +27,7 @@ Character::~Character() {
 Character::Character(const Character& character) {
   for (int i = 0; i < inventory_limit; i++) {
     if (character.inventory[i] != NULL) {
-      if (character.inventory[i]->getType() == "ice")
-        this->inventory[i] = new Ice;
-      else if (character.inventory[i]->getType() == "cure")
-        this->inventory[i] = new Cure;
-      *this->inventory[i] = *(character.inventory[i]);
+      inventory[i] = character.inventory[i]->clone();
     };
   };
   std::cout << "-> (Character) Copy constructor for Character is called" << std::endl;
@@ -41,14 +36,10 @@ Character::Character(const Character& character) {
 Character& Character::operator=(const Character& character) {
   for (int i = 0; i < inventory_limit; i++) {
     if (character.inventory[i] != NULL) {
-      if (character.inventory[i]->getType() == "ice")
-        this->inventory[i] = new Ice;
-      else if (character.inventory[i]->getType() == "cure")
-        this->inventory[i] = new Cure;
-      *this->inventory[i] = *(character.inventory[i]);
+      inventory[i] = character.inventory[i]->clone();
     };
   };
-  std::cout << "(Character) Copy assignment operator for Character is called" << std::endl;
+  std::cout << "-> (Character) Copy assignment operator for Character is called" << std::endl;
   return *this;
 };
 
@@ -63,7 +54,7 @@ void Character::equip(AMateria* m) {
   for (int i = 0; i < inventory_limit; i++) {
     if (inventory[i] == NULL) {
       inventory[i] = m;
-      std::cout << this->name << " equipped " << m->getType() << std::endl; // TODO better message
+      std::cout << this->name << " equipped " << m->getType() << std::endl;  // TODO better message
       return;
     };
   };
