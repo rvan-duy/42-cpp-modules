@@ -103,8 +103,6 @@ SCENARIO("Initializing Character + AMateria classes and testing methods", "[Clas
         REQUIRE(hero.getItem(0) != copied_hero.getItem(0));
         REQUIRE(hero.getItem(1) != copied_hero.getItem(1));
       };
-      delete item_1;
-      delete item_2;
     };
     WHEN("Character Class is copied and overwritten") {
       Character hero("Hero");
@@ -122,22 +120,6 @@ SCENARIO("Initializing Character + AMateria classes and testing methods", "[Clas
         REQUIRE(&hero != &villain);
         REQUIRE(hero.getItem(0) != villain.getItem(0));
         REQUIRE(hero.getItem(1) != villain.getItem(1));
-      };
-      delete item_1;
-      delete item_2;
-      delete item_3;
-      delete item_4;
-    };
-    WHEN("Character Class is deleted") {
-      Character* hero   = new Character("Hero");
-      AMateria*  item_1 = new Ice();
-      AMateria*  item_2 = new Cure();
-      hero->equip(item_1);
-      hero->equip(item_2);
-      delete hero;
-      THEN("Equipment is deleted") {
-        REQUIRE(item_1 == NULL);
-        REQUIRE(item_2 == NULL);
       };
     };
   };

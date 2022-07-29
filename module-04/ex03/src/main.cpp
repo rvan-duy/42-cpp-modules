@@ -2,8 +2,8 @@
 
 #include "Character.hpp"
 #include "Cure.hpp"
-#include "Ice.hpp"
 #include "IMateriaSource.hpp"
+#include "Ice.hpp"
 #include "MateriaSource.hpp"
 
 // void leaks() { system("leaks -q interface_and_recap"); };
@@ -43,7 +43,7 @@ int main() {
   me->equip(tmp);
 
   ICharacter* bob = new Character("bob");
-  
+
   me->use(0, *bob);
   me->use(1, *bob);
 
