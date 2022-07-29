@@ -35,7 +35,6 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& source) {
   return *this;
 };
 
-// Copies the AMateria and stores it in memory so it can be cloned
 void MateriaSource::learnMateria(AMateria* m) {
   for (int i = 0; i < inventory_limit; i++) {
     if (inventory[i] == NULL) {
