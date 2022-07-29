@@ -2,9 +2,9 @@
 #define MODULE_04_CHARACTER_HPP
 
 #include "AMateria.hpp"
+#include "Cure.hpp"
 #include "ICharacter.hpp"
 #include "Ice.hpp"
-#include "Cure.hpp"
 
 // 1. Character has an inventory of 4 slots, max == 4 materias
 // 2. Inventory is empty at construction
