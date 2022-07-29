@@ -7,7 +7,7 @@ Cure::Cure() {
 
 Cure::~Cure() { std::cout << "-> (Cure) Destructor for Cure is called" << std::endl; };
 
-Cure::Cure(const Cure &cure) {
+Cure::Cure(const Cure &cure) : AMateria(cure) {
   this->type = cure.type;
   std::cout << "-> (Cure) Copy constructor for Cure is called" << std::endl;
 };

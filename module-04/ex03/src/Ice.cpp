@@ -7,7 +7,7 @@ Ice::Ice() {
 
 Ice::~Ice() { std::cout << "-> (Ice) Destructor for Ice is called" << std::endl; };
 
-Ice::Ice(const Ice &ice) {
+Ice::Ice(const Ice &ice) : AMateria(ice) {
   this->type = ice.type;
   std::cout << "-> (Ice) Copy constructor for Ice is called" << std::endl;
 };
