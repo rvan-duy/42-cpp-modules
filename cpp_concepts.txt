@@ -66,6 +66,11 @@ References vs Pointers:
         - References cannot be reassigned
     - Pointers can be NULL, references cannot
 
+Shallow vs Deep Copy:
+    - If variables of an object are dynamically allocated, then it is required to do a Deep Copy in order to create a replica of the object
+    - Why? If dynamically allocated memory is copied through the shallow way, then the memory address is copied
+        thus objects contain the same memory address
+
 this keyword in methods
 
 ##################################################################################################################

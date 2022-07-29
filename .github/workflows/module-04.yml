@@ -15,6 +15,8 @@ env:
   EX01_EXE: module-04/ex01/i_dont_want_to_set_the_world_on_fire
   EX02_DIR: module-04/ex02
   EX02_EXE: module-04/ex02/abstract_class
+  EX03_DIR: module-04/ex03
+  EX03_EXE: module-04/ex03/interface_and_recap
 
 jobs:
   ubuntu_build_and_test:
@@ -39,6 +41,12 @@ jobs:
       run:  make -C $EX02_DIR && make fclean -C $EX02_DIR
     - name: ex02 test
       run:  make test -C $EX02_DIR && make fclean -C $EX02_DIR
+    - name: ex03 build
+      run:  make -C $EX03_DIR && make fclean -C $EX03_DIR
+    - name: ex03 test
+      run:  make test -C $EX03_DIR && make fclean -C $EX03_DIR
+    - name: ex03 unit_test
+      run:  make TESTS=1 -C $EX03_DIR && ./$EX03_EXE && make fclean -C $EX03_DIR
 
   macos_build_and_test:
 
@@ -62,3 +70,9 @@ jobs:
       run:  make -C $EX02_DIR && make fclean -C $EX02_DIR
     - name: ex02 test
       run:  make test -C $EX02_DIR && make fclean -C $EX02_DIR
+    - name: ex03 build
+      run:  make -C $EX03_DIR && make fclean -C $EX03_DIR
+    - name: ex03 test
+      run:  make test -C $EX03_DIR && make fclean -C $EX03_DIR
+    - name: ex03 unit_test
+      run:  make TESTS=1 -C $EX03_DIR && ./$EX03_EXE && make fclean -C $EX03_DIR
