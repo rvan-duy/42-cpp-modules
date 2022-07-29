@@ -25,12 +25,12 @@ class PhoneBook {
 #define MAX_CONTACTS 8
 
   // Internal variables
-  std::size_t _amount_of_contacts_stored;  // Amount of contacts stored in the phonebook
-  Contact     _contacts[MAX_CONTACTS];     // Array of contacts
+  std::size_t amount_of_contacts_stored;  // Amount of contacts stored in the phonebook
+  Contact     contacts[MAX_CONTACTS];     // Array of contacts
 
   // Internal methods
-  std::string _cutString(const std::string str);
-  void        _printContacts(void);
+  std::string cutString(const std::string str);
+  void        printContacts(void);
 };
 
 #endif  // MODULE_00_PHONEBOOK_HPP

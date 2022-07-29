@@ -1,11 +1,11 @@
 #include "PhoneBook.hpp"
 
 // Default constructor
-PhoneBook::PhoneBook() : _amount_of_contacts_stored(0) {}
+PhoneBook::PhoneBook() : amount_of_contacts_stored(0) {}
 
 // Getters
-std::size_t PhoneBook::getAmountOfContactsStored() { return this->_amount_of_contacts_stored; }
-Contact     PhoneBook::getContact(const std::size_t index) { return this->_contacts[index]; }
+std::size_t PhoneBook::getAmountOfContactsStored() { return this->amount_of_contacts_stored; }
+Contact     PhoneBook::getContact(const std::size_t index) { return this->contacts[index]; }
 
 // Methods
 void PhoneBook::addContact(std::istream &istream) {
@@ -26,22 +26,22 @@ void PhoneBook::addContact(std::istream &istream) {
   std::getline(istream, user_input[SECRET]);
 
   // Adding contact to the phonebook
-  if (_amount_of_contacts_stored < MAX_CONTACTS) {
-    _contacts[_amount_of_contacts_stored].setFirstName(user_input[FIRSTNAME]);
-    _contacts[_amount_of_contacts_stored].setLastName(user_input[LASTNAME]);
-    _contacts[_amount_of_contacts_stored].setNickname(user_input[NICKNAME]);
-    _contacts[_amount_of_contacts_stored].setPhonenumber(user_input[PHONENUMBER]);
-    _contacts[_amount_of_contacts_stored].setSecret(user_input[SECRET]);
-    _amount_of_contacts_stored++;
+  if (amount_of_contacts_stored < MAX_CONTACTS) {
+    contacts[amount_of_contacts_stored].setFirstName(user_input[FIRSTNAME]);
+    contacts[amount_of_contacts_stored].setLastName(user_input[LASTNAME]);
+    contacts[amount_of_contacts_stored].setNickname(user_input[NICKNAME]);
+    contacts[amount_of_contacts_stored].setPhonenumber(user_input[PHONENUMBER]);
+    contacts[amount_of_contacts_stored].setSecret(user_input[SECRET]);
+    amount_of_contacts_stored++;
   } else {
     for (int i = 0; i < MAX_CONTACTS - 1; i++) {
-      _contacts[i] = _contacts[i + 1];
+      contacts[i] = contacts[i + 1];
     }
-    _contacts[MAX_CONTACTS - 1].setFirstName(user_input[FIRSTNAME]);
-    _contacts[MAX_CONTACTS - 1].setLastName(user_input[LASTNAME]);
-    _contacts[MAX_CONTACTS - 1].setNickname(user_input[NICKNAME]);
-    _contacts[MAX_CONTACTS - 1].setPhonenumber(user_input[PHONENUMBER]);
-    _contacts[MAX_CONTACTS - 1].setSecret(user_input[SECRET]);
+    contacts[MAX_CONTACTS - 1].setFirstName(user_input[FIRSTNAME]);
+    contacts[MAX_CONTACTS - 1].setLastName(user_input[LASTNAME]);
+    contacts[MAX_CONTACTS - 1].setNickname(user_input[NICKNAME]);
+    contacts[MAX_CONTACTS - 1].setPhonenumber(user_input[PHONENUMBER]);
+    contacts[MAX_CONTACTS - 1].setSecret(user_input[SECRET]);
   }
 }
 void PhoneBook::searchContact(std::istream &istream) {
@@ -49,7 +49,7 @@ void PhoneBook::searchContact(std::istream &istream) {
   int         user_input_index;
 
   // Print contact list
-  _printContacts();
+  printContacts();
 
   // Read user input
   std::cout << "Select the index of a contact to display: ";
@@ -57,7 +57,7 @@ void PhoneBook::searchContact(std::istream &istream) {
   user_input_index = atoi(user_input.c_str());
 
   // Error handling
-  if (user_input_index < 0 || (std::size_t)user_input_index >= _amount_of_contacts_stored) {
+  if (user_input_index < 0 || (std::size_t)user_input_index >= amount_of_contacts_stored) {
     std::cout << "Error: Invalid index" << std::endl;
     return;
   }
@@ -74,7 +74,7 @@ void PhoneBook::searchContact(std::istream &istream) {
 }
 
 // Internal methods
-std::string PhoneBook::_cutString(const std::string str) {
+std::string PhoneBook::cutString(const std::string str) {
   const std::size_t str_size = str.size();
   std::string       new_str  = str.substr(0, 10);
 
@@ -82,18 +82,18 @@ std::string PhoneBook::_cutString(const std::string str) {
 
   return new_str;
 }
-void PhoneBook::_printContacts(void) {
-  for (std::size_t i = 0; i < _amount_of_contacts_stored; i++) {
+void PhoneBook::printContacts(void) {
+  for (std::size_t i = 0; i < amount_of_contacts_stored; i++) {
     std::cout << std::setw(10);
     std::cout << i << "|";
     std::cout << std::setw(10);
-    std::cout << _cutString(_contacts[i].getFirstName()) << "|";
+    std::cout << cutString(contacts[i].getFirstName()) << "|";
     std::cout << std::setw(10);
-    std::cout << _cutString(_contacts[i].getLastName()) << "|";
+    std::cout << cutString(contacts[i].getLastName()) << "|";
     std::cout << std::setw(10);
-    std::cout << _cutString(_contacts[i].getNickname()) << "|";
+    std::cout << cutString(contacts[i].getNickname()) << "|";
     std::cout << std::setw(10);
-    std::cout << _cutString(_contacts[i].getPhonenumber()) << "|";
+    std::cout << cutString(contacts[i].getPhonenumber()) << "|";
     std::cout << std::endl;
   }
 }
