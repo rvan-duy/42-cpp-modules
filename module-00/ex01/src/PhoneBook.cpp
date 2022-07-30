@@ -54,6 +54,14 @@ void PhoneBook::searchContact(std::istream &istream) {
   // Read user input
   std::cout << "Select the index of a contact to display: ";
   std::getline(istream, user_input);
+
+  // Check if input only contains numbers
+  while (user_input.find_first_not_of("0123456789") != std::string::npos) {
+    std::cout << "Input can only contain numbers" << std::endl;
+    std::cout << "Select the index of a contact to display: ";
+    std::getline(istream, user_input);
+  }
+
   user_input_index = atoi(user_input.c_str());
 
   // Error handling
