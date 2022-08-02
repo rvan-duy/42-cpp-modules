@@ -55,6 +55,14 @@ Classes:
         - This class can be used as a base class
         - An Template is basically an (pure) abstract class, a class that has no data or concrete member functions
 
+    Exception Classes:
+        - An exception s a problem that arises during the execution of a program, it's a response to something execeptional
+        - It uses the following three keywords: throw, catch and try
+            - A program throws an exception, using the throw keyword
+            - A program catches the exception and handles it with a handler, using the catch keyword
+            - A try block identifies a block of code where exceptions are activated
+
+
 Stdio streams:
     - Streams are an abstraction that represent a device on which input and output operations are performed
         A stream basically represents a source or destination of characters of indefinite length
