@@ -1,5 +1,5 @@
-#ifndef MODULE_05_BUREAUCRAT_HP
-#define MODULE_05_BUREAUCRAT_HP
+#ifndef MODULE_05_BUREAUCRAT_HHP
+#define MODULE_05_BUREAUCRAT_HHP
 
 #include <exception>
 #include <iostream>
