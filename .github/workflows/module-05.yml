@@ -1,0 +1,31 @@
+name: macOS/Ubuntu build cpp-module-05
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    branches: [ main ]
+
+env:
+  EX00_DIR: module-05/ex00
+
+jobs:
+  ubuntu_build_and_test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: ex00 build
+      run:  make -C $EX00_DIR && make fclean -C $EX00_DIR
+
+  macos_build_and_test:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: ex00 build
+      run:  make -C $EX00_DIR && make fclean -C $EX00_DIR
