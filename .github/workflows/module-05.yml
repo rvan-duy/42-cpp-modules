@@ -29,4 +29,3 @@ jobs:
     - uses: actions/checkout@v2
     - name: ex00 build
       run:  make -C $EX00_DIR && make fclean -C $EX00_DIR
-      
