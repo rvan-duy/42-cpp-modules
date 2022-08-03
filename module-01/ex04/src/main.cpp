@@ -24,4 +24,4 @@ int main(int argc, char *argv[]) {
   } else
     std::cout << "Usage:" << std::endl << argv[0] << " <file_name> <s1> <s2>" << std::endl;
   return EXIT_SUCCESS;
-}
+};

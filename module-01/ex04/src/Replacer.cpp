@@ -23,14 +23,14 @@ Replacer::status Replacer::fillBuffer() {
 
   ifs.close();
   return success;
-}
+};
 void Replacer::replaceBuffer() {
   for (std::size_t found = buffer.find(s1, 0); found != std::string::npos;
        found             = buffer.find(s1, found + strlen(s2))) {
     buffer.erase(found, strlen(s1));
     buffer.insert(found, s2);
   }
-}
+};
 Replacer::status Replacer::writeBufferToPath() {
   std::ofstream ofs(dst_path.c_str(), std::ofstream::out);
 
@@ -41,4 +41,4 @@ Replacer::status Replacer::writeBufferToPath() {
   ofs << buffer;
   ofs.close();
   return success;
-}
+};
