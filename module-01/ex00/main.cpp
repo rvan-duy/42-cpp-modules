@@ -4,10 +4,10 @@
 void    randomChump(std::string name);
 Zombie  *newZombie(std::string name);
 
-void leaks()
-{
-	system("leaks -q zombie");
-}
+// void leaks()
+// {
+// 	system("leaks -q zombie");
+// }
 
 void different_scope()
 {
@@ -16,7 +16,7 @@ void different_scope()
 }
 
 int main (void) {
-	atexit(leaks);
+	// atexit(leaks);
 	Zombie *zombie = newZombie("Heap");
 	zombie->announce();
 
