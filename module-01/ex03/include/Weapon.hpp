@@ -1,7 +1,6 @@
 #ifndef MODULE_01_WEAPON_HPP
 #define MODULE_01_WEAPON_HPP
 
-#include <iostream>
 #include <string>
 
 class Weapon {
@@ -14,7 +13,7 @@ class Weapon {
   void        setType(const std::string type);
 
  private:
-  std::string _type;
+  std::string type;
 };
 
 #endif  // MODULE_01_WEAPON_HPP

@@ -1,8 +1,6 @@
 #ifndef MODULE_01_HUMANB_HPP
 #define MODULE_01_HUMANB_HPP
 
-#include <iostream>
-
 #include "Weapon.hpp"
 
 class HumanB {
@@ -15,8 +13,8 @@ class HumanB {
   void attack(void) const;
 
  private:
-  std::string _name;
-  Weapon*     _weapon;
+  std::string name;
+  Weapon*     weapon;
 };
 
 #endif  // MODULE_01_HUMANB_HPP
