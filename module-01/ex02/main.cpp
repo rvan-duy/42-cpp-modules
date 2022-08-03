@@ -2,6 +2,10 @@
 #include <cstdlib>
 #include <string>
 
+// Why use references over pointers?
+// - it can't be reassigned to another object
+// - it can't be NULL
+
 int main(void)
 {
     std::string brain = "HI THIS IS BRAIN";
