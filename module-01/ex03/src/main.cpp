@@ -4,10 +4,10 @@
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
-void leaks() { system("leaks -q unnecessary_voilence"); }
+// void leaks() { system("leaks -q unnecessary_voilence"); }
 
 int main(void) {
-  atexit(leaks);
+  // atexit(leaks);
 
   {
     Weapon club = Weapon("crude spiked club");
