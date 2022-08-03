@@ -1,5 +1,5 @@
 NAME			:= interface_and_recap
-CC				:= g++ -std=c++98
+CC				:= c++ -std=c++98
 CFLAGS			:= -Wall -Wextra -Werror -g
 
 ################################################################################

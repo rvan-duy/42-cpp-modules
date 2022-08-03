@@ -1,5 +1,5 @@
 NAME			:= more_usefull_class
-CC				:= g++ -std=c++98
+CC				:= c++ -std=c++98
 CFLAGS			:= -Wall -Wextra -Werror -g
 
 ################################################################################

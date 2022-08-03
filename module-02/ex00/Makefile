@@ -1,5 +1,5 @@
 NAME			:= orthodox_canonical_form
-CC				:= g++ -std=c++98
+CC				:= c++ -std=c++98
 CFLAGS			:= -Wall -Wextra -Werror -g
 
 ################################################################################

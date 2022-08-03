@@ -1,5 +1,5 @@
 NAME			:= i_dont_want_to_set_the_world_on_fire
-CC				:= g++ -std=c++98
+CC				:= c++ -std=c++98
 CFLAGS			:= -Wall -Wextra -Werror -g
 
 ################################################################################
