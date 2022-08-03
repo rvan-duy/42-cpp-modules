@@ -36,8 +36,6 @@ jobs:
       run:  make -C $EX04_DIR && make fclean -C $EX04_DIR
     - name: ex05 build
       run:  make -C $EX05_DIR && make fclean -C $EX05_DIR
-    - name: ex06 build
-      run:  make -C $EX06_DIR && make fclean -C $EX06_DIR
 
   macos_compile_check:
 
