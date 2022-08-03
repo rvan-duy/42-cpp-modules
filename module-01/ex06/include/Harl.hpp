@@ -15,7 +15,6 @@ class Harl {
   void complain(const std::string& input) const;
 
  private:
-  complainFunctions functions[4];
   std::string       levels[4];
 
   void              debug() const;

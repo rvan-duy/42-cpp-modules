@@ -1,10 +1,6 @@
 #include "Harl.hpp"
 
 Harl::Harl() {
-  functions[0] = &Harl::debug;
-  functions[1] = &Harl::info;
-  functions[2] = &Harl::warning;
-  functions[3] = &Harl::error;
   levels[0]    = "DEBUG";
   levels[1]    = "INFO";
   levels[2]    = "WARNING";
@@ -21,35 +17,47 @@ bool Harl::checkValidInput(const std::string& input, int& argc) const {
   return false;
 };
 void Harl::complain(const std::string& input) const {
-  for (int i = findIndexOfInput(input); i < 4; i++) {
-    (this->*functions[i])();
-    std::cout << std::endl;
-  }
-}
+  std::size_t index = findIndexOfInput(input);
+
+  switch (index) {
+    case 0:
+      debug();
+    case 1:
+      info();
+    case 2:
+      warning();
+    case 3:
+      error();
+      break;
+    default:
+      std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+  };
+};
 
 void Harl::debug() const {
   std::cout << "[ DEBUG ]" << std::endl;
   std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special- ketchup burger. I really do!"
             << std::endl;
-}
+};
 void Harl::info() const {
   std::cout << "[ INFO ]" << std::endl;
   std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you "
                "did, I wouldn’t be asking for more!"
             << std::endl;
-}
+};
 void Harl::warning() const {
   std::cout << "[ WARNING ]" << std::endl;
   std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started "
                "working here since last month."
             << std::endl;
-}
-void Harl::error() const { 
+};
+void Harl::error() const {
   std::cout << "[ ERROR ]" << std::endl;
-  std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl; }
+  std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
+}
 std::size_t Harl::findIndexOfInput(const std::string& input) const {
   for (int i = 0; i < 4; i++) {
     if (input == levels[i]) return i;
   }
-  return 0;
+  return 4;
 };
