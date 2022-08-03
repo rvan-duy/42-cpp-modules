@@ -6,22 +6,19 @@
 
 class Harl {
  public:
-  typedef void (Harl::*complainFunctions)() const;
-
   Harl();
   ~Harl();
 
-  bool checkValidInput(const std::string& input, int& argc) const;
   void complain(const std::string& input) const;
 
  private:
-  std::string       levels[4];
+  std::string levels[4];
 
-  void              debug() const;
-  void              info() const;
-  void              warning() const;
-  void              error() const;
-  std::size_t       findIndexOfInput(const std::string& input) const;
+  void        debug() const;
+  void        info() const;
+  void        warning() const;
+  void        error() const;
+  std::size_t findIndexOfInput(const std::string& input) const;
 };
 
 #endif  // MODULE_01_HARL_HPP

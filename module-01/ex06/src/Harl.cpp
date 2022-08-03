@@ -8,14 +8,6 @@ Harl::Harl() {
 };
 Harl::~Harl(){};
 
-bool Harl::checkValidInput(const std::string& input, int& argc) const {
-  if (argc == 2) {
-    for (int i = 0; i < 4; i++) {
-      if (input == levels[i]) return true;
-    }
-  }
-  return false;
-};
 void Harl::complain(const std::string& input) const {
   std::size_t index = findIndexOfInput(input);
 
