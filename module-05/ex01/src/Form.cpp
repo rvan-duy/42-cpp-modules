@@ -33,3 +33,15 @@ void Form::beSigned(const Bureaucrat& bureaucrat) {
   form_signed = true;
   return;
 };
+
+// << overload
+
+std::ostream& operator<<(std::ostream& out, const Form& form) {
+  out << std::boolalpha;
+  out << "form: (name:" << form.getName() << " ";
+  out << "signed:" << form.getFormSigned() << " ";
+  out << "grade_required_to_sign:" << form.getGradeRequiredToSign() << " ";
+  out << "grade_required_to_execute:" << form.getGradeRequiredToExecute();
+  out << ")" << std::endl;
+  return out;
+};
