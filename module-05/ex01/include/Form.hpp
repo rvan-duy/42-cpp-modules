@@ -17,10 +17,10 @@ class Form {
   Form& operator=(const Form& form);          // Copy assignment operator
 
   // Getters
-  std::string getName() const;
-  bool        getFormSigned() const;
-  int         getGradeRequiredToSign() const;
-  int         getGradeRequiredToExecute() const;
+  const std::string& getName() const;
+  bool               getFormSigned() const;
+  int                getGradeRequiredToSign() const;
+  int                getGradeRequiredToExecute() const;
 
   // Methods
   void beSigned(const Bureaucrat& bureaucrat);

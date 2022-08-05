@@ -13,19 +13,16 @@ Form::Form(const Form& form)
       grade_required_to_sign(form.grade_required_to_sign),
       grade_required_to_execute(form.grade_required_to_execute){};
 Form& Form::operator=(const Form& form) {
-  // this->name                      = form.name;
-  this->form_signed               = form.form_signed;
-  // this->grade_required_to_sign    = form.grade_required_to_sign;
-  // this->grade_required_to_execute = form.grade_required_to_execute;
+  form_signed = form.form_signed;
   return *this;
 };
 
 // Getters
 
-std::string Form::getName() const { return name; };
-bool        Form::getFormSigned() const { return form_signed; };
-int         Form::getGradeRequiredToSign() const { return grade_required_to_sign; };
-int         Form::getGradeRequiredToExecute() const { return grade_required_to_execute; };
+const std::string& Form::getName() const { return name; };
+bool               Form::getFormSigned() const { return form_signed; };
+int                Form::getGradeRequiredToSign() const { return grade_required_to_sign; };
+int                Form::getGradeRequiredToExecute() const { return grade_required_to_execute; };
 
 // Methods
 
