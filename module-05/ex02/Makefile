@@ -66,7 +66,7 @@ clean:
 
 fclean: clean
 	@printf "$(LIGHT_CYAN)$(BOLD)fclean$(RESET) [$(LIGHT_GREEN)$(NAME)$(RESET)] : "
-	/bin/rm -rf $(NAME) $(NAME).dSYM
+	/bin/rm -rf $(NAME) $(NAME).dSYM form_shrubbery
 
 re: fclean all
 

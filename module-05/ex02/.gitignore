@@ -1,6 +1,7 @@
 # Executables
 more_forms
 more_forms.dSYM
+*_shrubbery
 
 # Prerequisites
 *.d
