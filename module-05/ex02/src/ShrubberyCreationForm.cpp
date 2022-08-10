@@ -25,12 +25,12 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
     "                      ___" << std::endl <<
     "                _,-'\"\"   \"\"\"\"`--." << std::endl <<
     "             ,-'          __,,-- \\" << std::endl <<
-    "           ,'    __,--\"\"\"\"dF      )" << std::endl <<
-    "          /   .-\"Hb_,--\"\"dF      /" << std::endl <<
+    "           ,'    __,--\"\"\"\"dF   .  )" << std::endl <<
+    "          /   .-\"Hb_,--\"\"dF   .  /" << std::endl <<
     "        ,'       _Hb ___dF\"-._,-'" << std::endl <<
     "      ,'      _,-\"\"\"\"   \"\"--..__" << std::endl <<
-    "     (     ,-'                  `." << std::endl <<
-    "      `._,'     _   _             ;" << std::endl <<
+    "     (     ,-'                . `." << std::endl <<
+    "      `._,'     _   _        .    ;" << std::endl <<
     "       ,'     ,' `-'Hb-.___..._,-'" << std::endl <<
     "       \\    ,'\"Hb.-'HH`-.dHF\"" << std::endl <<
     "        `--'   \"Hb  HH  dF\"" << std::endl <<
@@ -44,7 +44,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
     "                  dHHHb" << std::endl <<
     "                .dFd|bHb.               o" << std::endl <<
     "      o       .dHFdH|HbTHb.          o /" << std::endl <<
-    "\\  Y  |  \\__,dHHFdHH|HHhoHHb.__Krogg  Y" << std::endl <<
+    "\\  Y  |  \\__,dHHFdHH|HHhoHHb.__ |   Y" << std::endl <<
     "##########################################" << std::endl;
   ofs.close();
 };

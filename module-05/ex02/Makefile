@@ -15,13 +15,15 @@ endif
 
 HEADERS 		:=	include/Bureaucrat.hpp \
 					include/Form.hpp \
-					include/ShrubberyCreationForm.hpp
+					include/ShrubberyCreationForm.hpp \
+					include/RobotomyRequestForm.hpp
 
 INCLUDE_FLAGS 	:= $(addprefix -I, $(sort $(dir $(HEADERS))))
 
 SOURCES			:=	src/Bureaucrat.cpp \
 					src/Form.cpp \
-					src/ShrubberyCreationForm.cpp
+					src/ShrubberyCreationForm.cpp \
+					src/RobotomyRequestForm.cpp
 
 ################################################################################
 
