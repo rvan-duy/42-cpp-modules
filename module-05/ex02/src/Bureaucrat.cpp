@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+
 #include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : name(""), grade(150){};
@@ -37,6 +38,17 @@ void Bureaucrat::signForm(Form& form) {
     return;
   }
   std::cout << name << " signed " << form.getName() << std::endl;
+  return;
+};
+
+void Bureaucrat::executeForm(Form const& form) {
+  try {
+    form.execute(*this);
+  } catch (const std::exception& exception) {
+    std::cout << name << " couldn't execute " << form.getName() << " because " << exception.what() << std::endl;
+    return;
+  }
+  std::cout << name << " executed " << form.getName() << std::endl;
   return;
 };
 
