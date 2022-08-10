@@ -26,7 +26,7 @@ class Form {
   void         beSigned(const Bureaucrat& bureaucrat);
   void         beExecuted(const Bureaucrat& bureaucrat) const;
   virtual void execute(Bureaucrat const& executor) const = 0;  // pure virtual
-  // ^ is the same as const Bureaucrat const &
+  //                                ^ is the same as const Bureaucrat const &
 
   class GradeTooLowException : public std::exception {
    public:
