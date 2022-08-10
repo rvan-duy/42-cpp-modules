@@ -5,7 +5,6 @@
 #include "PresidentialPardonForm.hpp"
 
 int main(void) {
-
   std::cout << "TEST 1 - bureaucrat has a high enough grade to sign and execute ShrubberyCreationForm" << std::endl;
   {
     Bureaucrat bureaucrat("Gerrit", 1);
