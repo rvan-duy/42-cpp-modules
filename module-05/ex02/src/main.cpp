@@ -1,7 +1,8 @@
 #include <cstdlib>
 
-#include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void) {
 
@@ -35,6 +36,84 @@ int main(void) {
   {
     Bureaucrat bureaucrat("Gerrit", 149);
     ShrubberyCreationForm form("form");
+
+    try {
+      bureaucrat.signForm(form);
+      form.execute(bureaucrat);
+    } catch (const std::exception& exception) {
+      std::cout << bureaucrat.getName() << " couldn't execute " << form.getName() << " because " << exception.what() << std::endl;
+    }
+  }
+
+  std::cout << "TEST 4 - bureaucrat has a high enough grade to sign and execute RobotomyRequestForm" << std::endl;
+  {
+    Bureaucrat bureaucrat("Gerrit", 1);
+    RobotomyRequestForm form("form");
+
+    try {
+      bureaucrat.signForm(form);
+      form.execute(bureaucrat);
+    } catch (const std::exception& exception) {
+      std::cout << bureaucrat.getName() << " couldn't execute " << form.getName() << " because " << exception.what() << std::endl;
+    }
+  }
+
+  std::cout << "TEST 5 - bureaucrat has a high enough grade to sign but not execute RobotomyRequestForm" << std::endl;
+  {
+    Bureaucrat bureaucrat("Gerrit", 70);
+    RobotomyRequestForm form("form");
+
+    try {
+      bureaucrat.signForm(form);
+      form.execute(bureaucrat);
+    } catch (const std::exception& exception) {
+      std::cout << bureaucrat.getName() << " couldn't execute " << form.getName() << " because " << exception.what() << std::endl;
+    }
+  }
+
+  std::cout << "TEST 6 - bureaucrat does not have an high enough grade to execute nor sign RobotomyRequestForm" << std::endl;
+  {
+    Bureaucrat bureaucrat("Gerrit", 149);
+    RobotomyRequestForm form("form");
+
+    try {
+      bureaucrat.signForm(form);
+      form.execute(bureaucrat);
+    } catch (const std::exception& exception) {
+      std::cout << bureaucrat.getName() << " couldn't execute " << form.getName() << " because " << exception.what() << std::endl;
+    }
+  }
+
+  std::cout << "TEST 7 - bureaucrat has a high enough grade to sign and execute PresidentialPardonForm" << std::endl;
+  {
+    Bureaucrat bureaucrat("Gerrit", 1);
+    PresidentialPardonForm form("form");
+
+    try {
+      bureaucrat.signForm(form);
+      form.execute(bureaucrat);
+    } catch (const std::exception& exception) {
+      std::cout << bureaucrat.getName() << " couldn't execute " << form.getName() << " because " << exception.what() << std::endl;
+    }
+  }
+
+  std::cout << "TEST 8 - bureaucrat has a high enough grade to sign but not execute PresidentialPardonForm" << std::endl;
+  {
+    Bureaucrat bureaucrat("Gerrit", 10);
+    PresidentialPardonForm form("form");
+
+    try {
+      bureaucrat.signForm(form);
+      form.execute(bureaucrat);
+    } catch (const std::exception& exception) {
+      std::cout << bureaucrat.getName() << " couldn't execute " << form.getName() << " because " << exception.what() << std::endl;
+    }
+  }
+
+  std::cout << "TEST 9 - bureaucrat does not have an high enough grade to execute nor sign PresidentialPardonForm" << std::endl;
+  {
+    Bureaucrat bureaucrat("Gerrit", 149);
+    PresidentialPardonForm form("form");
 
     try {
       bureaucrat.signForm(form);
