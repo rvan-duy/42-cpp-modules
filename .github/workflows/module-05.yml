@@ -14,7 +14,7 @@ env:
   EX02_DIR: module-05/ex02
 
 jobs:
-  ubuntu_build_and_test:
+  ubuntu_build:
 
     runs-on: ubuntu-latest
 
@@ -27,7 +27,7 @@ jobs:
     - name: ex02 build
       run:  make -C $EX02_DIR && make fclean -C $EX02_DIR
 
-  macos_build_and_test:
+  macos_build:
 
     runs-on: macos-latest
 
