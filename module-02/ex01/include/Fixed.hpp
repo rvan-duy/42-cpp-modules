@@ -6,13 +6,14 @@
 
 class Fixed {
  public:
-  Fixed();
-  Fixed(const int value);
-  Fixed(const float value);
-  Fixed(const Fixed& point);
-  void operator=(const Fixed& point);
-  ~Fixed();
+  Fixed();                               // Default constructor
+  Fixed(const int value);                // Constructor with int
+  Fixed(const float value);              // Constructor with float
+  Fixed(const Fixed& point);             // Copy constructor
+  Fixed& operator=(const Fixed& point);  // Copy assignment operator
+  ~Fixed();                              // Destructor
 
+  // Methods
   int   getRawBits() const;
   void  setRawBits(int const raw);
   float toFloat() const;
