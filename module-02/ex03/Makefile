@@ -19,7 +19,8 @@ INCLUDE_FLAGS 	:= $(addprefix -I, $(sort $(dir $(HEADERS))))
 
 SOURCES 		:=	src/main.cpp				\
 					src/Fixed.cpp				\
-					src/Point.cpp
+					src/Point.cpp				\
+					src/bsp.cpp
 
 BOLD 			:= \e[1m
 RESET 			:= \e[0m
