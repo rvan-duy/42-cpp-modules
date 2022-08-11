@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed() : value(value){};
+Fixed::Fixed() : value(0){};
 Fixed::Fixed(const int value) : value(value << num_of_fractional_bits){};
 Fixed::Fixed(const float value) : value(roundf(value * (1 << num_of_fractional_bits))){};
 Fixed::Fixed(const Fixed &point) : value(point.value){};
