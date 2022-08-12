@@ -8,7 +8,7 @@ Intern::Intern(){};
 
 Intern::~Intern(){};
 
-Intern::Intern(const Intern& intern) { (void)intern; };
+Intern::Intern(const Intern& intern) { *this = intern; };
 
 Intern& Intern::operator=(const Intern& intern) {
   (void)intern;
