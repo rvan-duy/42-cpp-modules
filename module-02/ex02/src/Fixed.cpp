@@ -10,11 +10,15 @@ Fixed &Fixed::operator=(const Fixed &point) {
 };
 Fixed::~Fixed(){};
 
-// Methods
+// Getters
 
 int   Fixed::getRawBits() const { return this->value; };
 
+// Setters
+
 void  Fixed::setRawBits(int const raw) { this->value = raw; };
+
+// Arithmetic operators
 
 Fixed Fixed::operator+(const Fixed &f) const { return Fixed(this->toFloat() + f.toFloat()); };
 
@@ -23,6 +27,8 @@ Fixed Fixed::operator-(const Fixed &f) const { return Fixed(this->toFloat() - f.
 Fixed Fixed::operator*(const Fixed &f) const { return Fixed(this->toFloat() * f.toFloat()); };
 
 Fixed Fixed::operator/(const Fixed &f) const { return Fixed(this->toFloat() / f.toFloat()); };
+
+// Comparison operators
 
 bool Fixed::operator>(const Fixed &point) const { return this->value > point.getRawBits(); };
 
@@ -35,6 +41,8 @@ bool Fixed::operator<=(const Fixed &point) const { return this->value <= point.g
 bool Fixed::operator==(const Fixed &point) const { return this->value == point.getRawBits(); };
 
 bool Fixed::operator!=(const Fixed &point) const { return this->value != point.getRawBits(); };
+
+// Increment and decrement operators
 
 Fixed &Fixed::operator++() {
   this->value++;
@@ -57,6 +65,8 @@ Fixed Fixed::operator--(int) {
   --*this;
   return cpy;
 };
+
+// Static methods
 
 Fixed &Fixed::min(Fixed &a, Fixed &b) {
   if (a < b)
@@ -85,6 +95,8 @@ Fixed Fixed::max(const Fixed &a, const Fixed &b) {
   else
     return b;
 }
+
+// Other methods
 
 float Fixed::toFloat() const { return (float)value / (1 << this->num_of_fractional_bits); };
 
