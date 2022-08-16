@@ -3,8 +3,8 @@
 
 #include "FragTrap.hpp"
 
-static void checkClapTrap(ClapTrap &trap, std::string name, unsigned int hit_points, unsigned int energy_points,
-                          unsigned int attack_damage) {
+static void checkTrap(FragTrap &trap, const std::string &name, const unsigned int hit_points,
+                          const unsigned int energy_points, const unsigned int attack_damage) {
   assert(trap.getName() == name);
   assert(trap.getHitPoints() == hit_points);
   assert(trap.getEnergyPoints() == energy_points);
@@ -18,9 +18,9 @@ int main(void) {
     std::cout << "--------------------------------------" << std::endl;
 
     FragTrap hero("Hero");
-    checkClapTrap(hero, "Hero", 100, 100, 30);
+    checkTrap(hero, "Hero", 100, 100, 30);
     FragTrap bandit("Bandit");
-    checkClapTrap(bandit, "Bandit", 100, 100, 30);
+    checkTrap(bandit, "Bandit", 100, 100, 30);
 
     std::cout << hero << std::endl;
     std::cout << bandit << std::endl;
@@ -31,8 +31,8 @@ int main(void) {
       bandit.takeDamage(hero.getAttackDamage());
     }
 
-    checkClapTrap(hero, "Hero", 100, 96, 30);
-    checkClapTrap(bandit, "Bandit", 0, 100, 30);
+    checkTrap(hero, "Hero", 100, 96, 30);
+    checkTrap(bandit, "Bandit", 0, 100, 30);
 
     std::cout << hero << std::endl;
     std::cout << bandit << std::endl;
@@ -44,10 +44,10 @@ int main(void) {
     std::cout << "--------------------------------------" << std::endl;
 
     FragTrap hero("Hero");
-    checkClapTrap(hero, "Hero", 100, 100, 30);
+    checkTrap(hero, "Hero", 100, 100, 30);
 
     std::cout << hero << std::endl;
-  
+
     hero.highFiveGuys();
   }
 
