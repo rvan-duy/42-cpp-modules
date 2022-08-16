@@ -16,23 +16,25 @@ ClapTrap::ClapTrap(const ClapTrap &trap) {
 };
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &trap) {
-  name          = trap.name;
-  hit_points    = trap.hit_points;
-  energy_points = trap.energy_points;
-  attack_damage = trap.attack_damage;
+  if (this != &trap) {
+    name          = trap.name;
+    hit_points    = trap.hit_points;
+    energy_points = trap.energy_points;
+    attack_damage = trap.attack_damage;
+  }
   std::cout << "-> Copy assignment constructor for " << name << " is called" << std::endl;
   return *this;
 };
 
 // Getters
 
-std::string  ClapTrap::getName() const { return name; };
+const std::string &ClapTrap::getName() const { return name; };
 
-unsigned int ClapTrap::getHitPoints() const { return hit_points; };
+unsigned int       ClapTrap::getHitPoints() const { return hit_points; };
 
-unsigned int ClapTrap::getEnergyPoints() const { return energy_points; };
+unsigned int       ClapTrap::getEnergyPoints() const { return energy_points; };
 
-unsigned int ClapTrap::getAttackDamage() const { return attack_damage; };
+unsigned int       ClapTrap::getAttackDamage() const { return attack_damage; };
 
 // Methods
 

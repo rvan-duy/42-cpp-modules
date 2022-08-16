@@ -13,10 +13,10 @@ class ClapTrap {
   ClapTrap &operator=(const ClapTrap &trap);  // Copy assignment operator
 
   // Getters
-  std::string  getName() const;
-  unsigned int getHitPoints() const;
-  unsigned int getEnergyPoints() const;
-  unsigned int getAttackDamage() const;
+  const std::string &getName() const;
+  unsigned int       getHitPoints() const;
+  unsigned int       getEnergyPoints() const;
+  unsigned int       getAttackDamage() const;
 
   // Methods
   void attack(const std::string &target);
@@ -32,4 +32,4 @@ class ClapTrap {
 
 std::ostream &operator<<(std::ostream &out, const ClapTrap &trap);
 
-#endif // MODULE_03_CLAPTRAP_HPP
+#endif  // MODULE_03_CLAPTRAP_HPP

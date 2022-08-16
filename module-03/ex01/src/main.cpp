@@ -3,13 +3,13 @@
 
 #include "ScavTrap.hpp"
 
-static void checkClapTrap(ClapTrap &trap, std::string name, unsigned int hit_points, unsigned int energy_points,
-                          unsigned int attack_damage) {
+static void checkClapTrap(const ClapTrap &trap, const std::string &name, const unsigned int hit_points,
+                          const unsigned int energy_points, const unsigned int attack_damage) {
   assert(trap.getName() == name);
   assert(trap.getHitPoints() == hit_points);
   assert(trap.getEnergyPoints() == energy_points);
   assert(trap.getAttackDamage() == attack_damage);
-}
+};
 
 int main(void) {
   {
@@ -48,6 +48,28 @@ int main(void) {
 
     std::cout << hero << std::endl;
 
+    assert(hero.getState() == ScavTrap::IDLE);
+    hero.guardGate();
+    assert(hero.getState() == ScavTrap::GATE_KEEPING_MODE);
+
+    std::cout << hero << std::endl;
+  }
+
+  {
+    std::cout << "--------------------------------------" << std::endl;
+    std::cout << "Testing ScavTrap Class with copy      " << std::endl;
+    std::cout << "                          constructors" << std::endl;
+    std::cout << "--------------------------------------" << std::endl;
+
+    ScavTrap hero("Hero");
+    checkClapTrap(hero, "Hero", 100, 50, 20);
+
+    ScavTrap second_hero;
+    second_hero = hero;
+
+    std::cout << hero << std::endl;
+
+    assert(hero.getState() == ScavTrap::IDLE);
     hero.guardGate();
     assert(hero.getState() == ScavTrap::GATE_KEEPING_MODE);
 

@@ -9,7 +9,7 @@ static void checkClapTrap(const ClapTrap &trap, const std::string &name, const u
   assert(trap.getHitPoints() == hit_points);
   assert(trap.getEnergyPoints() == energy_points);
   assert(trap.getAttackDamage() == attack_damage);
-}
+};
 
 int main(void) {
   {
