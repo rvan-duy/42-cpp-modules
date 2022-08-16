@@ -3,18 +3,23 @@
 #include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : name(""), grade(150){};
+
 Bureaucrat::Bureaucrat(const std::string& name, const int grade) : name(name), grade(grade){};
+
 Bureaucrat::~Bureaucrat(){};
-Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat) : name(bureaucrat.name), grade(bureaucrat.grade){};
+
+Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat) : name(bureaucrat.name) { *this = bureaucrat; };
+
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& bureaucrat) {
+  if (this == &bureaucrat) return *this;
   grade = bureaucrat.grade;
   return *this;
 };
 
 // Getters
 
-std::string Bureaucrat::getName() const { return name; };
-int         Bureaucrat::getGrade() const { return grade; };
+const std::string& Bureaucrat::getName() const { return name; };
+int                Bureaucrat::getGrade() const { return grade; };
 
 // Methods
 
