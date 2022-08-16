@@ -14,7 +14,7 @@ ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name), state(IDLE) {
   std::cout << "-> (ScavTrap) Constructor for " << name << " is called" << std::endl;
 }
 
-ScavTrap::~ScavTrap() { std::cout << "-> (ScavTrap) Deconstructor for " << this->name << " is called" << std::endl; };
+ScavTrap::~ScavTrap() { std::cout << "-> (ScavTrap) Destructor for " << this->name << " is called" << std::endl; };
 
 ScavTrap::ScavTrap(const ScavTrap &trap) : ClapTrap(trap) {
   this->state = trap.state;

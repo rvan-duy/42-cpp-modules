@@ -22,9 +22,9 @@ DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name), ScavTrap(nam
 
 DiamondTrap::~DiamondTrap() {
   if (this->name == "")
-    std::cout << "-> (DiamondTrap) Deconstructor for nameless DiamondTrap is called" << std::endl;
+    std::cout << "-> (DiamondTrap) Destructor for nameless DiamondTrap is called" << std::endl;
   else
-    std::cout << "-> (DiamondTrap) Deconstructor for " << this->name << " is called" << std::endl;
+    std::cout << "-> (DiamondTrap) Destructor for " << this->name << " is called" << std::endl;
 };
 
 std::string DiamondTrap::getName() const { return this->name; };

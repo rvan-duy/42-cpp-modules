@@ -14,7 +14,7 @@ FragTrap::FragTrap(const std::string &name) : ClapTrap::ClapTrap(name) {
   std::cout << "-> (FragTrap) Constructor for " << name << " is called" << std::endl;
 };
 
-FragTrap::~FragTrap() { std::cout << "-> (FragTrap) Deconstructor for " << this->name << " is called" << std::endl; };
+FragTrap::~FragTrap() { std::cout << "-> (FragTrap) Destructor for " << this->name << " is called" << std::endl; };
 
 FragTrap::FragTrap(const FragTrap &trap) : ClapTrap::ClapTrap(trap) {
   std::cout << "-> (FragTrap) Copy constructor for " << this->name << " is called" << std::endl;

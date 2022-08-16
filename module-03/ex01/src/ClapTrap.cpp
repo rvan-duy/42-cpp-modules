@@ -8,7 +8,7 @@ ClapTrap::ClapTrap(const std::string &name) : name(name), hit_points(10), energy
   std::cout << "-> Constructor for " << name << " is called" << std::endl;
 };
 
-ClapTrap::~ClapTrap() { std::cout << "-> Deconstructor for " << name << " is called" << std::endl; };
+ClapTrap::~ClapTrap() { std::cout << "-> Destructor for " << name << " is called" << std::endl; };
 
 ClapTrap::ClapTrap(const ClapTrap &trap) {
   *this = trap;
