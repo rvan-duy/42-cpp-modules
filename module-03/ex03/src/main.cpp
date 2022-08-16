@@ -3,8 +3,9 @@
 
 #include "DiamondTrap.hpp"
 
-static void checkDiamondTrap(DiamondTrap &trap, std::string name, unsigned int hit_points, unsigned int energy_points,
-                             unsigned int attack_damage, DiamondTrap::State state) {
+static void checkDiamondTrap(const DiamondTrap& trap, const std::string& name, const unsigned int hit_points,
+                             const unsigned int energy_points, const unsigned int attack_damage,
+                             const DiamondTrap::State state) {
   assert(trap.ScavTrap::ClapTrap::getName() == name + "_clap_name");
   assert(trap.FragTrap::ClapTrap::getName() == name + "_clap_name");
   assert(trap.getName() == name);
@@ -32,15 +33,15 @@ int main(void) {
     std::cout << bandit << std::endl;
 
     // Hero is attacking the bandit
-    hero.attack("bandit");  // hero loses 1 energy, inherreted from ClapTrap
-    bandit.takeDamage(30);  // bandit takes 30 damage, inherreted from ClapTrap
+    hero.attack("bandit");  // hero loses 1 energy, inherited from ClapTrap
+    bandit.takeDamage(30);  // bandit takes 30 damage, inherited from ClapTrap
 
     // Bandit is retaliating
-    bandit.attack("Hero");  // bandit loses 1 energy, inherreted from ClapTrap
-    hero.takeDamage(0);     // hero takes 0 damage, inherreted from ClapTrap
+    bandit.attack("Hero");  // bandit loses 1 energy, inherited from ClapTrap
+    hero.takeDamage(0);     // hero takes 0 damage, inherited from ClapTrap
 
     // Here goes into guard mode
-    hero.guardGate();  // this is inherreted from ScavTrap
+    hero.guardGate();  // this is inherited from ScavTrap
 
     // Asking the right quests
     hero.whoAmI();  // from DiamondTrap
@@ -55,8 +56,8 @@ int main(void) {
   {
     std::cout << "------------------------------------" << std::endl;
     std::cout << "Basic tests with default constructor" << std::endl;
-    std::cout << "------------------------------------" << std::endl; 
-    
+    std::cout << "------------------------------------" << std::endl;
+
     DiamondTrap nameless;
     checkDiamondTrap(nameless, "", 100, 50, 30, DiamondTrap::IDLE);
   }
