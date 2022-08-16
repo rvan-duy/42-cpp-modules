@@ -60,7 +60,29 @@ int main(void) {
   {
     std::cout << "--------------------------------------" << std::endl;
     std::cout << "Testing ScavTrap Class with copy      " << std::endl;
-    std::cout << "                          constructors" << std::endl;
+    std::cout << "                          constructor " << std::endl;
+    std::cout << "--------------------------------------" << std::endl;
+
+    ScavTrap hero("Hero");
+    checkTrap(hero, "Hero", 100, 50, 20, ScavTrap::IDLE);
+
+    ScavTrap second_hero(hero); // manually calling copy constructor
+    checkTrap(second_hero, "Hero", 100, 50, 20, ScavTrap::IDLE);
+
+    assert(hero.getState() == ScavTrap::IDLE);
+    hero.guardGate();
+    assert(hero.getState() == ScavTrap::GATE_KEEPING_MODE);
+
+    ScavTrap third_hero(hero); // manually calling copy constructor
+    checkTrap(third_hero, "Hero", 100, 50, 20, ScavTrap::GATE_KEEPING_MODE);
+
+    std::cout << hero << std::endl;
+  }
+
+  {
+    std::cout << "--------------------------------------" << std::endl;
+    std::cout << "Testing ScavTrap Class with copy      " << std::endl;
+    std::cout << "                  assignment operator " << std::endl;
     std::cout << "--------------------------------------" << std::endl;
 
     ScavTrap hero("Hero");

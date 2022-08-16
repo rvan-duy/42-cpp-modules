@@ -1,31 +1,32 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap() : ClapTrap::ClapTrap(), state(IDLE) {
+  std::cout << "-> (ScavTrap) Default constructor for nameless ScavTrap is called" << std::endl;
   hit_points    = 100;
   energy_points = 50;
   attack_damage = 20;
-  std::cout << "-> (ScavTrap) Default constructor for nameless ScavTrap is called" << std::endl;
 };
 
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap::ClapTrap(name), state(IDLE) {
+  std::cout << "-> (ScavTrap) Constructor for " << name << " is called" << std::endl;
   hit_points    = 100;
   energy_points = 50;
   attack_damage = 20;
-  std::cout << "-> (ScavTrap) Constructor for " << name << " is called" << std::endl;
 };
 
 ScavTrap::~ScavTrap() { std::cout << "-> (ScavTrap) Destructor for " << name << " is called" << std::endl; };
 
 ScavTrap::ScavTrap(const ScavTrap &trap) : ClapTrap::ClapTrap(trap) {
   std::cout << "-> (ScavTrap) Copy constructor for " << name << " is called" << std::endl;
+  *this = trap;
 };
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &trap) {
+  std::cout << "-> (ScavTrap) Copy assignment constructor for " << name << " is called" << std::endl;
   if (this != &trap) {
     ClapTrap::operator=(trap);  // manually calling assignment operator from base class
     state = trap.state;
   }
-  std::cout << "-> (ScavTrap) Copy assignment constructor for " << name << " is called" << std::endl;
   return *this;
 };
 
@@ -36,8 +37,8 @@ ScavTrap::State ScavTrap::getState() const { return state; };
 // Methods
 
 void ScavTrap::guardGate() {
-  state = GATE_KEEPING_MODE;
   std::cout << "ScavTrap " << name << " is guarding the gate" << std::endl;
+  state = GATE_KEEPING_MODE;
 };
 
 // << overload
