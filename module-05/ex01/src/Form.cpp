@@ -40,11 +40,6 @@ void Form::beSigned(const Bureaucrat& bureaucrat) {
   return;
 };
 
-void Form::beExecuted(const Bureaucrat& bureaucrat) const {
-  if (form_signed == false) throw Form::FormNotSignedException();
-  if (bureaucrat.getGrade() > grade_required_to_execute) throw Form::GradeTooLowException();
-};
-
 // << overload
 
 std::ostream& operator<<(std::ostream& out, const Form& form) {
