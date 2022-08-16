@@ -1,24 +1,60 @@
 #include <cstdlib>
 
-#include "Intern.hpp"
 #include "Bureaucrat.hpp"
+#include "Intern.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
 // TODO: Rework copy constructors
-//        Add more tests with bureaucrats
 
 int main(void) {
   {
-    Intern someRandomIntern;
-    Form*  rrf;
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+    Intern     someRandomIntern;
+    Form*      rrf;
+    Bureaucrat bureaucrat("Ben", 1);
+    rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+    
+    if (rrf != NULL) {
+      bureaucrat.signForm(*rrf);
+      bureaucrat.executeForm(*rrf);
+    }
+  }
 
-    Bureaucrat bureaucrat("z", 1);
+  {
+    Intern     someRandomIntern;
+    Form*      rrf;
+    Bureaucrat bureaucrat("Ben", 1);
+    rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
 
-    rrf->execute(bureaucrat);
+    if (rrf != NULL) {
+      bureaucrat.signForm(*rrf);
+      bureaucrat.executeForm(*rrf);
+    }
+  }
 
+  {
+    Intern     someRandomIntern;
+    Form*      rrf;
+    Bureaucrat bureaucrat("Ben", 1);
+    rrf = someRandomIntern.makeForm("presidential position", "Bender");
+
+    if (rrf != NULL) {
+      bureaucrat.signForm(*rrf);
+      bureaucrat.executeForm(*rrf);
+    }
+  }
+
+  {
+    Intern     someRandomIntern;
+    Form*      rrf;
+    Bureaucrat bureaucrat("Ben", 1);
+    rrf = someRandomIntern.makeForm("HOI", "Bender");
+
+    if (rrf != NULL) {
+      bureaucrat.signForm(*rrf);
+      bureaucrat.executeForm(*rrf);
+    }
   }
 
   return EXIT_SUCCESS;
