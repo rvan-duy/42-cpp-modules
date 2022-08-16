@@ -36,6 +36,15 @@ ScavTrap::State ScavTrap::getState() const { return state; };
 
 // Methods
 
+void ScavTrap::attack(const std::string &target) {
+  if (energy_points > 0) {
+    std::cout << "ScavTrap " << name << " attacks " << target << std::endl;
+    energy_points--;
+  } else {
+    std::cout << "ScavTrap " << name << " is out of energy points" << std::endl;
+  }
+};
+
 void ScavTrap::guardGate() {
   std::cout << "ScavTrap " << name << " is guarding the gate" << std::endl;
   state = GATE_KEEPING_MODE;
