@@ -33,7 +33,7 @@ int main(void) {
     std::cout << bandit << std::endl;
 
     // Hero is attacking the bandit
-    hero.attack("bandit");  // hero loses 1 energy, inherited from ClapTrap
+    hero.attack("bandit");  // hero loses 1 energy, inherited from ScavTrap
     bandit.takeDamage(30);  // bandit takes 30 damage, inherited from ClapTrap
 
     // Bandit is retaliating

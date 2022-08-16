@@ -2,21 +2,19 @@
 
 // constructors in initialization list get called from the left to the right
 
-DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
+DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap(), name("") {
   hit_points     = 100;
   energy_points  = 50;
   attack_damage  = 30;
   ClapTrap::name = "_clap_name";
-  name           = "";
   std::cout << "-> (DiamondTrap) Default constructor for nameless DiamondTrap is called" << std::endl;
 };
 
-DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name), ScavTrap(name), FragTrap(name) {
+DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name), ScavTrap(name), FragTrap(name), name(name) {
   hit_points     = 100;
   energy_points  = 50;
   attack_damage  = 30;
   ClapTrap::name = name + "_clap_name";
-  name           = name;
   std::cout << "-> (DiamondTrap) Constructor for " << name << " is called" << std::endl;
 };
 
