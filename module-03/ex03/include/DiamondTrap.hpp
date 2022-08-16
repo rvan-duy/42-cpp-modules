@@ -13,7 +13,7 @@ class DiamondTrap : public ScavTrap, public FragTrap {
   DiamondTrap &operator=(const DiamondTrap &trap);  // Copy assignment operator
 
   // Getters
-  std::string getName() const;
+  const std::string &getName() const;
 
   // Methods
   void whoAmI() const;

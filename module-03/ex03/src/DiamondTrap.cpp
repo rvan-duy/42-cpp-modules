@@ -3,40 +3,46 @@
 // constructors in initialization list get called from the left to the right
 
 DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
-  this->hit_points     = 100;
-  this->energy_points  = 50;
-  this->attack_damage  = 30;
-  this->ClapTrap::name = "_clap_name";
-  this->name           = "";
+  hit_points     = 100;
+  energy_points  = 50;
+  attack_damage  = 30;
+  ClapTrap::name = "_clap_name";
+  name           = "";
   std::cout << "-> (DiamondTrap) Default constructor for nameless DiamondTrap is called" << std::endl;
 };
 
 DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name), ScavTrap(name), FragTrap(name) {
-  this->hit_points     = 100;
-  this->energy_points  = 50;
-  this->attack_damage  = 30;
-  this->ClapTrap::name = name + "_clap_name";
-  this->name           = name;
+  hit_points     = 100;
+  energy_points  = 50;
+  attack_damage  = 30;
+  ClapTrap::name = name + "_clap_name";
+  name           = name;
   std::cout << "-> (DiamondTrap) Constructor for " << name << " is called" << std::endl;
 };
 
 DiamondTrap::~DiamondTrap() {
-  if (this->name == "")
+  if (name == "")
     std::cout << "-> (DiamondTrap) Destructor for nameless DiamondTrap is called" << std::endl;
   else
-    std::cout << "-> (DiamondTrap) Destructor for " << this->name << " is called" << std::endl;
+    std::cout << "-> (DiamondTrap) Destructor for " << name << " is called" << std::endl;
 };
 
-std::string DiamondTrap::getName() const { return this->name; };
+// Getters
+
+const std::string &DiamondTrap::getName() const { return name; };
+
+// Methods
 
 void DiamondTrap::whoAmI() const {
   std::cout << "(DiamondTrap) Let's figure out who I am.." << std::endl;
-  std::cout << "- my name is: " << this->name << std::endl;
-  std::cout << "- my claptrap name is " << this->ClapTrap::name << std::endl;
+  std::cout << "- my name is: " << name << std::endl;
+  std::cout << "- my claptrap name is " << ClapTrap::name << std::endl;
 };
 
+// << overload
+
 std::ostream &operator<<(std::ostream &out, const DiamondTrap &trap) {
-  const std::string states[] = { "IDLE", "GATE_KEEPING_MODE" };
+  const std::string states[] = {"IDLE", "GATE_KEEPING_MODE"};
   out << "DiamondTrap (";
   out << "name:" << trap.getName() << " ";
   out << "hit_points:" << trap.getHitPoints() << " ";
