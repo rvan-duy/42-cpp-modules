@@ -66,16 +66,14 @@ int main(void) {
     ScavTrap hero("Hero");
     checkTrap(hero, "Hero", 100, 50, 20, ScavTrap::IDLE);
 
-    ScavTrap second_hero(hero); // manually calling copy constructor
-    checkTrap(second_hero, "Hero", 100, 50, 20, ScavTrap::IDLE);
 
     assert(hero.getState() == ScavTrap::IDLE);
     hero.guardGate();
     assert(hero.getState() == ScavTrap::GATE_KEEPING_MODE);
 
-    ScavTrap third_hero(hero); // manually calling copy constructor
-    checkTrap(third_hero, "Hero", 100, 50, 20, ScavTrap::GATE_KEEPING_MODE);
-
+    ScavTrap second_hero(hero); // manually calling copy constructor
+    checkTrap(second_hero, "Hero", 100, 50, 20, ScavTrap::IDLE);
+    
     std::cout << hero << std::endl;
   }
 
@@ -88,15 +86,13 @@ int main(void) {
     ScavTrap hero("Hero");
     checkTrap(hero, "Hero", 100, 50, 20, ScavTrap::IDLE);
 
-    ScavTrap second_hero;
-    second_hero = hero;
-
-    checkTrap(second_hero, "Hero", 100, 50, 20, ScavTrap::IDLE);
 
     assert(hero.getState() == ScavTrap::IDLE);
     hero.guardGate();
     assert(hero.getState() == ScavTrap::GATE_KEEPING_MODE);
 
+    ScavTrap second_hero;
+    second_hero = hero;
     checkTrap(second_hero, "Hero", 100, 50, 20, ScavTrap::IDLE);
 
     std::cout << hero << std::endl;
