@@ -3,12 +3,14 @@
 
 #include "ScavTrap.hpp"
 
-static void checkClapTrap(const ClapTrap &trap, const std::string &name, const unsigned int hit_points,
-                          const unsigned int energy_points, const unsigned int attack_damage) {
+static void checkTrap(const ScavTrap &trap, const std::string &name, const unsigned int hit_points,
+                          const unsigned int energy_points, const unsigned int attack_damage,
+                          const ScavTrap::State state) {
   assert(trap.getName() == name);
   assert(trap.getHitPoints() == hit_points);
   assert(trap.getEnergyPoints() == energy_points);
   assert(trap.getAttackDamage() == attack_damage);
+  assert(trap.getState() == state);
 };
 
 int main(void) {
@@ -18,9 +20,9 @@ int main(void) {
     std::cout << "--------------------------------------" << std::endl;
 
     ScavTrap hero("Hero");
-    checkClapTrap(hero, "Hero", 100, 50, 20);
+    checkTrap(hero, "Hero", 100, 50, 20, ScavTrap::IDLE);
     ScavTrap bandit("Bandit");
-    checkClapTrap(bandit, "Bandit", 100, 50, 20);
+    checkTrap(bandit, "Bandit", 100, 50, 20, ScavTrap::IDLE);
 
     std::cout << hero << std::endl;
     std::cout << bandit << std::endl;
@@ -31,8 +33,8 @@ int main(void) {
       bandit.takeDamage(hero.getAttackDamage());
     }
 
-    checkClapTrap(hero, "Hero", 100, 45, 20);
-    checkClapTrap(bandit, "Bandit", 0, 50, 20);
+    checkTrap(hero, "Hero", 100, 45, 20, ScavTrap::IDLE);
+    checkTrap(bandit, "Bandit", 0, 50, 20, ScavTrap::IDLE);
 
     std::cout << hero << std::endl;
     std::cout << bandit << std::endl;
@@ -44,7 +46,7 @@ int main(void) {
     std::cout << "--------------------------------------" << std::endl;
 
     ScavTrap hero("Hero");
-    checkClapTrap(hero, "Hero", 100, 50, 20);
+    checkTrap(hero, "Hero", 100, 50, 20, ScavTrap::IDLE);
 
     std::cout << hero << std::endl;
 
@@ -62,16 +64,18 @@ int main(void) {
     std::cout << "--------------------------------------" << std::endl;
 
     ScavTrap hero("Hero");
-    checkClapTrap(hero, "Hero", 100, 50, 20);
+    checkTrap(hero, "Hero", 100, 50, 20, ScavTrap::IDLE);
 
     ScavTrap second_hero;
     second_hero = hero;
 
-    std::cout << hero << std::endl;
+    checkTrap(second_hero, "Hero", 100, 50, 20, ScavTrap::IDLE);
 
     assert(hero.getState() == ScavTrap::IDLE);
     hero.guardGate();
     assert(hero.getState() == ScavTrap::GATE_KEEPING_MODE);
+
+    checkTrap(second_hero, "Hero", 100, 50, 20, ScavTrap::IDLE);
 
     std::cout << hero << std::endl;
   }

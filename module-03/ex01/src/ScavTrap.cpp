@@ -16,8 +16,7 @@ ScavTrap::ScavTrap(const std::string &name) : ClapTrap::ClapTrap(name), state(ID
 
 ScavTrap::~ScavTrap() { std::cout << "-> (ScavTrap) Destructor for " << name << " is called" << std::endl; };
 
-ScavTrap::ScavTrap(const ScavTrap &trap) {
-  *this = trap;
+ScavTrap::ScavTrap(const ScavTrap &trap) : ClapTrap::ClapTrap(trap) {
   std::cout << "-> (ScavTrap) Copy constructor for " << name << " is called" << std::endl;
 };
 
