@@ -1,14 +1,14 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
-    : Form::Form("PresidentialPardonForm", 25, 5), target(target){};
+    : Form("PresidentialPardonForm", 25, 5), target(target){};
 
 PresidentialPardonForm::~PresidentialPardonForm(){};
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& form)
-    : Form::Form(form), target(form.target){};
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& form) : Form(form) { *this = form; };
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& form) {
+  if (this == &form) return *this;
   form_signed = form.form_signed;
   target      = form.target;
   return *this;

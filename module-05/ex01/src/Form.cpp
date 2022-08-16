@@ -1,18 +1,24 @@
 #include "Form.hpp"
 
 Form::Form() : name(""), form_signed(false), grade_required_to_sign(10), grade_required_to_execute(1){};
+
 Form::Form(const std::string& name, const int grade_required_to_sign, const int grade_required_to_execute)
     : name(name),
       form_signed(false),
       grade_required_to_sign(grade_required_to_sign),
       grade_required_to_execute(grade_required_to_execute){};
+
 Form::~Form(){};
+
 Form::Form(const Form& form)
     : name(form.name),
-      form_signed(form.form_signed),
       grade_required_to_sign(form.grade_required_to_sign),
-      grade_required_to_execute(form.grade_required_to_execute){};
+      grade_required_to_execute(form.grade_required_to_execute) {
+  *this = form;
+};
+
 Form& Form::operator=(const Form& form) {
+  if (this == &form) return *this;
   form_signed = form.form_signed;
   return *this;
 };
@@ -32,6 +38,11 @@ void Form::beSigned(const Bureaucrat& bureaucrat) {
   };
   form_signed = true;
   return;
+};
+
+void Form::beExecuted(const Bureaucrat& bureaucrat) const {
+  if (form_signed == false) throw Form::FormNotSignedException();
+  if (bureaucrat.getGrade() > grade_required_to_execute) throw Form::GradeTooLowException();
 };
 
 // << overload
