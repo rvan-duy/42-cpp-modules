@@ -6,6 +6,9 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
+// TODO: Rework copy constructors
+//        Add more tests with bureaucrats
+
 int main(void) {
   {
     Intern someRandomIntern;
