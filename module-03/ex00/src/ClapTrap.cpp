@@ -6,14 +6,14 @@ ClapTrap::ClapTrap() : hit_points(10), energy_points(10), attack_damage(0) {
 
 ClapTrap::ClapTrap(const std::string &name) : name(name), hit_points(10), energy_points(10), attack_damage(0) {
   std::cout << "-> Constructor for " << name << " is called" << std::endl;
-}
+};
 
 ClapTrap::~ClapTrap() { std::cout << "-> Deconstructor for " << name << " is called" << std::endl; };
 
 ClapTrap::ClapTrap(const ClapTrap &trap) {
   *this = trap;
   std::cout << "-> Copy constructor for " << name << " is called" << std::endl;
-}
+};
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &trap) {
   name          = trap.name;
@@ -22,7 +22,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &trap) {
   attack_damage = trap.attack_damage;
   std::cout << "-> Copy assignment constructor for " << name << " is called" << std::endl;
   return *this;
-}
+};
 
 // Getters
 
@@ -62,7 +62,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
   } else {
     std::cout << "ClapTrap " << name << " is out of energy points" << std::endl;
   }
-}
+};
 
 // << overload
 
@@ -73,4 +73,4 @@ std::ostream &operator<<(std::ostream &out, const ClapTrap &trap) {
   out << "energy_points:" << trap.getEnergyPoints() << " ";
   out << "attack_damage:" << trap.getAttackDamage() << ")";
   return out;
-}
+};
