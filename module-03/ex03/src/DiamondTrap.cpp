@@ -3,19 +3,19 @@
 // constructors in initialization list get called from the left to the right
 
 DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap(), name("") {
+  std::cout << "-> (DiamondTrap) Default constructor for nameless DiamondTrap is called" << std::endl;
   hit_points     = 100;
   energy_points  = 50;
   attack_damage  = 30;
   ClapTrap::name = "_clap_name";
-  std::cout << "-> (DiamondTrap) Default constructor for nameless DiamondTrap is called" << std::endl;
 };
 
 DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name), ScavTrap(name), FragTrap(name), name(name) {
+  std::cout << "-> (DiamondTrap) Constructor for " << name << " is called" << std::endl;
   hit_points     = 100;
   energy_points  = 50;
   attack_damage  = 30;
   ClapTrap::name = name + "_clap_name";
-  std::cout << "-> (DiamondTrap) Constructor for " << name << " is called" << std::endl;
 };
 
 DiamondTrap::~DiamondTrap() {
@@ -23,6 +23,22 @@ DiamondTrap::~DiamondTrap() {
     std::cout << "-> (DiamondTrap) Destructor for nameless DiamondTrap is called" << std::endl;
   else
     std::cout << "-> (DiamondTrap) Destructor for " << name << " is called" << std::endl;
+};
+
+DiamondTrap::DiamondTrap(const DiamondTrap &trap)
+    : ClapTrap(trap), ScavTrap(trap), FragTrap(trap) {
+  std::cout << "-> (DiamondTrap) Copy constructor for " << name << " is called" << std::endl;
+  *this = trap;
+};
+
+DiamondTrap &DiamondTrap::operator=(const DiamondTrap &trap) {
+  std::cout << "-> (DiamondTrap) Copy assignment constructor for " << name << " is called" << std::endl;
+  if (this != &trap) {
+    ScavTrap::operator=(trap);
+    FragTrap::operator=(trap);
+    name = trap.name;
+  }
+  return *this;
 };
 
 // Getters

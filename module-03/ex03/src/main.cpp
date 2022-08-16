@@ -61,5 +61,23 @@ int main(void) {
     DiamondTrap nameless;
     checkDiamondTrap(nameless, "", 100, 50, 30, DiamondTrap::IDLE);
   }
+
+  {
+    std::cout << "------------------------------------" << std::endl;
+    std::cout << "Testing DiamondTrap copy constructor" << std::endl;
+    std::cout << "     and copy assignment operator   " << std::endl;
+    std::cout << "------------------------------------" << std::endl;
+
+    DiamondTrap hero("Hero");
+    checkDiamondTrap(hero, "Hero", 100, 50, 30, DiamondTrap::IDLE);
+
+    hero.guardGate();
+
+    DiamondTrap second_hero = hero;
+    checkDiamondTrap(second_hero, "Hero", 100, 50, 30, DiamondTrap::GATE_KEEPING_MODE);
+
+    DiamondTrap third_hero(hero);
+    checkDiamondTrap(third_hero, "Hero", 100, 50, 30, DiamondTrap::GATE_KEEPING_MODE);
+  }
   return EXIT_SUCCESS;
 };
