@@ -14,8 +14,8 @@ class Bureaucrat {
   Bureaucrat& operator=(const Bureaucrat& bureaucrat);   // Copy assignment operator
 
   // Getters
-  const std::string getName() const;
-  int               getGrade() const;
+  const std::string& getName() const;
+  int                getGrade() const;
 
   // Methods
   void incrementGrade(const int amount = 1);
