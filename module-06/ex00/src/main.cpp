@@ -12,19 +12,22 @@
 // - display the result as shown
 
 static bool isInt(const std::string &str) {
-  // Check if string contains only numbers
+  // Check if string contains anything else but numbers
   for (std::size_t index = 0; index < str.size(); index++) {
     if (!std::isdigit(str[index])) return false;
   };
 
-  // Check if string contains number that fits inside int
-  long long num = std::stoll(str);
-  if (INT_MAX < num || INT_MIN > num) return false;
+  // Check if integer value is out of range
+  try {
+    std::stoi(str);
+  } catch (const std::out_of_range &oor) {
+    return false;
+  }
 
   return true;
 };
 
-static void printInt(int num){
+static void printInt(int num) {
   std::cout << "char:   ";
   if (num < CHAR_MIN || num > CHAR_MAX)
     std::cout << "Impossible" << std::endl;
