@@ -6,15 +6,13 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-// TODO: Rework copy constructors
-
 int main(void) {
   {
     Intern     someRandomIntern;
     Form*      rrf;
     Bureaucrat bureaucrat("Ben", 1);
     rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
-    
+
     if (rrf != NULL) {
       bureaucrat.signForm(*rrf);
       bureaucrat.executeForm(*rrf);

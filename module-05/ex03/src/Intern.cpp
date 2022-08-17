@@ -32,5 +32,6 @@ Form* Intern::makeForm(const std::string& name, const std::string& target) {
     }
   }
 
+  std::cout << "Form doesn't exist" << std::endl;
   return NULL;
 };
