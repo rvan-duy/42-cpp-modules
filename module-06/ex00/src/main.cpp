@@ -31,7 +31,7 @@ static void printInt(int num) {
   std::cout << "char:   ";
   if (num < CHAR_MIN || num > CHAR_MAX)
     std::cout << "Impossible" << std::endl;
-  else if (!std::isprint(num))
+  else if (std::isprint(num) == false)
     std::cout << "Non displayable" << std::endl;
   else
     std::cout << static_cast<char>(num) << std::endl;
@@ -68,6 +68,10 @@ int main(int argc, char **argv) {
       printInt(casted_int);
       return EXIT_SUCCESS;
     };
+
+    // if (isFloat(input_string) == true) {
+    //   int casted_float = 
+    // }
   };
   return EXIT_SUCCESS;
 };
