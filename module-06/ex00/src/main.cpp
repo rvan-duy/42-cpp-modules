@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <iomanip>
 #include <iostream>
 #include <string>
 
@@ -27,8 +28,17 @@ static bool isFloat(const std::string &str) {
     };
 
     // Check if str is a valid float
-    if (*it == 'f' && it == str.cend() - 1 && found_dot == true) return true;
+    if (*it == 'f' && it == str.cend() - 1 && found_dot == true) {
+      // Check if float value is out of range
+      try {
+        std::stof(str);
+      } catch (const std::out_of_range &oor) {
+        return false;
+      }
+      return true;
+    }
 
+    //
     if (std::isdigit(*it) == false) return false;
   };
 
@@ -36,13 +46,25 @@ static bool isFloat(const std::string &str) {
 };
 
 static void printFloat(float num) {
+  int num_int = static_cast<int>(num);
 
+  std::cout << std::fixed << std::setprecision(1);
+  std::cout << "char:   ";
+  if (num_int < CHAR_MIN || num_int > CHAR_MAX)
+    std::cout << "Impossible" << std::endl;
+  else if (std::isprint(num_int) == false)
+    std::cout << "Non displayable" << std::endl;
+  else
+    std::cout << static_cast<char>(num_int) << std::endl;
+  std::cout << "int:    " << num_int << std::endl;
+  std::cout << "float:  " << num << "f" << std::endl;
+  std::cout << "double  " << static_cast<double>(num) << std::endl;
 };
 
 static bool isInt(const std::string &str) {
   // Check if string contains anything else but numbers
-  for (std::size_t index = 0; index < str.size(); index++) {
-    if (std::isdigit(str[index]) == false) return false;
+  for (std::string::const_iterator it = str.cbegin(); it != str.cend(); it++) {
+    if (std::isdigit(*it) == false) return false;
   };
 
   // Check if integer value is out of range
@@ -56,6 +78,7 @@ static bool isInt(const std::string &str) {
 };
 
 static void printInt(int num) {
+  std::cout << std::fixed << std::setprecision(1);
   std::cout << "char:   ";
   if (num < CHAR_MIN || num > CHAR_MAX)
     std::cout << "Impossible" << std::endl;
@@ -64,8 +87,8 @@ static void printInt(int num) {
   else
     std::cout << static_cast<char>(num) << std::endl;
   std::cout << "int:    " << num << std::endl;
-  std::cout << "float:  " << num << ".0f" << std::endl;
-  std::cout << "double: " << num << ".0" << std::endl;
+  std::cout << "float:  " << static_cast<float>(num) << "f" << std::endl;
+  std::cout << "double: " << static_cast<double>(num) << std::endl;
 };
 
 static bool isChar(const std::string &str) {
@@ -75,32 +98,39 @@ static bool isChar(const std::string &str) {
 };
 
 static void printChar(char ch) {
+  std::cout << std::fixed << std::setprecision(1);
   std::cout << "char:   " << ch << std::endl;
   std::cout << "int:    " << static_cast<int>(ch) << std::endl;
-  std::cout << "float:  " << static_cast<float>(ch) << ".0f" << std::endl;
-  std::cout << "double: " << static_cast<double>(ch) << ".0" << std::endl;
+  std::cout << "float:  " << static_cast<float>(ch) << "f" << std::endl;
+  std::cout << "double: " << static_cast<double>(ch) << std::endl;
 };
 
 int main(int argc, char **argv) {
   if (argc == 2) {
     std::string input_string(argv[1]);
+
     if (isChar(input_string) == true) {
+      std::cout << "DataType: char" << std::endl;
       char casted_char = static_cast<char>(input_string[0]);
       printChar(casted_char);
       return EXIT_SUCCESS;
     };
 
     if (isInt(input_string) == true) {
+      std::cout << "DataType: int" << std::endl;
       int casted_int = std::stoi(input_string);
       printInt(casted_int);
       return EXIT_SUCCESS;
     };
 
     if (isFloat(input_string) == true) {
+      std::cout << "DataType: float" << std::endl;
       float casted_float = std::stof(input_string);
-      // int casted_float =
+      printFloat(casted_float);
       return EXIT_SUCCESS;
     };
+
+    // TODO double
 
     std::cout << "error" << std::endl;
   };
