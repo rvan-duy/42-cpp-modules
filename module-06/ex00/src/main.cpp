@@ -1,3 +1,4 @@
+#include <cmath>
 #include <cstdlib>
 #include <iomanip>
 #include <iostream>
@@ -11,6 +12,70 @@
 // - convert from string to actual type
 // - convert it explicitly to the 3 other types
 // - display the result as shown
+
+static bool isInfinite(const std::string &str) {
+  if (!str.compare("+inf") || !str.compare("-inf") || !str.compare("+inff") || !str.compare("-inff")) return true;
+  return false;
+};
+
+static void printInfinite(const char sign) {
+  std::cout << "char:   Impossible" << std::endl;
+  std::cout << "int:    Impossible" << std::endl;
+  std::cout << "float:  " << sign << "inff" << std::endl;
+  std::cout << "double: " << sign << "inf" << std::endl;
+};
+
+static bool isDouble(const std::string &str) {
+  bool found_dot = false;
+
+  // Iterate over constant string
+  for (std::string::const_iterator it = str.cbegin(); it != str.cend(); it++) {
+    // Skip first - or +
+    if ((*it == '-' || *it == '+') && it == str.cbegin()) continue;
+
+    // Check for dot
+    if (*it == '.') {
+      if (found_dot == true) return false;
+      found_dot = true;
+      continue;
+    };
+
+    // Check if str is a valid double
+    if (it == str.cend() - 1 && found_dot == true) {
+      // Check if double value is out of range
+      try {
+        std::stod(str);
+      } catch (const std::out_of_range &oor) {
+        return false;
+      }
+      return true;
+    };
+
+    // Check if the rest of the characters are digits
+    if (std::isdigit(*it) == false) return false;
+  };
+  return false;
+};
+
+static void printDouble(double num) {
+  int num_int = static_cast<int>(num);
+
+  std::cout << std::fixed << std::setprecision(1);
+  std::cout << "char:   ";
+  if (num_int < CHAR_MIN || num_int > CHAR_MAX)
+    std::cout << "Impossible" << std::endl;
+  else if (std::isprint(num_int) == false)
+    std::cout << "Non displayable" << std::endl;
+  else
+    std::cout << static_cast<char>(num_int) << std::endl;
+  std::cout << "int:    ";
+  if (num < INT_MIN || num > INT_MAX)
+    std::cout << "Overflows" << std::endl;
+  else
+    std::cout << num_int << std::endl;
+  std::cout << "float:  " << static_cast<float>(num) << "f" << std::endl;
+  std::cout << "double  " << num + 1 << std::endl;
+};
 
 static bool isFloat(const std::string &str) {
   bool found_dot = false;
@@ -36,19 +101,17 @@ static bool isFloat(const std::string &str) {
         return false;
       }
       return true;
-    }
+    };
 
-    //
+    // Check if the rest of the characters are digits
     if (std::isdigit(*it) == false) return false;
   };
-
   return false;
 };
 
 static void printFloat(float num) {
   int num_int = static_cast<int>(num);
 
-  std::cout << std::fixed << std::setprecision(1);
   std::cout << "char:   ";
   if (num_int < CHAR_MIN || num_int > CHAR_MAX)
     std::cout << "Impossible" << std::endl;
@@ -56,7 +119,12 @@ static void printFloat(float num) {
     std::cout << "Non displayable" << std::endl;
   else
     std::cout << static_cast<char>(num_int) << std::endl;
-  std::cout << "int:    " << num_int << std::endl;
+  std::cout << "int:    ";
+  if (num < INT_MIN || num > INT_MAX)
+    std::cout << "Overflows" << std::endl;
+  else
+    std::cout << num_int << std::endl;
+  std::cout << std::fixed << std::setprecision(1);
   std::cout << "float:  " << num << "f" << std::endl;
   std::cout << "double  " << static_cast<double>(num) << std::endl;
 };
@@ -73,12 +141,10 @@ static bool isInt(const std::string &str) {
   } catch (const std::out_of_range &oor) {
     return false;
   };
-
   return true;
 };
 
 static void printInt(int num) {
-  std::cout << std::fixed << std::setprecision(1);
   std::cout << "char:   ";
   if (num < CHAR_MIN || num > CHAR_MAX)
     std::cout << "Impossible" << std::endl;
@@ -87,6 +153,7 @@ static void printInt(int num) {
   else
     std::cout << static_cast<char>(num) << std::endl;
   std::cout << "int:    " << num << std::endl;
+  std::cout << std::fixed << std::setprecision(1);
   std::cout << "float:  " << static_cast<float>(num) << "f" << std::endl;
   std::cout << "double: " << static_cast<double>(num) << std::endl;
 };
@@ -110,29 +177,43 @@ int main(int argc, char **argv) {
     std::string input_string(argv[1]);
 
     if (isChar(input_string) == true) {
-      std::cout << "DataType: char" << std::endl;
+      std::cout << "Scalar type: char" << std::endl;
       char casted_char = static_cast<char>(input_string[0]);
       printChar(casted_char);
       return EXIT_SUCCESS;
     };
 
     if (isInt(input_string) == true) {
-      std::cout << "DataType: int" << std::endl;
+      std::cout << "Scalar type: int" << std::endl;
       int casted_int = std::stoi(input_string);
       printInt(casted_int);
       return EXIT_SUCCESS;
     };
 
     if (isFloat(input_string) == true) {
-      std::cout << "DataType: float" << std::endl;
+      std::cout << "Scalar type: float" << std::endl;
       float casted_float = std::stof(input_string);
       printFloat(casted_float);
       return EXIT_SUCCESS;
     };
 
-    // TODO double
+    if (isDouble(input_string) == true) {
+      std::cout << "Scalar type: double" << std::endl;
+      double casted_double = std::stod(input_string);
+      printDouble(casted_double);
+      return EXIT_SUCCESS;
+    };
 
-    std::cout << "error" << std::endl;
+    if (isInfinite(input_string) == true) {
+      char sign = input_string[0];
+      printInfinite(sign);
+      return EXIT_SUCCESS;
+    };
+
+    std::cout << "char:   Impossible" << std::endl;
+    std::cout << "int:    Impossible" << std::endl;
+    std::cout << "float:  nanf" << std::endl;
+    std::cout << "double: nan" << std::endl;
   };
   return EXIT_SUCCESS;
 };
