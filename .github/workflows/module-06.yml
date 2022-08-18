@@ -12,15 +12,6 @@ env:
   EX00_DIR: module-06/ex00
 
 jobs:
-  ubuntu_build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: ex00 build
-      run:  make -C $EX00_DIR && make fclean -C $EX00_DIR
-
   macos_build:
 
     runs-on: macos-latest

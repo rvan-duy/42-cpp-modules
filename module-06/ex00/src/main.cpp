@@ -45,7 +45,7 @@ static bool isDouble(const std::string &str) {
     if (it == str.cend() - 1 && found_dot == true) {
       // Check if double value is out of range
       try {
-        stod(str);
+        std::stod(str);
       } catch (const std::out_of_range &oor) {
         return false;
       }
@@ -97,7 +97,7 @@ static bool isFloat(const std::string &str) {
     if (*it == 'f' && it == str.cend() - 1 && found_dot == true) {
       // Check if float value is out of range
       try {
-        stof(str);
+        std::stof(str);
       } catch (const std::out_of_range &oor) {
         return false;
       }
@@ -138,7 +138,7 @@ static bool isInt(const std::string &str) {
 
   // Check if integer value is out of range
   try {
-    stoi(str);
+    std::stoi(str);
   } catch (const std::out_of_range &oor) {
     return false;
   };
