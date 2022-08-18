@@ -12,4 +12,6 @@
 
 [![macOS/Ubuntu build cpp-module-05](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-05.yml/badge.svg)](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-05.yml)
 
+[![macOS/Ubuntu build cpp-module-06](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-06.yml/badge.svg)](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-06.yml)
+
 [![CodeFactor](https://www.codefactor.io/repository/github/rvan-duy/cpp-modules/badge/main)](https://www.codefactor.io/repository/github/rvan-duy/cpp-modules/overview/main)
