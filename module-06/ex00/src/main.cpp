@@ -57,7 +57,7 @@ static bool isDouble(const std::string &str) {
   return false;
 };
 
-static void printDouble(double num) {
+static void printDouble(const double num) {
   int num_int = static_cast<int>(num);
 
   std::cout << std::fixed << std::setprecision(1);
@@ -109,7 +109,7 @@ static bool isFloat(const std::string &str) {
   return false;
 };
 
-static void printFloat(float num) {
+static void printFloat(const float num) {
   int num_int = static_cast<int>(num);
 
   std::cout << "char:   ";
@@ -144,7 +144,7 @@ static bool isInt(const std::string &str) {
   return true;
 };
 
-static void printInt(int num) {
+static void printInt(const int num) {
   std::cout << "char:   ";
   if (num < CHAR_MIN || num > CHAR_MAX)
     std::cout << "Impossible" << std::endl;
@@ -164,7 +164,7 @@ static bool isChar(const std::string &str) {
   return false;
 };
 
-static void printChar(char ch) {
+static void printChar(const char ch) {
   std::cout << std::fixed << std::setprecision(1);
   std::cout << "char:   " << ch << std::endl;
   std::cout << "int:    " << static_cast<int>(ch) << std::endl;
