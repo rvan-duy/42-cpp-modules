@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
+#include <climits>
 
 // Input: String representation of a c++ literal
 // - char, int, float, doable
@@ -44,7 +45,7 @@ static bool isDouble(const std::string &str) {
     if (it == str.cend() - 1 && found_dot == true) {
       // Check if double value is out of range
       try {
-        std::stod(str);
+        stod(str);
       } catch (const std::out_of_range &oor) {
         return false;
       }
@@ -96,7 +97,7 @@ static bool isFloat(const std::string &str) {
     if (*it == 'f' && it == str.cend() - 1 && found_dot == true) {
       // Check if float value is out of range
       try {
-        std::stof(str);
+        stof(str);
       } catch (const std::out_of_range &oor) {
         return false;
       }
@@ -137,7 +138,7 @@ static bool isInt(const std::string &str) {
 
   // Check if integer value is out of range
   try {
-    std::stoi(str);
+    stoi(str);
   } catch (const std::out_of_range &oor) {
     return false;
   };
@@ -185,21 +186,21 @@ int main(int argc, char **argv) {
 
     if (isInt(input_string) == true) {
       std::cout << "Scalar type: int" << std::endl;
-      int casted_int = std::stoi(input_string);
+      int casted_int = stoi(input_string);
       printInt(casted_int);
       return EXIT_SUCCESS;
     };
 
     if (isFloat(input_string) == true) {
       std::cout << "Scalar type: float" << std::endl;
-      float casted_float = std::stof(input_string);
+      float casted_float = stof(input_string);
       printFloat(casted_float);
       return EXIT_SUCCESS;
     };
 
     if (isDouble(input_string) == true) {
       std::cout << "Scalar type: double" << std::endl;
-      double casted_double = std::stod(input_string);
+      double casted_double = stod(input_string);
       printDouble(casted_double);
       return EXIT_SUCCESS;
     };
