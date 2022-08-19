@@ -6,7 +6,7 @@ Ice::Ice() {
 
 Ice::~Ice(){};
 
-Ice::Ice(const Ice &ice) {
+Ice::Ice(const Ice &ice) : AMateria(ice) {
   *this = ice;
 };
 
