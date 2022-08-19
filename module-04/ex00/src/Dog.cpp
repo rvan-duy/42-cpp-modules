@@ -1,22 +1,29 @@
 #include "Dog.hpp"
 
-// Note: you cannot set initialize base class members from the initialization list in the derived class
 Dog::Dog() {
-  this->type = "Dog";
-  std::cout << "-> (Dog) Default constructor for Dog is called" << std::endl;
+  std::cout << "-> (Dog) Default constructor is called" << std::endl;
+  type = "Dog";
 };
 
-Dog::~Dog() { std::cout << "-> (Dog) Destructor for Dog is called" << std::endl; };
+Dog::~Dog() {
+  std::cout << "-> (Dog) Destructor for Dog is called" << std::endl;
+};
 
 Dog::Dog(const Dog &dog) : Animal(dog) {
-  this->type = dog.type;
-  std::cout << "-> (Dog) Copy assignment constructor for Dog is called" << std::endl;
+  std::cout << "-> (Dog) Copy constructor is called" << std::endl;
+  *this = dog;
 };
 
 Dog &Dog::operator=(const Dog &dog) {
-  this->type = dog.type;
-  std::cout << "(Dog) Copy assignment constructor for Dog is called" << std::endl;
+  std::cout << "-> (Dog) Copy assignment operator overload is called" << std::endl;
+  if (this != &dog) {
+    Animal::operator=(dog);
+  };
   return *this;
 };
 
-void        Dog::makeSound() const { std::cout << "-> (Dog) * Dog barks *" << std::endl; }
+// Methods
+
+void Dog::makeSound() const {
+  std::cout << "-> (Dog) * Dog barks *" << std::endl;
+};

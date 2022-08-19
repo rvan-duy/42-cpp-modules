@@ -15,7 +15,7 @@ class Animal {
   Animal &operator=(const Animal &animal);  // Copy assignment operator
 
   // Getters
-  std::string getType() const;
+  const std::string &getType() const;
 
   // Methods
   virtual void makeSound() const;
