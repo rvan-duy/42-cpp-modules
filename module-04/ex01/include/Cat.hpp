@@ -11,7 +11,14 @@ class Cat : public Animal {
   Cat(const Cat &cat);             // Copy Constructor
   Cat &operator=(const Cat &cat);  // Copy assignment operator
 
+  // Getters
+  Brain *getBrainPtr() const;
+
+  // Methods
   void makeSound() const;
+
+ private:
+  Brain *brain;
 };
 
 #endif  // MODULE_04_CAT_HPP

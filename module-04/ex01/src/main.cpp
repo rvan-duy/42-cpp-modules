@@ -3,22 +3,44 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 
-void leaks() { system("leaks -q i_dont_want_to_set_the_world_on_fire"); };
+int main(void) {
+  {
+    std::cout << "----------------------------------------" << std::endl;
+    std::cout << "       Testing 5 dogs and 5 cats        " << std::endl;
+    std::cout << "----------------------------------------" << std::endl;
 
-int  main(void) {
-   atexit(leaks);
-   Animal* animals[10];
+    Animal* animals[10];
 
-   for (int i = 0; i < 10; i++) {
-     if (i % 2 == 0)
-      animals[i] = new Dog();
-    else
-      animals[i] = new Cat();
-  };
+    for (int i = 0; i < 10; i++) {
+      if (i % 2 == 0)
+        animals[i] = new Dog();
+      else
+        animals[i] = new Cat();
+    };
 
-   for (int i = 0; i < 10; i++) {
-     delete animals[i];
-  };
+    for (int i = 0; i < 10; i++) {
+      delete animals[i];
+    };
 
-   return EXIT_SUCCESS;
+    system("leaks -q i_dont_want_to_set_the_world_on_fire");
+  }
+
+  {
+    std::cout << "----------------------------------------" << std::endl;
+    std::cout << "            Testing deep copy           " << std::endl;
+    std::cout << "----------------------------------------" << std::endl;
+
+    Cat* cat1 = new Cat();
+    Cat* cat2 = new Cat(*cat1);
+
+    std::cout << "address of brain(cat1): " << cat1->getBrainPtr() << std::endl;
+    std::cout << "address of brain(cat2): " << cat2->getBrainPtr() << std::endl;
+
+    delete cat1;
+    delete cat2;
+
+    system("leaks -q i_dont_want_to_set_the_world_on_fire");
+  }
+
+  return EXIT_SUCCESS;
 };

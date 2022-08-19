@@ -4,8 +4,6 @@
 #include <iostream>
 #include <string>
 
-#include "Brain.hpp"
-
 class Animal {
  public:
   Animal();                                 // Default constructor
@@ -14,14 +12,13 @@ class Animal {
   Animal &operator=(const Animal &animal);  // Copy assignment operator
 
   // Getters
-  std::string getType() const;
+  const std::string &getType() const;
 
   // Methods
   virtual void makeSound() const;
 
  protected:
   std::string type;
-  Brain      *brain;
 };
 
 #endif  // MODULE_04_ANIMAL_HPP
