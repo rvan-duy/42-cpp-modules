@@ -61,14 +61,14 @@ void Character::equip(AMateria* m) {
 
 void Character::unequip(int idx) {
   if (idx < 0 || idx >= inventory_limit) {
-    std::cout << "(" << name << " - unequip) index is out of bound (" << idx << ")" << std::endl;
+    std::cout << name << ": index is out of bound (" << idx << ")" << std::endl;
     return;
   };
   if (inventory[idx] == NULL) {
-    std::cout << "(" << name << " - unequip) there is nothing to unequip (" << idx << ")" << std::endl;
+    std::cout << name << ": there is nothing to unequip (" << idx << ")" << std::endl;
     return;
   };
-  std::cout << "(" << name << " - unequip) successfully unequipped " << inventory[idx]->getType() << std::endl;
+  std::cout << name << " successfully unequipped " << inventory[idx]->getType() << std::endl;
   inventory[idx] = NULL;
 };
 

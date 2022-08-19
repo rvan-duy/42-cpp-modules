@@ -51,5 +51,6 @@ AMateria* MateriaSource::createMateria(std::string const& type) {
       };
     };
   };
+  std::cout << "Failed to create " << type << std::endl;
   return NULL;
 };
