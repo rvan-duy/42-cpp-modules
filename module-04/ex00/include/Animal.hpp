@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 
+// With the destructor being virtual you can destroy Derived object
+// with a pointer to the Animal class
+
 class Animal {
  public:
   Animal();                                 // Default constructor
