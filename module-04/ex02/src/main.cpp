@@ -3,13 +3,10 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 
-void leaks() { system("leaks -q abstract_class"); };
-
 int  main(void) {
-   atexit(leaks);
-   Animal* animals[10];
+   AAnimal* animals[10];
 
-   // Animal animal; << this gives an error because its abstract!
+  //  AAnimal * animal = new AAnimal(); // << this gives an error because its abstract!
 
    for (int i = 0; i < 10; i++) {
      if (i % 2 == 0)

@@ -1,27 +1,24 @@
-#ifndef MODULE_04_ANIMAL_HPP
-#define MODULE_04_ANIMAL_HPP
+#ifndef MODULE_04_AANIMAL_HPP
+#define MODULE_04_AANIMAL_HPP
 
 #include <iostream>
 #include <string>
 
-#include "Brain.hpp"
-
-class Animal {
+class AAnimal {
  public:
-  Animal();                                 // Default constructor
-  virtual ~Animal();                        // Destructor
-  Animal(const Animal &animal);             // Copy Constructor
-  Animal &operator=(const Animal &animal);  // Copy assignment operator
+  AAnimal();                                  // Default constructor
+  virtual ~AAnimal();                         // Destructor
+  AAnimal(const AAnimal &animal);             // Copy Constructor
+  AAnimal &operator=(const AAnimal &animal);  // Copy assignment operator
 
   // Getters
-  std::string getType() const;
+  const std::string &getType() const;
 
   // Methods
-  virtual void makeSound() const = 0;       // Because makeSound() is not implemented inside the Animal class, it is an abstract class
+  virtual void makeSound() const = 0;
 
  protected:
   std::string type;
-  Brain      *brain;
 };
 
-#endif  // MODULE_04_ANIMAL_HPP
+#endif  // MODULE_04_AANIMAL_HPP
