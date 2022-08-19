@@ -25,5 +25,5 @@ Cat &Cat::operator=(const Cat &cat) {
 // Methods
 
 void Cat::makeSound() const {
-  std::cout << "-> (Cat) * Cat meows *" << std::endl;
+  std::cout << "(Cat) * Cat meows *" << std::endl;
 };

@@ -30,5 +30,5 @@ const std::string &Animal::getType() const {
 // Methods
 
 void Animal::makeSound() const {
-  std::cout << "-> (Animal) * Animal noises *" << std::endl;
+  std::cout << "(Animal) * Animal noises *" << std::endl;
 };

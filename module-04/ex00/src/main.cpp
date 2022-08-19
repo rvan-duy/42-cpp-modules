@@ -2,23 +2,48 @@
 
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongCat.hpp"
 
 int main(void) {
-  const Animal* meta = new Animal();
-  const Animal* j    = new Dog();
-  const Animal* i    = new Cat();
+  {
+    std::cout << "----------------------------------------" << std::endl;
+    std::cout << "  Testing Animal, Cat and Dog classes   " << std::endl;
+    std::cout << "----------------------------------------" << std::endl;
 
-  std::cout << "Type of Animal class: (" << meta->getType() << ")" << std::endl;
-  std::cout << "Type of Dog class: (" << j->getType() << ")" << std::endl;
-  std::cout << "Type of Cat class: (" << i->getType() << ")" << std::endl;
+    const Animal* animal = new Animal();
+    const Animal* dog    = new Dog();
+    const Animal* cat    = new Cat();
 
-  meta->makeSound();
-  j->makeSound();
-  i->makeSound();
+    std::cout << "Type of animal is: (" << animal->getType() << ")" << std::endl;
+    std::cout << "Type of dog is:    (" << dog->getType() << ")" << std::endl;
+    std::cout << "Type of cat is:    (" << cat->getType() << ")" << std::endl;
 
-  delete meta;
-  delete j;
-  delete i;
+    animal->makeSound();
+    dog->makeSound();
+    cat->makeSound();
+
+    delete animal;
+    delete dog;
+    delete cat;
+  }
+
+  {
+    std::cout << "----------------------------------------" << std::endl;
+    std::cout << "Testing WrongAnimal and WrongCat classes" << std::endl;
+    std::cout << "----------------------------------------" << std::endl;
+
+    const WrongAnimal* animal = new WrongAnimal();
+    const WrongAnimal* cat    = new WrongCat();
+
+    std::cout << "Type of animal is: (" << animal->getType() << ")" << std::endl;
+    std::cout << "Type of cat is:    (" << cat->getType() << ")" << std::endl;
+
+    animal->makeSound();
+    cat->makeSound();
+
+    delete animal;
+    delete cat;
+  }
 
   return EXIT_SUCCESS;
 }
