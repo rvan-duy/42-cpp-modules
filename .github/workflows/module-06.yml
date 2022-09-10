@@ -11,6 +11,7 @@ on:
 env:
   EX00_DIR: module-06/ex00
   EX01_DIR: module-06/ex01
+  EX02_DIR: module-06/ex02
 
 jobs:
   macos_build:
@@ -23,3 +24,5 @@ jobs:
       run:  make -C $EX00_DIR && make fclean -C $EX00_DIR
     - name: ex01 build
       run:  make -C $EX01_DIR && make fclean -C $EX01_DIR
+    - name: ex02 build
+      run:  make -C $EX02_DIR && make fclean -C $EX02_DIR
