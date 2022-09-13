@@ -32,9 +32,13 @@ int main(void) {
     std::cout << "  Testing copy constructor and operator " << std::endl;
     std::cout << "----------------------------------------" << std::endl;
 
-    Dog dog;
-    Dog dog2(dog);
-    Dog dog3 = dog;
+    Dog dog1, dog3;
+
+    std::cout << "Copy constructor" << std::endl;
+    Dog dog2(dog1);
+
+    std::cout << "Copy assignment operator" << std::endl;
+    dog3 = dog1;
 
     dog2.makeSound();
     dog3.makeSound();
