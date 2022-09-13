@@ -13,14 +13,17 @@ Cat::~Cat() {
 
 Cat::Cat(const Cat &cat) : Animal(cat) {
   std::cout << "-> (Cat) Copy constructor is called" << std::endl;
-  *this = cat;
+  brain  = new Brain();
+  *brain = *cat.brain;
 }
 
 Cat &Cat::operator=(const Cat &cat) {
   std::cout << "-> (Cat) Copy assignment operator overload is called" << std::endl;
   if (this != &cat) {
     Animal::operator=(cat);
-    brain = new Brain(*cat.brain);
+    delete brain;
+    brain  = new Brain();
+    *brain = *cat.brain;
   }
   return *this;
 }

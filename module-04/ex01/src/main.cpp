@@ -30,13 +30,20 @@ int main(void) {
     std::cout << "            Testing deep copy           " << std::endl;
     std::cout << "----------------------------------------" << std::endl;
 
-    Cat cat1 = Cat();
-    Cat cat2 = cat1;
+    Cat cat1, cat3;
+
+    std::cout << "Copy constructor" << std::endl;
+    Dog dog2(dog1);
+
+    std::cout << "Copy assignment operator" << std::endl;
+    dog3 = dog1;
 
     std::cout << "address of cat1: " << &cat1 << std::endl;
     std::cout << "address of brain(cat1): " << cat1.getBrainPtr() << std::endl;
     std::cout << "address of cat2: " << &cat2 << std::endl;
     std::cout << "address of brain(cat2): " << cat2.getBrainPtr() << std::endl;
+    std::cout << "address of cat3: " << &cat3 << std::endl;
+    std::cout << "address of brain(cat3): " << cat3.getBrainPtr() << std::endl;
   }
 
   return EXIT_SUCCESS;

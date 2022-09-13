@@ -2,7 +2,7 @@
 
 Dog::Dog() {
   std::cout << "-> (Dog) Default constructor is called" << std::endl;
-  type = "Dog";
+  type  = "Dog";
   brain = new Brain();
 }
 
@@ -13,14 +13,17 @@ Dog::~Dog() {
 
 Dog::Dog(const Dog &dog) : Animal(dog) {
   std::cout << "-> (Dog) Copy constructor is called" << std::endl;
-  *this = dog;
+  brain  = new Brain();
+  *brain = *dog.brain;
 }
 
 Dog &Dog::operator=(const Dog &dog) {
   std::cout << "-> (Dog) Copy assignment operator overload is called" << std::endl;
   if (this != &dog) {
     Animal::operator=(dog);
-    brain = new Brain(*dog.brain);
+    delete brain;
+    brain  = new Brain();
+    *brain = *dog.brain;
   }
   return *this;
 }

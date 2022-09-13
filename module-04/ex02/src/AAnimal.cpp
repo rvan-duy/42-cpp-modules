@@ -10,7 +10,7 @@ AAnimal::~AAnimal() {
 
 AAnimal::AAnimal(const AAnimal &animal) {
   std::cout << "-> (AAnimal) Copy constructor is called" << std::endl;
-  *this = animal;
+  type = animal.type;
 }
 
 AAnimal &AAnimal::operator=(const AAnimal &animal) {
