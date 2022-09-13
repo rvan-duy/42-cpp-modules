@@ -30,16 +30,13 @@ int main(void) {
     std::cout << "            Testing deep copy           " << std::endl;
     std::cout << "----------------------------------------" << std::endl;
 
-    Cat* cat1 = new Cat();
-    Cat* cat2 = new Cat(*cat1);
+    Cat cat1 = Cat();
+    Cat cat2 = cat1;
 
-    std::cout << "address of brain(cat1): " << cat1->getBrainPtr() << std::endl;
-    std::cout << "address of brain(cat2): " << cat2->getBrainPtr() << std::endl;
-
-    delete cat1;
-    delete cat2;
-
-    system("leaks -q i_dont_want_to_set_the_world_on_fire");
+    std::cout << "address of cat1: " << &cat1 << std::endl;
+    std::cout << "address of brain(cat1): " << cat1.getBrainPtr() << std::endl;
+    std::cout << "address of cat2: " << &cat2 << std::endl;
+    std::cout << "address of brain(cat2): " << cat2.getBrainPtr() << std::endl;
   }
 
   return EXIT_SUCCESS;
