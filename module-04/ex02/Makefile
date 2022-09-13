@@ -13,11 +13,11 @@ endif
 
 ################################################################################
 
-HEADERS 		:= include/Animal.hpp include/Dog.hpp include/Cat.hpp include/Brain.hpp
+HEADERS 		:= include/AAnimal.hpp include/Dog.hpp include/Cat.hpp include/Brain.hpp
 
 INCLUDE_FLAGS 	:= $(addprefix -I, $(sort $(dir $(HEADERS))))
 
-SOURCES			:= src/Animal.cpp src/Dog.cpp src/Cat.cpp src/Brain.cpp
+SOURCES			:= src/AAnimal.cpp src/Dog.cpp src/Cat.cpp src/Brain.cpp
 
 ################################################################################
 
