@@ -29,6 +29,19 @@ int main(void) {
 
   {
     std::cout << "----------------------------------------" << std::endl;
+    std::cout << "  Testing copy constructor and operator " << std::endl;
+    std::cout << "----------------------------------------" << std::endl;
+
+    Dog dog;
+    Dog dog2(dog);
+    Dog dog3 = dog;
+
+    dog2.makeSound();
+    dog3.makeSound();
+ }
+
+  {
+    std::cout << "----------------------------------------" << std::endl;
     std::cout << "Testing WrongAnimal and WrongCat classes" << std::endl;
     std::cout << "----------------------------------------" << std::endl;
 

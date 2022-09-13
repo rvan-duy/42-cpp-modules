@@ -14,7 +14,7 @@ WrongAnimal::WrongAnimal(const WrongAnimal &animal) {
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &animal) {
-  std::cout << "-> (WrongAnimal) Copy assignment operator is called" << std::endl;
+  std::cout << "-> (WrongAnimal) Copy assignment operator overload is called" << std::endl;
   if (this != &animal) {
     type = animal.type;
   }
