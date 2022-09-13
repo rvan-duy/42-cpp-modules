@@ -33,10 +33,10 @@ int main(void) {
     Cat cat1, cat3;
 
     std::cout << "Copy constructor" << std::endl;
-    Dog dog2(dog1);
+    Cat cat2(cat1);
 
     std::cout << "Copy assignment operator" << std::endl;
-    dog3 = dog1;
+    cat3 = cat1;
 
     std::cout << "address of cat1: " << &cat1 << std::endl;
     std::cout << "address of brain(cat1): " << cat1.getBrainPtr() << std::endl;
