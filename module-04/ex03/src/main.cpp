@@ -34,7 +34,7 @@ int main() {
     delete me;
     delete src;
 
-    system("leaks -q interface_and_recap");
+    system("/usr/bin/leaks -q interface_and_recap");
   }
 
   {
@@ -55,7 +55,7 @@ int main() {
     }
     delete src;
 
-    system("leaks -q interface_and_recap");
+    system("/usr/bin/leaks -q interface_and_recap");
   }
 
   {
@@ -90,7 +90,7 @@ int main() {
     delete src;
     delete me;
 
-    system("leaks -q interface_and_recap");
+    system("/usr/bin/leaks -q interface_and_recap");
   }
 
   return EXIT_SUCCESS;

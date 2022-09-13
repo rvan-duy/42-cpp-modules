@@ -22,7 +22,7 @@ int main(void) {
       delete animals[i];
     }
 
-    system("leaks -q i_dont_want_to_set_the_world_on_fire");
+    system("/usr/bin/leaks -q i_dont_want_to_set_the_world_on_fire");
   }
 
   {
