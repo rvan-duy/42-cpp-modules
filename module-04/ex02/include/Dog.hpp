@@ -1,7 +1,7 @@
 #ifndef MODULE_04_DOG_HPP
 #define MODULE_04_DOG_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
 class Dog : public AAnimal {

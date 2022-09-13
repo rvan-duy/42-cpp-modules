@@ -1,7 +1,7 @@
 #ifndef MODULE_04_CAT_HPP
 #define MODULE_04_CAT_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
 class Cat : public AAnimal {
