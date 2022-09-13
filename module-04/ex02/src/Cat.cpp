@@ -4,26 +4,26 @@ Cat::Cat() {
   std::cout << "-> (Cat) Default constructor is called" << std::endl;
   type  = "Cat";
   brain = new Brain();
-};
+}
 
 Cat::~Cat() {
   std::cout << "-> (Cat) Destructor is called" << std::endl;
   delete brain;
-};
+}
 
 Cat::Cat(const Cat &cat) : AAnimal(cat) {
   std::cout << "-> (Cat) Copy constructor is called" << std::endl;
   *this = cat;
-};
+}
 
 Cat &Cat::operator=(const Cat &cat) {
   std::cout << "-> (Cat) Copy assignment operator overload is called" << std::endl;
   if (this != &cat) {
     AAnimal::operator=(cat);
     brain = new Brain(*cat.brain);
-  };
+  }
   return *this;
-};
+}
 
 // Getters
 
@@ -35,4 +35,4 @@ Brain *Cat::getBrainPtr() const {
 
 void Cat::makeSound() const {
   std::cout << "* Cat meows *" << std::endl;
-};
+}

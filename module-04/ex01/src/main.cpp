@@ -16,11 +16,11 @@ int main(void) {
         animals[i] = new Dog();
       else
         animals[i] = new Cat();
-    };
+    }
 
     for (int i = 0; i < 10; i++) {
       delete animals[i];
-    };
+    }
 
     system("leaks -q i_dont_want_to_set_the_world_on_fire");
   }
@@ -40,4 +40,4 @@ int main(void) {
   }
 
   return EXIT_SUCCESS;
-};
+}

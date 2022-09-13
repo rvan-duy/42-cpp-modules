@@ -4,7 +4,7 @@
 
 MateriaSource::MateriaSource() {
   inventory = new AMateria*[inventory_limit]();
-};
+}
 
 MateriaSource::~MateriaSource() {
   for (int i = 0; i < inventory_limit; i++) {
@@ -14,21 +14,21 @@ MateriaSource::~MateriaSource() {
     }
   }
   delete inventory;
-};
+}
 
 MateriaSource::MateriaSource(const MateriaSource& source) {
   *this = source;
-};
+}
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& source) {
   if (this != &source) {
     inventory = new AMateria*[inventory_limit]();
     for (int i = 0; i < inventory_limit; i++) {
       inventory[i] = source.inventory[i]->clone();
-    };
-  };
+    }
+  }
   return *this;
-};
+}
 
 // Methods
 
@@ -38,19 +38,19 @@ void MateriaSource::learnMateria(AMateria* m) {
       inventory[i] = m->clone();
       std::cout << "MateriaSource learned " << m->getType() << std::endl;
       return;
-    };
-  };
+    }
+  }
   std::cout << "Failed to learn " << m->getType() << std::endl;
-};
+}
 
 AMateria* MateriaSource::createMateria(std::string const& type) {
   for (int i = 0; i < inventory_limit; i++) {
     if (inventory[i] != NULL) {
       if (inventory[i]->getType() == type) {
         return inventory[i]->clone();
-      };
-    };
-  };
+      }
+    }
+  }
   std::cout << "Failed to create " << type << std::endl;
   return NULL;
-};
+}

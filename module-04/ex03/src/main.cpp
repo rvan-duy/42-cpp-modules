@@ -48,11 +48,11 @@ int main() {
     for (int i = 0; i < 5; i++) {
       ices[i] = new Ice();
       src->learnMateria(ices[i]);
-    };
+    }
 
     for (int i = 0; i < 5; i++) {
       delete ices[i];
-    };
+    }
     delete src;
 
     system("leaks -q interface_and_recap");
