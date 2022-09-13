@@ -7,12 +7,12 @@ AMateria::AMateria(std::string const& type) : type(type){}
 AMateria::~AMateria(){}
 
 AMateria::AMateria(const AMateria& material) {
-  *this = material;
+  type = material.type;
 }
 
 AMateria& AMateria::operator=(const AMateria& materia) {
   if (this != &materia) {
-    (void)materia;
+    type = materia.type;
   }
   return *this;
 }

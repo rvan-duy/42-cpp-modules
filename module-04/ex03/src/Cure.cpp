@@ -4,15 +4,13 @@ Cure::Cure() {
   type = "cure";
 }
 
-Cure::~Cure(){}
+Cure::~Cure() {}
 
-Cure::Cure(const Cure &cure) : AMateria(cure) {
-  *this = cure;
-}
+Cure::Cure(const Cure &cure) : AMateria(cure) {}
 
 Cure &Cure::operator=(const Cure &cure) {
   if (this != &cure) {
-    AMateria::type = cure.type;
+    AMateria::operator=(cure);
   }
   return *this;
 }

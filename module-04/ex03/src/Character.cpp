@@ -22,14 +22,24 @@ Character::~Character() {
 }
 
 Character::Character(const Character& character) {
-  *this = character;
+  name = character.name;
+  for (int i = 0; i < inventory_limit; i++) {
+    if (character.inventory[i] != NULL) {
+      inventory[i] = character.inventory[i]->clone();
+    } else {
+      inventory[i] = NULL;
+    }
+  }
 }
 
 Character& Character::operator=(const Character& character) {
   if (this != &character) {
+    name = character.name;
     for (int i = 0; i < inventory_limit; i++) {
       if (character.inventory[i] != NULL) {
         inventory[i] = character.inventory[i]->clone();
+      } else {
+        inventory[i] = NULL;
       }
     }
   }

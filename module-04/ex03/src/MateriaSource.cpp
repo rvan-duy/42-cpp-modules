@@ -17,14 +17,26 @@ MateriaSource::~MateriaSource() {
 }
 
 MateriaSource::MateriaSource(const MateriaSource& source) {
-  *this = source;
+  inventory = new AMateria*[inventory_limit]();
+  for (int i = 0; i < inventory_limit; i++) {
+    if (source.inventory[i] != NULL) {
+      inventory[i] = source.inventory[i]->clone();
+    } else {
+      inventory[i] = NULL;
+    }
+  }
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& source) {
   if (this != &source) {
+    delete inventory;
     inventory = new AMateria*[inventory_limit]();
     for (int i = 0; i < inventory_limit; i++) {
-      inventory[i] = source.inventory[i]->clone();
+      if (source.inventory[i] != NULL) {
+        inventory[i] = source.inventory[i]->clone();
+      } else {
+        inventory[i] = NULL;
+      }
     }
   }
   return *this;
