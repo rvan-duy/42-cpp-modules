@@ -1,6 +1,6 @@
 NAME			:= more_forms
-CC				:= c++ -std=c++98
-CFLAGS			:= -Wall -Wextra -Werror -g
+CC				:= c++
+CFLAGS			:= -Wall -Wextra -Werror -g -std=c++98 -pedantic
 
 ################################################################################
 

@@ -3,18 +3,18 @@
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
-    : Form::Form("ShrubberyCreationForm", 145, 137), target(target + "_shrubbery"){};
+    : Form::Form("ShrubberyCreationForm", 145, 137), target(target + "_shrubbery"){}
 
-ShrubberyCreationForm::~ShrubberyCreationForm(){};
+ShrubberyCreationForm::~ShrubberyCreationForm(){}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& form) : Form(form) { *this = form; };
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& form) : Form(form) { *this = form; }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& form) {
   if (this == &form) return *this;
   form_signed = form.form_signed;
   target      = form.target;
   return *this;
-};
+}
 
 // Methods
 
@@ -46,4 +46,4 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
       << "\\  Y  |  \\__,dHHFdHH|HHhoHHb.__ |   Y" << std::endl
       << "##########################################" << std::endl;
   ofs.close();
-};
+}

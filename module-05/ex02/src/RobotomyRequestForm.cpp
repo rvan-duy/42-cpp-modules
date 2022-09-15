@@ -3,18 +3,21 @@
 #include <cstdlib>  // srand rand
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
-    : Form("RobotomyRequestForm", 72, 45), target(target){};
+    : Form("RobotomyRequestForm", 72, 45), target(target) {}
 
-RobotomyRequestForm::~RobotomyRequestForm(){};
+RobotomyRequestForm::~RobotomyRequestForm() {}
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& form) : Form(form) { *this = form; };
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& form) : Form(form) {
+  target = form.target;
+}
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& form) {
-  if (this == &form) return *this;
-  form_signed = form.form_signed;
-  target      = form.target;
+  if (this != &form) {
+    Form::operator=(form);
+    target = form.target;
+  }
   return *this;
-};
+}
 
 // Methods
 
@@ -30,4 +33,4 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
     std::cout << target << " has been robotomized!" << std::endl;
   else
     std::cout << "Robotomy has failed.." << std::endl;
-};
+}

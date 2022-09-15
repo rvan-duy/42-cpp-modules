@@ -13,7 +13,7 @@ int main(void) {
     std::cout << human << std::endl;
   } catch (std::exception& e) {
     std::cout << e.what() << std::endl;
-  };
+  }
 
   std::cout << "TEST 2" << std::endl;
 
@@ -23,7 +23,7 @@ int main(void) {
     std::cout << human << std::endl;
   } catch (std::exception& e) {
     std::cout << e.what() << std::endl;
-  };
+  }
 
   std::cout << "TEST 3" << std::endl;
 
@@ -35,7 +35,7 @@ int main(void) {
     std::cout << human << std::endl;
   } catch (std::exception& e) {
     std::cout << e.what() << std::endl;
-  };
+  }
 
   return EXIT_SUCCESS;
-};
+}
