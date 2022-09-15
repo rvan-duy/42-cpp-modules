@@ -53,8 +53,12 @@ void Form::beSigned(const Bureaucrat& bureaucrat) {
 }
 
 void Form::beExecuted(const Bureaucrat& bureaucrat) const {
-  if (form_signed == false) throw Form::FormNotSignedException();
-  if (bureaucrat.getGrade() > grade_required_to_execute) throw Form::GradeTooLowException();
+  if (form_signed == false) {
+    throw Form::FormNotSignedException();
+  }
+  if (bureaucrat.getGrade() > grade_required_to_execute) {
+    throw Form::GradeTooLowException();
+  }
 }
 
 // << overload
