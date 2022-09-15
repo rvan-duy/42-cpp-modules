@@ -6,13 +6,13 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& form) : Form(form) {
-  target      = form.target;
+  target = form.target;
 }
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& form) {
   if (this != &form) {
     Form::operator=(form);
-    target      = form.target;
+    target = form.target;
   }
   return *this;
 }
