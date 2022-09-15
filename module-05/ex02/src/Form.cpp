@@ -29,12 +29,15 @@ Form& Form::operator=(const Form& form) {
 const std::string& Form::getName() const {
   return name;
 }
+
 bool Form::getFormSigned() const {
   return form_signed;
 }
+
 int Form::getGradeRequiredToSign() const {
   return grade_required_to_sign;
 }
+
 int Form::getGradeRequiredToExecute() const {
   return grade_required_to_execute;
 }
