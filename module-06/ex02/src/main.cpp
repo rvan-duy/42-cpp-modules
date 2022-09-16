@@ -17,7 +17,7 @@ Base* generate(void) {
     default:
       return new C();
   }
-};
+}
 
 void identify(Base* p) {
   if (dynamic_cast<A*>(p)) {
@@ -27,7 +27,7 @@ void identify(Base* p) {
   } else if (dynamic_cast<C*>(p)) {
     std::cout << "Pointer (" << p << ") is an instance of class C" << std::endl;
   }
-};
+}
 
 void identify(Base& p) {
   try {
@@ -40,11 +40,11 @@ void identify(Base& p) {
     } catch (const std::bad_cast& e) {
       std::cout << "Pointer (" << &p << ") is an instance of class C" << std::endl;
       return;
-    };
+    }
     return;
-  };
+  }
   return;
-};
+}
 
 int main() {
   Base* p = generate();

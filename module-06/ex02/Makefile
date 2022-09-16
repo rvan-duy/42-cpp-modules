@@ -1,6 +1,6 @@
 NAME			:= identify_real_type
 CC				:= c++
-CFLAGS			:= -Wall -Wextra -Werror -g -std=c++98
+CFLAGS			:= -Wall -Wextra -Werror -g -std=c++98 -pedantic
 
 ################################################################################
 

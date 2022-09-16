@@ -8,11 +8,11 @@ struct Data {
 
 uintptr_t serialize(Data* ptr) {
   return reinterpret_cast<uintptr_t>(ptr);
-};
+}
 
 Data* deserialize(uintptr_t raw) {
   return reinterpret_cast<Data*>(raw);
-};
+}
 
 // static_cast can only cast between two related types
 // reinterpret_cast tells the compiler to reinterpret parts of the bits
@@ -35,4 +35,4 @@ int main(void) {
   delete data;
 
   return EXIT_SUCCESS;
-};
+}

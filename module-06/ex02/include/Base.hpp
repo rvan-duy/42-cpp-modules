@@ -6,4 +6,4 @@ class Base {
   virtual ~Base();
 };
 
-#endif // CPP_MODULE_06_BASE_HPP
+#endif  // CPP_MODULE_06_BASE_HPP
