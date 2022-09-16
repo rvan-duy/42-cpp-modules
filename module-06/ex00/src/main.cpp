@@ -15,7 +15,9 @@
 // - display the result as shown
 
 static bool isInfinite(const std::string &str) {
-  if (!str.compare("+inf") || !str.compare("-inf") || !str.compare("+inff") || !str.compare("-inff")) return true;
+  if (!str.compare("+inf") || !str.compare("-inf") || !str.compare("+inff") || !str.compare("-inff")) {
+    return true;
+  }
   return false;
 }
 
@@ -32,11 +34,15 @@ static bool isDouble(const std::string &str) {
   // Iterate over constant string
   for (std::string::const_iterator it = str.cbegin(); it != str.cend(); it++) {
     // Skip first - or +
-    if ((*it == '-' || *it == '+') && it == str.cbegin()) continue;
+    if ((*it == '-' || *it == '+') && it == str.cbegin()) {
+      continue;
+    }
 
     // Check for dot
     if (*it == '.') {
-      if (found_dot == true) return false;
+      if (found_dot == true) {
+        return false;
+      }
       found_dot = true;
       continue;
     }
@@ -53,7 +59,9 @@ static bool isDouble(const std::string &str) {
     }
 
     // Check if the rest of the characters are digits
-    if (std::isdigit(*it) == false) return false;
+    if (std::isdigit(*it) == false) {
+      return false;
+    }
   }
   return false;
 }
@@ -63,17 +71,19 @@ static void printDouble(const double num) {
 
   std::cout << std::fixed << std::setprecision(1);
   std::cout << "char:   ";
-  if (num_int < CHAR_MIN || num_int > CHAR_MAX)
+  if (num_int < CHAR_MIN || num_int > CHAR_MAX) {
     std::cout << "Impossible" << std::endl;
-  else if (std::isprint(num_int) == false)
+  } else if (std::isprint(num_int) == false) {
     std::cout << "Non displayable" << std::endl;
-  else
+  } else {
     std::cout << static_cast<char>(num_int) << std::endl;
+  }
   std::cout << "int:    ";
-  if (num < INT_MIN || num > INT_MAX)
+  if (num < INT_MIN || num > INT_MAX) {
     std::cout << "Overflows" << std::endl;
-  else
+  } else {
     std::cout << num_int << std::endl;
+  }
   std::cout << "float:  " << static_cast<float>(num) << "f" << std::endl;
   std::cout << "double  " << num + 1 << std::endl;
 }
@@ -84,11 +94,15 @@ static bool isFloat(const std::string &str) {
   // Iterate over constant string
   for (std::string::const_iterator it = str.cbegin(); it != str.cend(); it++) {
     // Skip first - or +
-    if ((*it == '-' || *it == '+') && it == str.cbegin()) continue;
+    if ((*it == '-' || *it == '+') && it == str.cbegin()) {
+      continue;
+    }
 
     // Check for dot
     if (*it == '.') {
-      if (found_dot == true) return false;
+      if (found_dot == true) {
+        return false;
+      }
       found_dot = true;
       continue;
     }
@@ -105,7 +119,9 @@ static bool isFloat(const std::string &str) {
     }
 
     // Check if the rest of the characters are digits
-    if (std::isdigit(*it) == false) return false;
+    if (std::isdigit(*it) == false) {
+      return false;
+    }
   }
   return false;
 }
@@ -114,17 +130,19 @@ static void printFloat(const float num) {
   int num_int = static_cast<int>(num);
 
   std::cout << "char:   ";
-  if (num_int < CHAR_MIN || num_int > CHAR_MAX)
+  if (num_int < CHAR_MIN || num_int > CHAR_MAX) {
     std::cout << "Impossible" << std::endl;
-  else if (std::isprint(num_int) == false)
+  } else if (std::isprint(num_int) == false) {
     std::cout << "Non displayable" << std::endl;
-  else
+  } else {
     std::cout << static_cast<char>(num_int) << std::endl;
+  }
   std::cout << "int:    ";
-  if (num < INT_MIN || num > INT_MAX)
+  if (num < INT_MIN || num > INT_MAX) {
     std::cout << "Overflows" << std::endl;
-  else
+  } else {
     std::cout << num_int << std::endl;
+  }
   std::cout << std::fixed << std::setprecision(1);
   std::cout << "float:  " << num << "f" << std::endl;
   std::cout << "double  " << static_cast<double>(num) << std::endl;
@@ -133,7 +151,9 @@ static void printFloat(const float num) {
 static bool isInt(const std::string &str) {
   // Check if string contains anything else but numbers
   for (std::string::const_iterator it = str.cbegin(); it != str.cend(); it++) {
-    if (std::isdigit(*it) == false) return false;
+    if (std::isdigit(*it) == false) {
+      return false;
+    }
   }
 
   // Check if integer value is out of range
@@ -147,12 +167,13 @@ static bool isInt(const std::string &str) {
 
 static void printInt(const int num) {
   std::cout << "char:   ";
-  if (num < CHAR_MIN || num > CHAR_MAX)
+  if (num < CHAR_MIN || num > CHAR_MAX) {
     std::cout << "Impossible" << std::endl;
-  else if (std::isprint(num) == false)
+  } else if (std::isprint(num) == false) {
     std::cout << "Non displayable" << std::endl;
-  else
+  } else {
     std::cout << static_cast<char>(num) << std::endl;
+  }
   std::cout << "int:    " << num << std::endl;
   std::cout << std::fixed << std::setprecision(1);
   std::cout << "float:  " << static_cast<float>(num) << "f" << std::endl;
@@ -160,8 +181,12 @@ static void printInt(const int num) {
 }
 
 static bool isChar(const std::string &str) {
-  if (str.size() == 0) return false;
-  if (str.size() == 1 && std::isalpha(str[0])) return true;
+  if (str.size() == 0) {
+    return false;
+  }
+  if (str.size() == 1 && std::isalpha(str[0])) {
+    return true;
+  }
   return false;
 }
 
