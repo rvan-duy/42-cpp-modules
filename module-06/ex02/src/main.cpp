@@ -6,9 +6,6 @@
 #include "C.hpp"
 
 Base* generate(void) {
-  // Seed the random number generator
-  std::srand(time(0));
-
   switch (std::rand() % 3) {
     case 0:
       return new A();
@@ -21,24 +18,24 @@ Base* generate(void) {
 
 void identify(Base* p) {
   if (dynamic_cast<A*>(p)) {
-    std::cout << "Pointer (" << p << ") is an instance of class A" << std::endl;
+    std::cout << "Pointer     (" << p << ") is an instance of class A" << std::endl;
   } else if (dynamic_cast<B*>(p)) {
-    std::cout << "Pointer (" << p << ") is an instance of class B" << std::endl;
+    std::cout << "Pointer     (" << p << ") is an instance of class B" << std::endl;
   } else if (dynamic_cast<C*>(p)) {
-    std::cout << "Pointer (" << p << ") is an instance of class C" << std::endl;
+    std::cout << "Pointer     (" << p << ") is an instance of class C" << std::endl;
   }
 }
 
 void identify(Base& p) {
   try {
     A& a = dynamic_cast<A&>(p);
-    std::cout << "Pointer (" << &a << ") is an instance of class A" << std::endl;
+    std::cout << "Reference   (" << &a << ") is an instance of class A" << std::endl;
   } catch (const std::bad_cast& e) {
     try {
       B& b = dynamic_cast<B&>(p);
-      std::cout << "Pointer (" << &b << ") is an instance of class B" << std::endl;
+      std::cout << "Reference   (" << &b << ") is an instance of class B" << std::endl;
     } catch (const std::bad_cast& e) {
-      std::cout << "Pointer (" << &p << ") is an instance of class C" << std::endl;
+      std::cout << "Reference   (" << &p << ") is an instance of class C" << std::endl;
       return;
     }
     return;
@@ -47,10 +44,26 @@ void identify(Base& p) {
 }
 
 int main() {
-  Base* p = generate();
-  std::cout << "Generated pointer: " << p << std::endl;
-  identify(p);
-  identify(*p);
-  delete p;
+  std::srand(std::time(nullptr)); // use current time as seed for random generator
+  
+  // Generate an array of 10 random pointers to Base
+  Base* array[10];
+  for (int i = 0; i < 10; i++) {
+    array[i] = generate();
+  }
+
+  // Identify each pointer in the array with both functions
+  for (int i = 0; i < 10; i++) {
+    std::cout << "Iteration " << i << ":" << std::endl;
+    std::cout << "Generated   (" << array[i] << ")" << std::endl;
+    identify(array[i]);
+    identify(*array[i]);
+  }
+
+  // Delete each pointer in the array
+  for (int i = 0; i < 10; i++) {
+    delete array[i];
+  }
+
   return EXIT_SUCCESS;
 }
