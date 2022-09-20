@@ -52,7 +52,7 @@ static bool isDouble(const std::string &str) {
       // Check if double value is out of range
       try {
         std::stod(str);
-      } catch (const std::out_of_range &oor) {
+      } catch (const std::exception &e) {
         return false;
       }
       return true;
@@ -112,7 +112,7 @@ static bool isFloat(const std::string &str) {
       // Check if float value is out of range
       try {
         std::stof(str);
-      } catch (const std::out_of_range &oor) {
+      } catch (const std::exception &e) {
         return false;
       }
       return true;
@@ -159,7 +159,7 @@ static bool isInt(const std::string &str) {
   // Check if integer value is out of range
   try {
     std::stoi(str);
-  } catch (const std::out_of_range &oor) {
+  } catch (const std::exception &e) {
     return false;
   }
   return true;
