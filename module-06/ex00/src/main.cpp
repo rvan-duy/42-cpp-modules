@@ -1,9 +1,4 @@
-#include <climits>
-#include <cmath>
-#include <cstdlib>
-#include <iomanip>
 #include <iostream>
-#include <string>
 
 void printInfinite(const char sign);
 void printInt(const std::string &input_str);
