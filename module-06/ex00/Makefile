@@ -17,7 +17,7 @@ HEADERS 		:=
 
 INCLUDE_FLAGS 	:= $(addprefix -I, $(sort $(dir $(HEADERS))))
 
-SOURCES			:= 	
+SOURCES			:= 	src/print.cpp src/isType.cpp
 
 ################################################################################
 
