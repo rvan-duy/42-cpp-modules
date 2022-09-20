@@ -85,7 +85,7 @@ static void printDouble(const double num) {
     std::cout << num_int << std::endl;
   }
   std::cout << "float:  " << static_cast<float>(num) << "f" << std::endl;
-  std::cout << "double  " << num + 1 << std::endl;
+  std::cout << "double  " << num << std::endl;
 }
 
 static bool isFloat(const std::string &str) {
