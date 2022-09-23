@@ -10,4 +10,4 @@ void iter(T* arr, std::size_t len, void (*f)(T const&)) {
   }
 }
 
-#endif // CPP_MODULE_07_ITER_HPP
+#endif  // CPP_MODULE_07_ITER_HPP
