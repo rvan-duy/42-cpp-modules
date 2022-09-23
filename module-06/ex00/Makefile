@@ -13,11 +13,11 @@ endif
 
 ################################################################################
 
-HEADERS 		:= 	
+HEADERS 		:= 	include/scalar_conversion.hpp
 
 INCLUDE_FLAGS 	:= $(addprefix -I, $(sort $(dir $(HEADERS))))
 
-SOURCES			:= 	src/print.cpp src/isType.cpp
+SOURCES			:= 	src/print.cpp src/isType.cpp src/utils.cpp
 
 ################################################################################
 

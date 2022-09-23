@@ -28,12 +28,6 @@ bool isDouble(const std::string &str) {
 
     // Check if str is a valid double
     if (it == str.cend() - 1 && found_dot == true) {
-      // Check if double value is out of range
-      try {
-        std::stod(str);
-      } catch (const std::exception &e) {
-        return false;
-      }
       return true;
     }
 
@@ -66,12 +60,6 @@ bool isFloat(const std::string &str) {
 
     // Check if str is a valid float
     if (*it == 'f' && it == str.cend() - 1 && found_dot == true) {
-      // Check if float value is out of range
-      try {
-        std::stof(str);
-      } catch (const std::exception &e) {
-        return false;
-      }
       return true;
     }
 
@@ -84,8 +72,14 @@ bool isFloat(const std::string &str) {
 }
 
 bool isInt(const std::string &str) {
-  // Check if string contains anything else but numbers
+  // Check if string is a valid integer
   for (std::string::const_iterator it = str.cbegin(); it != str.cend(); it++) {
+    // Skip first - or +
+    if ((*it == '-' || *it == '+') && it == str.cbegin()) {
+      continue;
+    }
+
+    // Check if the rest of the characters are digits
     if (std::isdigit(*it) == false) {
       return false;
     }
