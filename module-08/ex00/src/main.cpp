@@ -1,12 +1,10 @@
 #include <iostream>
 #include <list>
+#include <set>
 #include <stack>
 #include <vector>
-#include <set>
 
 #include "easyfind.hpp"
-
-// TODO: proper printing of containers
 
 int main() {
   // Testing deque
@@ -21,8 +19,12 @@ int main() {
     std::cout << std::endl;
 
     std::cout << "Looking for 20" << std::endl;
-    std::deque::iterator it = ::easyfind(mydeque, 20);
-    std::cout << "Found " << *it << std::endl;
+    try {
+      std::deque<int>::iterator it = easyfind(mydeque, 20);
+      std::cout << *it << " was found" << std::endl;
+    } catch (std::exception& e) {
+      std::cout << e.what() << std::endl;
+    }
   }
 
   // Testing list
@@ -37,7 +39,12 @@ int main() {
     std::cout << std::endl;
 
     std::cout << "Looking for 20" << std::endl;
-    ::easyfind(mylist, 20);
+    try {
+      std::list<int>::iterator it = easyfind(mylist, 20);
+      std::cout << *it << " was found" << std::endl;
+    } catch (std::exception& e) {
+      std::cout << e.what() << std::endl;
+    }
   }
 
   // Testing vector
@@ -52,7 +59,12 @@ int main() {
     std::cout << std::endl;
 
     std::cout << "Looking for 20" << std::endl;
-    ::easyfind(myvector, 20);
+    try {
+      std::vector<int>::iterator it = easyfind(myvector, 20);
+      std::cout << *it << " was found" << std::endl;
+    } catch (std::exception& e) {
+      std::cout << e.what() << std::endl;
+    }
   }
 
   // Testing out_of_range

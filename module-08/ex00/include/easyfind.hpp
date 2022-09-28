@@ -4,7 +4,6 @@
 #include <iterator>
 #include <stdexcept>
 
-
 template <class T>
 typename T::iterator easyfind(T container, int element) {
   for (typename T::iterator it = container.begin(); it != container.end(); ++it) {
@@ -13,4 +12,4 @@ typename T::iterator easyfind(T container, int element) {
   throw std::invalid_argument("Element is not in container");
 }
 
-#endif  // CPP_MODULE_08_EASYFIND_HPP   
+#endif  // CPP_MODULE_08_EASYFIND_HPP
