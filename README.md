@@ -1,4 +1,14 @@
-# cpp-modules 
+<p align="center">
+  <img src=https://user-images.githubusercontent.com/40824677/149224059-8a1fc9f2-31bc-4335-93b3-6017bf794668.png />
+</p>
+
+<h1 align="center">
+	42cursus' CPP Modules
+</h1>
+
+| Project | Topics | Status |
+|---------|--------|--------|
+| CPP 01 | TODO | [![macOS/Ubuntu CI cpp-module-00](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-00.yml/badge.svg)](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-00.yml) |
 
 [![macOS/Ubuntu CI cpp-module-00](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-00.yml/badge.svg)](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-00.yml)
 
