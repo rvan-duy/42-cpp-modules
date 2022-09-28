@@ -1,0 +1,25 @@
+name: macOS/Ubuntu build cpp-module-08
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    branches: [ main ]
+
+env:
+  EX00_DIR: module-08/ex00
+  EX01_DIR: module-08/ex01
+
+jobs:
+  macos_build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: ex00 build
+      run:  make -C $EX00_DIR && make fclean -C $EX00_DIR
+    - name: ex01 build
+      run:  make -C $EX01_DIR && make fclean -C $EX01_DIR
