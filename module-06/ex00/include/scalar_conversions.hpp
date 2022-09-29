@@ -5,6 +5,7 @@
 #include <iostream>
 #include <sstream>
 #include <climits>
+#include <cstring>
 
 // Print functions
 void printInfinite(const char sign);
