@@ -30,11 +30,11 @@ void identify(Base& p) {
   try {
     A& a = dynamic_cast<A&>(p);
     std::cout << "Reference   (" << &a << ") is an instance of class A" << std::endl;
-  } catch (std::bad_cast& e) {
+  } catch (bad_cast& e) {
     try {
       B& b = dynamic_cast<B&>(p);
       std::cout << "Reference   (" << &b << ") is an instance of class B" << std::endl;
-    } catch (std::bad_cast& e) {
+    } catch (bad_cast& e) {
       std::cout << "Reference   (" << &p << ") is an instance of class C" << std::endl;
       return;
     }
