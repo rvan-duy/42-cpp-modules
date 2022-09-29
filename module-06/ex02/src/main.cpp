@@ -6,7 +6,7 @@
 #include "C.hpp"
 
 Base* generate(void) {
-  switch (std::rand() % 3) {
+  switch (rand() % 3) {
     case 0:
       return new A();
     case 1:
@@ -44,7 +44,7 @@ void identify(Base& p) {
 }
 
 int main() {
-  std::srand(std::time(nullptr)); // use current time as seed for random generator
+  srand(time(nullptr)); // use current time as seed for random generator
   
   // Generate an array of 10 random pointers to Base
   Base* array[10];
