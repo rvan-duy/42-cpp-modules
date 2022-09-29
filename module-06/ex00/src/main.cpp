@@ -51,7 +51,7 @@ int main(int argc, char **argv) {
     std::cout << "float:  nanf" << std::endl;
     std::cout << "double: nan" << std::endl;
   }
-  std::cout << "Usage: ./scalar_conversions [value]" << std::endl;
+  std::cout << "Usage: ./scalar_conversion [value]" << std::endl;
 
   return EXIT_SUCCESS;
 }

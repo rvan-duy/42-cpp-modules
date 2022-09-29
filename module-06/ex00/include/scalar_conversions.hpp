@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <iostream>
 #include <sstream>
+#include <climits>
 
 // Print functions
 void printInfinite(const char sign);

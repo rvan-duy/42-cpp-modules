@@ -11,9 +11,9 @@ bool isDouble(const std::string &str) {
   bool found_dot = false;
 
   // Iterate over constant string
-  for (std::string::const_iterator it = str.cbegin(); it != str.cend(); it++) {
+  for (std::string::const_iterator it = str.begin(); it != str.end(); it++) {
     // Skip first - or +
-    if ((*it == '-' || *it == '+') && it == str.cbegin()) {
+    if ((*it == '-' || *it == '+') && it == str.begin()) {
       continue;
     }
 
@@ -27,7 +27,7 @@ bool isDouble(const std::string &str) {
     }
 
     // Check if str is a valid double
-    if (it == str.cend() - 1 && found_dot == true) {
+    if (it == str.end() - 1 && found_dot == true) {
       return true;
     }
 
@@ -43,9 +43,9 @@ bool isFloat(const std::string &str) {
   bool found_dot = false;
 
   // Iterate over constant string
-  for (std::string::const_iterator it = str.cbegin(); it != str.cend(); it++) {
+  for (std::string::const_iterator it = str.begin(); it != str.end(); it++) {
     // Skip first - or +
-    if ((*it == '-' || *it == '+') && it == str.cbegin()) {
+    if ((*it == '-' || *it == '+') && it == str.begin()) {
       continue;
     }
 
@@ -59,7 +59,7 @@ bool isFloat(const std::string &str) {
     }
 
     // Check if str is a valid float
-    if (*it == 'f' && it == str.cend() - 1 && found_dot == true) {
+    if (*it == 'f' && it == str.end() - 1 && found_dot == true) {
       return true;
     }
 
@@ -73,9 +73,9 @@ bool isFloat(const std::string &str) {
 
 bool isInt(const std::string &str) {
   // Check if string is a valid integer
-  for (std::string::const_iterator it = str.cbegin(); it != str.cend(); it++) {
+  for (std::string::const_iterator it = str.begin(); it != str.end(); it++) {
     // Skip first - or +
-    if ((*it == '-' || *it == '+') && it == str.cbegin()) {
+    if ((*it == '-' || *it == '+') && it == str.begin()) {
       continue;
     }
 
