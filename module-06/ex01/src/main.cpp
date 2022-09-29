@@ -1,7 +1,8 @@
 #include <cassert>
-#include <cstdint>
 #include <cstdlib>
 #include <iostream>
+
+typedef unsigned long uintptr_t;
 
 struct Data {
   int x;
