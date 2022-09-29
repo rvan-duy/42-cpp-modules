@@ -1,3 +1,5 @@
+#include <cassert>
+#include <cstdint>
 #include <cstdlib>
 #include <iostream>
 
@@ -25,7 +27,7 @@ int main(void) {
   std::cout << "result of serialized ptr: " << std::showbase << std::hex << raw_address << std::endl;
 
   Data* data2 = deserialize(raw_address);
-  assert(data2 == &data); // check that the deserialized pointer is the same as the original
+  assert(data2 == &data);  // check that the deserialized pointer is the same as the original
   std::cout << "address of data2:         " << std::dec << data2 << " (" << data2->x << "," << data2->y << ")"
             << std::endl;
 
