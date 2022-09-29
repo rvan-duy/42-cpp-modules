@@ -1,8 +1,10 @@
+#include <cstdlib>
+
 #include "scalar_conversions.hpp"
 
 int main(int argc, char **argv) {
   if (argc == 2) {
-    std::string input_string(argv[1]);
+    std::string       input_string(argv[1]);
     std::stringstream ss;
 
     if (isChar(input_string) == true) {
