@@ -44,7 +44,7 @@ void identify(Base& p) {
 }
 
 int main() {
-  srand(time(nullptr)); // use current time as seed for random generator
+  srand(time(NULL)); // use current time as seed for random generator
   
   // Generate an array of 10 random pointers to Base
   Base* array[10];
