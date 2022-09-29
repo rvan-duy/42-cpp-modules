@@ -6,11 +6,11 @@ struct Data {
   int y;
 };
 
-std::uintptr_t serialize(Data* ptr) {
-  return reinterpret_cast<std::uintptr_t>(ptr);
+uintptr_t serialize(Data* ptr) {
+  return reinterpret_cast<uintptr_t>(ptr);
 }
 
-Data* deserialize(std::uintptr_t raw) {
+Data* deserialize(uintptr_t raw) {
   return reinterpret_cast<Data*>(raw);
 }
 
@@ -21,7 +21,7 @@ int main(void) {
   Data data = {42, 21};
   std::cout << "address of data:          " << &data << " (" << data.x << "," << data.y << ")" << std::endl;
 
-  std::uintptr_t raw_address = serialize(&data);
+  uintptr_t raw_address = serialize(&data);
   std::cout << "result of serialized ptr: " << std::showbase << std::hex << raw_address << std::endl;
 
   Data* data2 = deserialize(raw_address);
