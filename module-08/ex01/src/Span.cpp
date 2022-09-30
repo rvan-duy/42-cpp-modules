@@ -48,7 +48,7 @@ int Span::shortestSpan() {
 
   // Sort the vector to make it easier to find the shortest span
   std::vector<int> sorted_vector = number_storage;
-  std::sort(sorted_vector.begin(), sorted_vector.end());
+  sort(sorted_vector.begin(), sorted_vector.end());
 
   int shortest_span = sorted_vector[1] - sorted_vector[0];
   for (std::vector<int>::iterator it = sorted_vector.begin(); it != sorted_vector.end(); it++) {
@@ -65,7 +65,7 @@ int Span::longestSpan() {
 
   // Sort the vector to make it easier to find the longest span
   std::vector<int> sorted_vector = number_storage;
-  std::sort(sorted_vector.begin(), sorted_vector.end());
+  sort(sorted_vector.begin(), sorted_vector.end());
 
   return sorted_vector[sorted_vector.size() - 1] - sorted_vector[0];
 }
