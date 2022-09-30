@@ -14,13 +14,24 @@ class Array {
     }
   }
   ~Array() { delete[] arr; }  // Destructor
+  T& operator=(const Array& cpy) {
+    if (this != &cpy) {
+      delete[] arr;
+      arr      = new T[cpy.arr_size];
+      arr_size = cpy.arr_size;
+      for (unsigned int i = 0; i < arr_size; i++) {
+        arr[i] = cpy.arr[i];
+      }
+    }
+    return *this;
+  }  // Operator=
 
   T& operator[](unsigned int index) {
     if (index < 0 || index >= arr_size) {
       throw std::exception();
     }
     return arr[index];
-  }
+  }  // Operator[]
 
   // Methods
   unsigned int size() const { return arr_size; }
