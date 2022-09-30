@@ -5,6 +5,7 @@
 #include <exception>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 class Span {
  public:

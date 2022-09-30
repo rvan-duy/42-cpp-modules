@@ -4,15 +4,15 @@
 
 Span::Span() : max_size(10) {}
 
-// // Constructor with size
+// Constructor with size
 
 Span::Span(std::size_t n) : max_size(n) {}
 
-// // Destructor
+// Destructor
 
 Span::~Span() {}
 
-// // Copy constructor
+// Copy constructor
 
 Span::Span(const Span& span) : max_size(span.max_size) {
   number_storage = span.number_storage;
