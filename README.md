@@ -30,5 +30,6 @@ Core!
 | 05 | Repetition and Exceptions | [![macOS/Ubuntu build and test cpp-module-05](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-05.yml/badge.svg)](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-05.yml) |
 | 06 | C++ casts | [![macOS/Ubuntu build cpp-module-06](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-06.yml/badge.svg)](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-06.yml) |
 | 07 | C++ templates | [![macOS/Ubuntu build cpp-module-07](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-07.yml/badge.svg)](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-07.yml) |
+| 08 | Templated containers, iterators, algorithms | [![macOS/Ubuntu build cpp-module-08](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-08.yml/badge.svg)](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-08.yml) |
 
 [![CodeFactor](https://www.codefactor.io/repository/github/rvan-duy/cpp-modules/badge/main)](https://www.codefactor.io/repository/github/rvan-duy/cpp-modules/overview/main)
