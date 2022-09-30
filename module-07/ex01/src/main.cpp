@@ -1,5 +1,6 @@
 #include <ctype.h>
 
+#include <cstdlib>
 #include <iostream>
 
 #include "iter.hpp"
@@ -16,7 +17,7 @@ void myIncrementWithTenPrint(const int& i) {
   std::cout << i + 10 << " ";
 }
 
-void myIncrementWithTenPrint(const double &d) {
+void myIncrementWithTenPrint(const double& d) {
   std::cout << d + 10 << " ";
 }
 
