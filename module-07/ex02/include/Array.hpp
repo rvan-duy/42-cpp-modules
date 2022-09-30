@@ -16,7 +16,7 @@ class Array {
   ~Array() { delete[] arr; }  // Destructor
 
   T& operator[](unsigned int index) {
-    if (index >= arr_size) {
+    if (index < 0 || index >= arr_size) {
       throw std::exception();
     }
     return arr[index];
