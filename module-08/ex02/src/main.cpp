@@ -1,7 +1,7 @@
 #include <iostream>
 #include <list>
-#include <vector>
 #include <stack>
+#include <vector>
 
 #include "MutantStack.hpp"
 
@@ -12,8 +12,7 @@ static void printMutantStack(MutantStack<int> &stack) {
 }
 
 static void printStack(std::stack<int> &stack) {
-  for (std::stack<int> dump = stack; !dump.empty(); dump.pop())
-    std::cout << dump.top() << std::endl;
+  for (std::stack<int> dump = stack; !dump.empty(); dump.pop()) std::cout << dump.top() << std::endl;
 }
 
 int main() {
@@ -60,6 +59,21 @@ int main() {
     // Testing size() method
     std::cout << "MutantStack size():" << std::endl;
     std::cout << mstack.size() << std::endl;
+
+    {
+      // Testing stuff from subject
+      std::cout << "Testing stuff from subject:" << std::endl;
+      MutantStack<int>::iterator it  = mstack.begin();
+      MutantStack<int>::iterator ite = mstack.end();
+
+      ++it;
+      --it;
+      while (it != ite) {
+        std::cout << *it << std::endl;
+        ++it;
+      }
+      std::stack<int> s(mstack);
+    }
   }
 
   std::cout << "----------------" << std::endl;
