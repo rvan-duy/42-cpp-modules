@@ -9,33 +9,6 @@
 #include "easyfind.hpp"
 
 int main() {
-  // Testing array
-  {
-    std::array<int, 3> myarr = {10, 20, 30};
-    std::cout << "myarr contains: ";
-    for (int i = 0; i < 3; ++i) std::cout << myarr[i] << " ";
-    std::cout << std::endl;
-
-    std::cout << "Looking for 20 in myarr..." << std::endl;
-    try {
-      std::array<int, 3>::iterator it = easyfind(myarr, 20);
-      std::cout << *it << " was found" << std::endl;
-    } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
-    }
-
-    // This should throw an exception
-    std::cout << "Looking for 40 in myarr..." << std::endl;
-    try {
-      std::array<int, 3>::iterator it = easyfind(myarr, 40);
-      std::cout << *it << " was found" << std::endl;
-    } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
-    }
-  }
-
-  std::cout << std::endl;
-
   // Testing deque
   {
     std::deque<int> mydeque;
