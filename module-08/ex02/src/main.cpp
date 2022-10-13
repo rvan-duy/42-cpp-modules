@@ -1,13 +1,19 @@
 #include <iostream>
 #include <list>
 #include <vector>
+#include <stack>
 
 #include "MutantStack.hpp"
 
-static void printMutantStack(MutantStack<int>& stack) {
+static void printMutantStack(MutantStack<int> &stack) {
   for (MutantStack<int>::iterator it = stack.begin(); it != stack.end(); ++it) {
     std::cout << *it << std::endl;
   }
+}
+
+static void printStack(std::stack<int> &stack) {
+  for (std::stack<int> dump = stack; !dump.empty(); dump.pop())
+    std::cout << dump.top() << std::endl;
 }
 
 int main() {
@@ -58,6 +64,31 @@ int main() {
 
   std::cout << "----------------" << std::endl;
 
+  // Do the same but with std::stack
+  {
+    std::stack<int> stack;
+
+    stack.push(5);
+    stack.push(17);
+    stack.push(3);
+    stack.push(5);
+    stack.push(737);
+    stack.push(0);
+
+    std::cout << "std::stack (this one is reversed)" << std::endl;
+    printStack(stack);
+
+    // Testing top() method
+    std::cout << "std::stack top():" << std::endl;
+    std::cout << stack.top() << std::endl;
+
+    // Testing size() method
+    std::cout << "std::stack size():" << std::endl;
+    std::cout << stack.size() << std::endl;
+  }
+
+  std::cout << "----------------" << std::endl;
+
   // Do the same but with std::list
   {
     std::list<int> mstack;
@@ -72,6 +103,7 @@ int main() {
     std::list<int>::iterator it  = mstack.begin();
     std::list<int>::iterator ite = mstack.end();
 
+    std::cout << "std::list:" << std::endl;
     while (it != ite) {
       std::cout << *it << std::endl;
       it++;
@@ -100,6 +132,7 @@ int main() {
     std::vector<int>::iterator it  = mstack.begin();
     std::vector<int>::iterator ite = mstack.end();
 
+    std::cout << "std::vector:" << std::endl;
     while (it != ite) {
       std::cout << *it << std::endl;
       it++;

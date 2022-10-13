@@ -17,7 +17,7 @@ HEADERS 		:= 	include/MutantStack.hpp
 
 INCLUDE_FLAGS 	:= $(addprefix -I, $(sort $(dir $(HEADERS))))
 
-SOURCES			:= 	src/MutantStack.cpp
+SOURCES			:= 	
 
 ################################################################################
 
