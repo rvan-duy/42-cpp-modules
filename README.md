@@ -32,4 +32,4 @@ Core!
 | 07 | C++ templates | [![macOS/Ubuntu build cpp-module-07](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-07.yml/badge.svg)](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-07.yml) |
 | 08 | Templated containers, iterators, algorithms | [![macOS/Ubuntu build cpp-module-08](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-08.yml/badge.svg)](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-08.yml) |
 
-[![CodeFactor](https://www.codefactor.io/repository/github/rvan-duy/cpp-modules/badge/main)](https://www.codefactor.io/repository/github/rvan-duy/cpp-modules/overview/main)
+[![CodeFactor](https://www.codefactor.io/repository/github/rvan-duy/42-cpp-modules/badge/main)](https://www.codefactor.io/repository/github/rvan-duy/42-cpp-modules/overview/main)
