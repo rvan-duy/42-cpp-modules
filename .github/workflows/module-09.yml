@@ -10,6 +10,7 @@ on:
 
 env:
   EX00_DIR: module-09/ex00
+  EX01_DIR: module-09/ex01
 
 jobs:
   macos_build:
@@ -20,3 +21,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: ex00 build
       run:  make -C $EX00_DIR && make fclean -C $EX00_DIR
+    - uses: actions/checkout@v2
+    - name: ex01 build
+      run:  make -C $EX01_DIR && make fclean -C $EX01_DIR
