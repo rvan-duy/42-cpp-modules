@@ -6,28 +6,33 @@ RPN::~RPN() {}
 
 void RPN::addNumber(double number) { _numberStack.push(number); }
 
-double RPN::calculate(Operation operation) {
-  double result = 0;
-  double firstNumber = _numberStack.top();
+void RPN::calculate(Operation operation) {
+  double result1 = _numberStack.top();
   _numberStack.pop();
-  double secondNumber = _numberStack.top();
+
+  double result2 = _numberStack.top();
   _numberStack.pop();
 
   switch (operation) {
-    case Operation::ADD:
-      result = firstNumber + secondNumber;
+    case ADD:
+      _numberStack.push(result2 + result1);
       break;
-    case Operation::SUBTRACT:
-      result = firstNumber - secondNumber;
+    case SUBTRACT:
+      _numberStack.push(result2 - result1);
       break;
-    case Operation::MULTIPLY:
-      result = firstNumber * secondNumber;
+    case MULTIPLY:
+      _numberStack.push(result2 * result1);
       break;
-    case Operation::DIVIDE:
-      result = firstNumber / secondNumber;
+    case DIVIDE:
+      _numberStack.push(result2 / result1);
       break;
   }
+}
 
-  _numberStack.push(result);
-  return result;
+void RPN::printStack() {
+  std::stack<double> tmp = _numberStack;
+  while (!tmp.empty()) {
+    std::cout << tmp.top() << std::endl;
+    tmp.pop();
+  }
 }
