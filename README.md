@@ -31,5 +31,6 @@ Core!
 | 06 | C++ casts | [![macOS/Ubuntu build cpp-module-06](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-06.yml/badge.svg)](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-06.yml) |
 | 07 | C++ templates | [![macOS/Ubuntu build cpp-module-07](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-07.yml/badge.svg)](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-07.yml) |
 | 08 | Templated containers, iterators, algorithms | [![macOS/Ubuntu build cpp-module-08](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-08.yml/badge.svg)](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-08.yml) |
+| 09 | STL | [![macOS/Ubuntu build cpp-module-09](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-09.yml/badge.svg)](https://github.com/rvan-duy/cpp-modules/actions/workflows/module-09.yml) |
 
 [![CodeFactor](https://www.codefactor.io/repository/github/rvan-duy/42-cpp-modules/badge/main)](https://www.codefactor.io/repository/github/rvan-duy/42-cpp-modules/overview/main)
