@@ -60,9 +60,8 @@ void PmergeMe::vector_mergeSort(num left, num right) {
   }
 }
 
-std::chrono::microseconds PmergeMe::sortVector() {
-  std::chrono::system_clock::time_point start =
-      std::chrono::system_clock::now();
+int PmergeMe::sortVector() {
+  struct timeval start = getTimestamp();
 
   if (_vectorNumbers.size() <= THRESHOLD) {
     // insert sort
@@ -80,8 +79,8 @@ std::chrono::microseconds PmergeMe::sortVector() {
     vector_mergeSort(left, right);
   }
 
-  std::chrono::system_clock::time_point end = std::chrono::system_clock::now();
-  return std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+  struct timeval end = getTimestamp();
+  return end.tv_usec - start.tv_usec;
 }
 
 void PmergeMe::list_merge(num left, num middle, num right) {
@@ -140,9 +139,8 @@ void PmergeMe::list_mergeSort(num left, num right) {
   }
 }
 
-std::chrono::microseconds PmergeMe::sortList() {
-  std::chrono::system_clock::time_point start =
-      std::chrono::system_clock::now();
+int PmergeMe::sortList() {
+  struct timeval start = getTimestamp();
 
   if (_listNumbers.size() <= THRESHOLD) {
     // insert sort
@@ -162,8 +160,8 @@ std::chrono::microseconds PmergeMe::sortList() {
     list_mergeSort(left, right);
   }
 
-  std::chrono::system_clock::time_point end = std::chrono::system_clock::now();
-  return std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+  struct timeval end = getTimestamp();
+  return end.tv_usec - start.tv_usec;
 }
 
 void PmergeMe::printVector() {
@@ -180,4 +178,10 @@ void PmergeMe::printList() {
     std::cout << *it << " ";
   }
   std::cout << std::endl;
+}
+
+struct timeval PmergeMe::getTimestamp() const {
+  struct timeval tv;
+  gettimeofday(&tv, NULL);
+  return tv;
 }

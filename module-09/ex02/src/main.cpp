@@ -33,14 +33,14 @@ int main(int argc, char **argv) {
     std::cout << "Before: ";
     pmergeMe.printVector();
 
-    std::chrono::microseconds duration = pmergeMe.sortVector();
+    int duration = pmergeMe.sortVector();
 
     std::cout << "After: ";
     pmergeMe.printVector();
 
     std::cout << "Time to process range of " << numbers.size()
-              << " elements with std::vector: " << duration.count()
-              << " microseconds" << std::endl;
+              << " elements with std::vector: " << duration << " microseconds"
+              << std::endl;
 
     std::cout << "Before: ";
     pmergeMe.printList();
@@ -51,8 +51,8 @@ int main(int argc, char **argv) {
     pmergeMe.printList();
 
     std::cout << "Time to process range of " << numbers.size()
-              << " elements with std::list: " << duration.count()
-              << " microseconds" << std::endl;
+              << " elements with std::list: " << duration << " microseconds"
+              << std::endl;
   }
 
   return EXIT_SUCCESS;
