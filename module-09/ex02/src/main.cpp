@@ -33,22 +33,16 @@ int main(int argc, char **argv) {
     std::cout << "Before: ";
     pmergeMe.printVector();
 
-    int duration = pmergeMe.sortVector();
+    long duration = pmergeMe.sortVector();
 
-    std::cout << "After: ";
+    std::cout << "After:  ";
     pmergeMe.printVector();
 
     std::cout << "Time to process range of " << numbers.size()
               << " elements with std::vector: " << duration << " microseconds"
               << std::endl;
 
-    std::cout << "Before: ";
-    pmergeMe.printList();
-
     duration = pmergeMe.sortList();
-
-    std::cout << "After: ";
-    pmergeMe.printList();
 
     std::cout << "Time to process range of " << numbers.size()
               << " elements with std::list: " << duration << " microseconds"

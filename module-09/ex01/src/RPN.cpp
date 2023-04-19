@@ -30,9 +30,9 @@ void RPN::calculate(Operation operation) {
 }
 
 void RPN::printStack() {
-  std::stack<double> tmp = _numberStack;
-  while (!tmp.empty()) {
-    std::cout << tmp.top() << std::endl;
-    tmp.pop();
+  if (_numberStack.empty() || _numberStack.size() > 1) {
+    std::cout << "Error" << std::endl;
+    return;
   }
+  std::cout << _numberStack.top() << std::endl;
 }

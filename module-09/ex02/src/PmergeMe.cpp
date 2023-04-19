@@ -60,8 +60,8 @@ void PmergeMe::vector_mergeSort(num left, num right) {
   }
 }
 
-int PmergeMe::sortVector() {
-  struct timeval start = getTimestamp();
+long PmergeMe::sortVector() {
+  long start = getTimestamp();
 
   if (_vectorNumbers.size() <= THRESHOLD) {
     // insert sort
@@ -79,8 +79,8 @@ int PmergeMe::sortVector() {
     vector_mergeSort(left, right);
   }
 
-  struct timeval end = getTimestamp();
-  return end.tv_usec - start.tv_usec;
+  long end = getTimestamp();
+  return end - start;
 }
 
 void PmergeMe::list_merge(num left, num middle, num right) {
@@ -139,8 +139,8 @@ void PmergeMe::list_mergeSort(num left, num right) {
   }
 }
 
-int PmergeMe::sortList() {
-  struct timeval start = getTimestamp();
+long PmergeMe::sortList() {
+  long start = getTimestamp();
 
   if (_listNumbers.size() <= THRESHOLD) {
     // insert sort
@@ -160,8 +160,8 @@ int PmergeMe::sortList() {
     list_mergeSort(left, right);
   }
 
-  struct timeval end = getTimestamp();
-  return end.tv_usec - start.tv_usec;
+  long end = getTimestamp();
+  return end - start;
 }
 
 void PmergeMe::printVector() {
@@ -180,8 +180,8 @@ void PmergeMe::printList() {
   std::cout << std::endl;
 }
 
-struct timeval PmergeMe::getTimestamp() const {
+long PmergeMe::getTimestamp() const {
   struct timeval tv;
   gettimeofday(&tv, NULL);
-  return tv;
+  return tv.tv_sec * (int)1e6 + tv.tv_usec;
 }

@@ -9,7 +9,7 @@
 #include <sstream>
 #include <vector>
 
-#define THRESHOLD 1
+#define THRESHOLD 5
 #define num std::size_t
 
 class PmergeMe {
@@ -17,8 +17,8 @@ class PmergeMe {
   PmergeMe(const std::vector<int> &numbers);
   ~PmergeMe();
 
-  int sortVector();
-  int sortList();
+  long sortVector();
+  long sortList();
   void printVector();
   void printList();
 
@@ -32,7 +32,7 @@ class PmergeMe {
   void list_merge(num left, num middle, num right);
   void list_mergeSort(num left, num right);
 
-  struct timeval getTimestamp() const;
+  long getTimestamp() const;
 };
 
 #endif  // CPP_MODULE_09_PMERGEME_HPP

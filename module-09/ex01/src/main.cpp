@@ -31,6 +31,9 @@ int main(int argc, char **argv) {
       }
     }
     rpn.printStack();
+  } else {
+    std::cout << "Error" << std::endl;
+    return EXIT_FAILURE;
   }
-  return 0;
+  return EXIT_SUCCESS;
 }
