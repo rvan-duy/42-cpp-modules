@@ -89,7 +89,10 @@ int main(int argc, char **argv) {
       }
     } catch (std::exception &e) {
       std::cerr << e.what() << std::endl;
+      return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
   }
+  std::cerr << "Usage: ./btc <input_file>" << std::endl;
+  return EXIT_FAILURE;
 }
